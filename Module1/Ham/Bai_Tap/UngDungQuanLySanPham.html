@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <h3>Add New Product</h3>
+    <label>
+        <input type="text" id="add" placeholder="Nhập tên sản phẩm">
+        <input type="button" onclick="them()" value="Add">
+    </label>
+</form>
+<h3>Display All Product</h3>
+<label>Số lượng sản phẩm: </label><label id="soLuong"></label>
+<p id="showBang"></p>
+
+<script>
+    let arrayProduct = ["Sony Xperia","Samsung Galaxy","Nokia 6","Xiaomi"];
+    show();
+    function show() {
+        let bang = '<table>\n' +
+            '<tr style="background-color: bisque">\n' +
+            '    <th>STT</th>\n' +
+            '    <th>Tên Sản Phẩm</th>\n' +
+            '    <th>Sửa</th>\n' +
+            '    <th>Xóa</th>\n' +
+            '</tr>'
+        for(let i = 0; i< arrayProduct.length;i++){
+            bang += ' <tr style="background-color: pink">\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>'+arrayProduct[i]+'</td>\n' +
+                '        <td><input type="button" value="Sửa" onclick="suaSP('+i+')" style="background-color: darkgreen"></td>\n' +
+                '        <td><input type="button" value="Xóa" onclick="xoaSP('+i+')" style="background-color: darkgreen"></td>\n' +
+                '    </tr>'
+        }
+        bang += '</table>';
+        document.getElementById("showBang").innerHTML = bang;
+        document.getElementById("soLuong").innerHTML = arrayProduct.length;
+    }
+    function them() {
+        let add = document.getElementById("add").value;
+        if (add != ""){
+            arrayProduct.push(add);
+        }
+        show();
+    }
+    function xoaSP(id) {
+            let xoa = confirm("Bạn có muốn xóa "+arrayProduct[id]); // hàm confirm để xác nhận có muốn xóa hay không.
+            if (xoa){
+                arrayProduct.splice(id,1);
+            }
+        show();
+
+    }
+    function suaSP(i) {
+        let sua = prompt("Nhập tên: "+arrayProduct[i]);
+        if (sua != null && sua != ""){
+            arrayProduct[i]=sua;
+        }
+        show();
+    }
+
+</script>
+
+</body>
+</html>

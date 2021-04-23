@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check() {
+        let a = parseInt(prompt("Nhập số: "));
+        let n = 0;
+        for (let j=1;j<a;j++){
+            if (a % j == 0){
+                n += j;
+            }
+
+        } if (n==a){
+            alert(a +" là số hoàn hảo");
+        }else {
+            alert(a+" không phải là số hoàn hảo");
+        }
+    }
+    check();
+</script>
+</body>
+</html>

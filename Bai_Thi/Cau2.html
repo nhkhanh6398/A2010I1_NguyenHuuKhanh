@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Nhapdiem();
+    function Nhapdiem(){
+
+        let diem;
+        do {
+            diem = parseInt(prompt("Nhập số điểm: "));
+            if (diem>100||diem<0){
+                check = false;
+            }else {
+                check = true;
+            }
+        }while (!check);
+        if (diem <50){
+            console.log("Học viên trượt");
+        }
+        if (diem%10==0&&diem%5==0){
+            return console.log(diem);
+
+        }else {
+            for (let i = 1;i<3;i++){
+                if ((diem+i)%5==0){
+                     diem +=i;
+                }
+            }return console.log(diem);
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

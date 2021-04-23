@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MÁY TÍNH</title>
+</head>
+<body>
+<form>
+    <input id="firt" type="text" name="firt">
+    <input id="second" type="text" name="second"><br><br>
+    <input type="submit" value="Addition(+)" onclick="add()">
+    <input type="submit" value="Subtraction(-)" onclick="sub()">
+    <input type="submit" value="Multiplication(*)" onclick="mul()">
+    <input type="submit" value="Division(/)" onclick="div()">
+</form>
+<script>
+
+    function add() {
+        let first = parseInt(document.getElementById("firt").value);
+        let second = parseInt(document.getElementById("second").value);
+        let add = first+second;
+        alert("tổng hai số là: " + add);
+    }
+    function sub() {
+        let first = parseInt(document.getElementById("firt").value);
+        let second = parseInt(document.getElementById("second").value);
+        let sub = first-second;
+        alert("hiệu hai số là: " + sub);
+    }
+    function mul() {
+        let first = parseInt(document.getElementById("firt").value);
+        let second = parseInt(document.getElementById("second").value);
+        let mul = first*second;
+        alert("tích hai số là: " + mul);
+    }
+    function div() {
+        let first = parseInt(document.getElementById("firt").value);
+        let second = parseInt(document.getElementById("second").value);
+        let  div = first/second;
+        alert("thương hai số là: " + div);
+    }
+</script>
+</body>
+</html>

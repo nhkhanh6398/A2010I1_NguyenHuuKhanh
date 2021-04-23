@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [];
+    a = prompt("enter the string you want to check");
+    let b = a.split("");
+    b.reverse();
+    let check = true;
+    // ;
+    for(let i = 0; i<b.length;i++) {
+        if (a[i] != b[i]) {
+            check = false;
+            break;
+        }
+    }
+    if(check){
+        alert("this string is symmetrical");
+    }else{
+        alert("this string isn't symmetrical ");
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="Employee.js"></script>
+</head>
+<body>
+<script>
+    let listEmployess = [];
+    function displayMainMenu() {
+        let menu = parseInt(prompt("1.Add new Employees"+"\n"+"2.Display information Employees"+"\n"+"3.Salary of Employees"+"\n"+"4.Exit"));
+        switch (menu) {
+            case 1: {
+                addNewEmployees();
+                break;
+            }
+            case 2:{
+                dis();
+                break;
+            }
+            case 3:{
+                disSalary();
+                break;
+            }
+            case 4:{
+                break;
+            }
+            default:{
+                alert("Không có");
+            }
+        }
+
+    }
+
+    function addNewEmployees() {
+            let employee = new Employee();
+            let name = prompt("Nhập tên: ");
+            employee.setName(name);
+            employee.setBirtday(prompt("Nhập birthday: "));
+            employee.setCmnd(prompt("Nhập Cmnd: "));
+            employee.setEmail(prompt("Nhập Email: "));
+            employee.setLevel(prompt("Nhập Level: "));
+            employee.setPhone(prompt("Nhập SDT: "));
+            employee.setLocation(prompt("Nhập Location: "));
+            listEmployess.push(employee);
+            alert("Đã thêm thành công");
+            displayMainMenu();
+    }
+    function showInfor() {
+     let infor = "1. Name: " + listEmployess[i].getName() + "\n"+
+      "2. CMND: " + listEmployess[i].getCmnd() + "\n"+
+      "3. Email: " + listEmployess[i].getEmail() + "\n"+
+     "4. Level: " + listEmployess[i].getLevel() + "\n"+
+             "5. SDT: " +listEmployess[i].getPhone() + "\n" +
+             "6.Location: " +listEmployess[i].getLocation();
+     return infor;
+    }
+    function showList() {
+        let string = "";
+        for (let i = 0; i < listEmployess.length; i++) {
+            string += (i + 1 + " Name: " + listEmployess[i].getName() + "\n");
+        }
+        return string;
+    }
+    function dis() {
+        let choose = prompt("Danh sách nhân viên: \n" + showList());
+        let choose2 = prompt("Thông tin nhân viên: \n"+ showInfor(choose-1));
+        displayMainMenu();
+    }
+    function disSalary() {
+        let choose = prompt(showList());
+        alert("Lương của nhân viên: "+listEmployess[choose-1].getName()+"là"+listEmployess[choose-1].getSalary());
+        displayMainMenu();
+    }
+
+    displayMainMenu();
+</script>
+</body>
+</html>

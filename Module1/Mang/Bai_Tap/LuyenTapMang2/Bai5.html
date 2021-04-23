@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
+    let count = prompt("Nhập vào số giới hạn của hai chuỗi: ");
+    let array1 = [];
+    let array2 = [];
+    let result = "";
+    let result2 = "";
+    for (let i = 0;i<count;i++){
+        array1[i] = prompt("Nhập giá trị Array 1: ");
+        result=array1[i];
+
+    }console.log(array1);
+    for (let i = 0;i<count;i++){
+        array2[i] = prompt("Nhập giá trị Array 2: ");
+        result2 = array2[i];
+
+    }console.log(array2);
+    let check = false;
+    if (result==result2){
+        check = true;
+    }
+    if (check){
+        console.log("Hai chuỗi giống nhau");
+    }else {
+        console.log("Hai chuỗi khác nhau");
+    }
+</script>
+</body>
+</html>

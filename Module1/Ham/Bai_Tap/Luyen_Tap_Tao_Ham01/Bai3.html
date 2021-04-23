@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numberA = parseInt(prompt("Nhập số A: "));
+    let numberB = parseInt(prompt("Nhập số B: "));
+    checkNumber(numberA,numberB);
+    function checkNumber(num) {
+        if (numberA > numberB){
+            console.log("Số A lớn hơn");
+        }else if (numberA<numberB || numberA == numberB){
+            let c = numberA+numberB;
+            console.log(c);
+        }
+        return;
+    }
+
+</script>
+</body>
+</html>

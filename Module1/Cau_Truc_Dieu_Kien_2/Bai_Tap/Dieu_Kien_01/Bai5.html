@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập điểm kiểm tra: "));
+    let b =parseInt( prompt("Nhập điểm giữa kì: "));
+    let c = parseInt(prompt("Nhập điểm cuối kì: "));
+    let diem = (a+b+c)/3;
+    if (diem>=8.5){
+        console.log("Xếp loại giỏi");
+    }else if (diem >=6.5){
+        console.log("Xếp loại khá");
+    }else if (diem >=4.5){
+        console.log("Xếp loại trung bình");
+    }else {
+        console.log("Xếp loại yếu");
+    }
+</script>
+</body>
+</html>

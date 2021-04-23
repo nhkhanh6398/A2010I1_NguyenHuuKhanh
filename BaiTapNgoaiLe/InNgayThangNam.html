@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function checkYear(year) {
+        return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+    }
+
+    function checkMonth(month,year) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+                return 31;
+            case 4:
+            case 6:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                return 30;
+                case 2: {
+                    if (checkYear(year)){
+                        return 29;
+                    } else {
+                        return 28;
+                    }
+                }
+
+        }
+    }
+    let month = parseInt(prompt("Nhập tháng: "));
+    let year = parseInt(prompt("Nhập năm: "));
+    alert(checkMonth(month,year));
+
+
+</script>
+</body>
+</html>

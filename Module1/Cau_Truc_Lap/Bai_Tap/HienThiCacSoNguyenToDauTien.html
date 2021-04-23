@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CÁC SỐ NGUYÊN TỐ</title>
+</head>
+<body>
+<script>
+    var n=2;
+    var count = 0;
+    while (count<20){
+        let check = true;
+        for (let i = 2; i<n;i++){
+            if (n%i==0){
+                check=false;
+                break
+            }
+        }if (check){
+            console.log(n)
+            count++;
+        } n++;
+    }
+</script>
+</body>
+</html>

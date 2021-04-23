@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <label>Mét: </label>
+    <input id="met" type="text" name="met" value="">
+    <input type="button" value="Chuyển Đổi" onclick="btn1()">
+</form>
+<script>
+    function btn1(){
+        let m = document.getElementById("met").value;
+        let ft = m * 3.2808;
+        console.log("Feet: " + ft);
+    }
+
+</script>
+</body>
+</html>

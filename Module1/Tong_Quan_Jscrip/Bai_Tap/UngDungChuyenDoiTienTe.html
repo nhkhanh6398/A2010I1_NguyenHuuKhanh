@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ỨNG DỤNG CHUYỂN ĐỔI TIỀN TỆ</title>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input id="amt" type="text" name="amount"></td>
+            <td><select id="from">
+                <option value="vn">Việt Nam</option>
+                <option value="usd">USD</option>
+            </select></td>
+            <td><select id="to">
+                <option value="usd">USD</option>
+                <option value="vn">Việt Nam</option>
+            </select></td>
+
+        </tr>
+
+    </table><br>
+    <input type="button" value="Convert" onclick="submit()">
+<script>
+    function submit() {
+        let amount = parseInt(document.getElementById("amt").value);
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let rev = 0;
+        if (from === "vn" && to === "usd"){
+            rev = amount / 23000;
+        }else if(from === "usd" && to === "vn"){
+            rev = 23000 * amount;
+        } else {
+            rev = amount;
+        }
+        alert("chuyển đổi là: " + rev);
+    }
+</script>
+</body>
+</html>

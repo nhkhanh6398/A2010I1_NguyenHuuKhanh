@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let checkSao = prompt("Nhập tên ngôi sao: ");
+    let a = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let b = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    searchSao(checkSao);
+    function searchSao(nameSao) {
+        let check = false;
+        let index;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] == checkSao) {
+                check = true;
+                index = i;
+                break;
+            }
+        }
+        if (check) {
+            alert("Chòm sao: "+b[index]);
+        } else {
+            alert("Not")
+        }
+
+    }
+
+</script>
+</body>
+</html>

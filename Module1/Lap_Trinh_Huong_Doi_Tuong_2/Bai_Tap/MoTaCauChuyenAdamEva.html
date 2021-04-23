@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple{
+        constructor(weightApple) {
+            this.weightapple = weightApple;
+
+        }
+
+    }
+    class Human {
+        constructor(name,gender,weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        getSay(){
+            return console.log("Xin chào");
+        }
+        getEat(apple){
+            if (apple.weightapple>0){
+                this.weight+=apple.weightapple;
+                console.log("Đã ăn");
+                console.log("Cân nặng tăng lên " + this.weight);
+            }
+        }
+        getGender(){
+            if (this.name == "adam"){
+                this.gender = "Nam"
+                console.log("Giới tính: Nam");
+            }
+            if (this.name == "eva"){
+                this.gender = "Nữ"
+                console.log("Giới tính: Nữ");
+            }
+        }
+    }
+    let name = prompt("Nhập tên (adam or eva): ");
+    let apple = new Apple(10);
+    let result = new Human(name,'',50);
+    result.getEat(apple);
+    result.getGender(name);
+    result.getSay();
+
+
+</script>
+</body>
+</html>

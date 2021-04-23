@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var N = 7;
+    for (var i = 1; i < N; i++) {
+
+        for (var j = 0; j<i; j++) {
+            document.write("*");
+        }
+        document.write("<br>")
+    }
+    document.write("<br>")
+     for (var i = 6;i>0;i--){
+         for (var j = 0; j<i; j++) {
+             document.write("*");
+         }
+         document.write("<br>")
+    }
+
+    let string="";
+    for (let i = 1; i < N; i++) {
+        for (let j = 1; j<N; j++) {
+            if (j<N-i){
+                string +=" "
+            }else {
+               string += "*"
+            }
+        }
+        string +="<br>"
+    }
+    // alert(string);
+    document.write('<pre>'+ string+'</pre>')
+</script>
+</body>
+</html>

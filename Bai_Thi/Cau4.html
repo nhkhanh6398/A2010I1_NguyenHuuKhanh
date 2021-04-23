@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let customerList = [];
+    let check = true;
+
+    class KhachHang {
+        constructor() {
+        }
+
+        setMaKh(maKh) {
+            this.maKh = maKh;
+        }
+
+        setNameKh(nameKh) {
+            this.nameKh = nameKh;
+        }
+
+        setSdt(sdt) {
+            this.sdt = sdt;
+        }
+
+        setDiaChi(diaChi) {
+            this.diaChi = diaChi;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getMaKh() {
+            return this.maKh;
+        }
+
+        getNameKh() {
+            return this.nameKh;
+        }
+
+        getSdt() {
+            return this.sdt;
+        }
+
+        getDiaChi() {
+            return this.diaChi;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+    }
+
+    function displayCustomer() {
+        let menu = prompt("1. Thêm khách hàng" + "\n" + "2.Hiển thị khách hàng");
+        switch (menu) {
+            case "1": {
+                add();
+                break;
+            }
+            case "2": {
+                display()
+            }
+
+        }
+    }
+
+    function add() {
+        let customer = new KhachHang();
+        let maKh = prompt("Nhập mã: ");
+        let nameKh = prompt("Nhập tên khách hàng: ");
+        let sdt = prompt("Nhập Sdt: ");
+        let diaChi = prompt("Nhập địa chỉ: ");
+        let email = prompt("Nhập Email: ");
+        customer.setMaKh(maKh);
+        customer.setNameKh(nameKh);
+        customer.setSdt(sdt);
+        customer.setDiaChi(diaChi);
+        customer.setEmail(email);
+        customerList.push(customer);
+
+    }
+
+    displayCustomer();
+
+    function showList() {
+        let string = "";
+        for (let i = 0; i < customerList.length; i++) {
+            string += (i + 1 + " Mã: " + customerList[i].getMaKh() + "\n");
+        }
+        return string;
+    }
+
+    function showInfor(i) {
+        let infor = "1. Mã KH: " + customerList[i].getMaKh() + "\n" + "2.Tên KH: " + customerList[i].getNameKh()
+            + "\n" + "3. SDT: " + customerList[i].getSdt() + "\n" + "3. Địa chỉ: " + customerList[i].getDiaChi()
+            + "\n" + "5. Email: " + customerList[i].getEmail();
+        return infor;
+    }
+
+    function display() {
+        let chooseKH = prompt("Danh sách khách hàng \n" + showList());
+        let chooseKH2 = prompt("Thông tin khách hàng: " + "\n" + showInfor(chooseKH-1));
+        displayCustomer();
+    }
+    displayCustomer();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = prompt("Số giây đã gọi: ");
+    let b = prompt("Ngoại mạng hay nội mạng(No/NG):");
+    if (b=="No") {
+        if (a < 6) {
+            console.log("Số tiền phải trả: " + a * 80.000);
+        } else {
+            console.log("Số tiền phải trả là: " + a * 90.000);
+        }
+    }else {
+        if (a < 6){
+            console.log("Số tiền phải trả: " +a*60);
+        }else {
+            console.log("Số tiền phải trả: " +a*50);
+        }
+    }
+</script>
+</body>
+</html>

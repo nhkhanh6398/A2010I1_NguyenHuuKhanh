@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Viết chương trình đếm số nguyên âm trong một chuỗi
+    let arrayNumber = [];
+    let count = prompt("Nhập vào số phần tử bạn muốn duyệt: ");
+    let dem = 0;
+    for (let i = 0;i<count;i++){
+        arrayNumber[i]=parseInt(prompt("Phần tử thứ " +i));
+    }
+    for (let i = 0; i<count;i++){
+        if (arrayNumber[i]<0){
+            dem ++;
+        }
+    }console.log("Có tổng cộng "+dem+ " " + "số âm");
+</script>
+</body>
+</html>

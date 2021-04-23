@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình
+    // tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+    let arrayNumber = new Array(10);
+    let index;
+    for (let i = 0; i< arrayNumber.length;i++){
+        arrayNumber[i]=prompt("Nhập phần tử của mảng: "+i);
+
+        console.log(arrayNumber[i]);
+    }
+    let intV = prompt("Nhập vào phần tử V: ");
+    let check = false;
+    for (let i = 0; i<arrayNumber.length;i++){
+
+        if (arrayNumber[i]==intV){
+            index=i;
+            check= true;
+            break;
+        }
+    }
+    if (check){
+        console.log("V is in the array" + " " + "tại"+ " " + index);
+    }
+    else {
+        console.log("V is not in the array");
+    }
+
+</script>
+</body>
+</html>

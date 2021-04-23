@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = prompt("Nhập: ");
+    let s = 0;
+    let y = 1;
+    let tach=10;
+    do {
+      s = s + number % tach;
+      number = number / tach;
+    } while (number>0);
+    // let tach2;
+    // do {
+    //     tach2 = number % 10;
+    //     y *= tach2;
+    //     number = number / 10;
+    // }while (number>0);
+    alert("Tổng là: "+ s+ "\n" + "Tích là: "+y);
+</script>
+</body>
+</html>

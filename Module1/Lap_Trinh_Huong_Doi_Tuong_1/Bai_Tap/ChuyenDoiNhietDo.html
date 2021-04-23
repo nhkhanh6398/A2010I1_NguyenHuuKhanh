@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(nhiet) {
+            this.do = nhiet;
+        }
+        getDoF(){
+            return this.do*1.8+32;
+        }
+        getDoKevin(){
+            return this.do+273.15;
+        }
+    }
+    let nhap = parseInt(prompt("Nhập độ C: "));
+    let chuyendoi = new Temperature(nhap);
+    console.log(chuyendoi.getDoF());
+    console.log(chuyendoi.getDoKevin());
+</script>
+</body>
+</html>

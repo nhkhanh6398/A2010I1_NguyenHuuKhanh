@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(a) {
+        let n = 0;
+        for (let j=1;j<a;j++){
+            if (a % j == 0){
+                n += j;
+            }
+
+        } if (n==a){
+            return true
+        }else {
+            return false
+        }
+    }
+    let a = parseInt(prompt("Nhập số bắt đầu: "));
+    let n = parseInt(prompt("Nhập số cuối cùng: "));
+    let arr=[];
+    for (let i =a; i<n; i++){
+        if (check(i)){
+            arr.push(i)
+        }
+    }
+    alert(arr);
+</script>
+</body>
+</html>

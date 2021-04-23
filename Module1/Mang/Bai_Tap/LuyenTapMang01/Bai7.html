@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng
+    // (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+    let arrayNumber = new Array(10);
+    let index;
+    for (let i = 0; i < arrayNumber.length; i++) {
+        arrayNumber[i] = prompt("Nhập phần tử của mảng: " + i);
+
+        console.log("Before array:" + arrayNumber[i]);
+    }
+    let intV = prompt("Nhập vào phần tử V: ");
+    let check = false;
+    for (let i = 0; i < arrayNumber.length; i++) {
+
+        if (arrayNumber[i] == intV) {
+            index = i;
+            check = true;
+            break;
+        }
+    }
+    if (check) {
+        arrayNumber.splice(index, 1);
+    } else {
+        console.log("Not in the array");
+    }
+    console.log("After array:" + arrayNumber);
+
+</script>
+</body>
+</html>

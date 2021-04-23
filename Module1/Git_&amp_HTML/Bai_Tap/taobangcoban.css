@@ -1,0 +1,29 @@
+th{
+    background: yellow;
+}
+h1{
+    text-align: center;
+    size: 200px;
+}
+.div1{
+ margin-left: 200px;
+}
+.div2{
+    float: right;
+}
+.sp1{
+    background: #ffb213;
+}
+.tb {
+    margin-left: auto;
+    margin-right: auto;
+}
+.mh {
+    background: #ff960d;
+}
+#id1 {
+    float: left;
+}
+#id2{
+    float: right;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="yeucau6.js"></script>
+</head>
+<body>
+<script>
+    let customerList = [];
+    let check = true;
+
+    function displayCustomer() {
+        let menu = prompt("1. Add Name Customer" + "\n" + "2. Display Customer" + "\n" + "3.Delete Customer" + "\n" + "4. Edit Customer" + "\n"+"5.Display total pay of customer");
+        switch (menu) {
+            case "1": {
+                add();
+                break;
+            }
+            case "2": {
+                dis();
+                break;
+            }
+            case "3": {
+                del();
+                break;
+            }
+            case "4": {
+                edit();
+                break
+            }
+            case "5": {
+                toltal();
+                break;
+            }
+
+        }
+    }
+
+    function add() {
+        check = false;
+        let birtday;
+        let cmnd;
+        let email;
+        let count = parseInt(prompt("Nhập số lượng muốn thêm: "));
+        let cus = new Custommer();
+        for (let i = 0; i < count; i++) {
+            let name = prompt("Nhập tên: " + (i + 1));
+            cmnd =inputCMND("Nhập ");
+            email = inputGmail("Nhập ");
+            birtday =inputBirtday("Nhập ");
+
+            let address = prompt("Nhập địa chỉ: ");
+            let customer1 = prompt("Nhập loại khách hàng: ");
+            let typeService = prompt("Nhập dịch vụ: ");
+            let discount = parseInt(prompt("Nhập giảm giá: "));
+            let slDikem = parseInt(prompt("Số lượng đi kèm: "));
+            let renDay = parseInt(prompt("Ngày thuê: "));
+            let typeRoom = prompt("Loại phòng:")
+            alert("Đã thêm thành công!");
+
+            cus.setName(name);
+            cus.setCmnd(cmnd);
+            cus.setEmail(email);
+            cus.setBirtday(birtday);
+            cus.setAddress(address);
+            cus.setCustomer1(customer1);
+            cus.setTypeService(typeService);
+            cus.setDiscount(discount);
+            cus.setSlDikem(slDikem);
+            cus.setRenday(renDay);
+            cus.setTypeRoom(typeRoom);
+            customerList.push(cus);
+        }
+        displayCustomer();
+    }
+    function toltal() {
+        let toltal1=parseInt(prompt(showList()));
+        alert("Tổng tiền: "+customerList[toltal1-1].totalPay());
+        displayCustomer();
+    }
+
+    function showList() {
+        let string = "";
+        for (let i = 0; i < customerList.length; i++) {
+            string += (i + 1 + " Name: " + customerList[i].getName() + "\n");
+        }
+        return string;
+    }
+
+    function dis() {
+        let choose = prompt("Danh sách khách hàng \n" + showList());
+        let choose2 = prompt("Thông tin khách hàng:" + "\n" + showInfor(choose - 1));
+        displayCustomer();
+    }
+
+    function showInfor(i) {
+        let infor = " 1.Name: " + customerList[i].getName() + "\n" + " 2.CMND: " + customerList[i].getCmnd() + "\n" + " 3.Gmail: " + customerList[i].getEmail()
+            + "\n" + "4.Birthday: " + customerList[i].getBirtday() + "\n" + "5.Địa chỉ: " + customerList[i].getAddress() + "\n" + "6.Loại khách hàng: " + customerList[i].getCustomer1()
+            + "\n" + "7.Loại dịch vụ: " + customerList[i].getTypeService() + "\n" + "8.Giảm giá: " + customerList[i].getDiscount() + "\n" + "9.Số lương đi kèm: " + customerList[i].getSlDikem()
+            + "\n" + "10.Ngày thuê: " + customerList[i].getRenday() + "\n" + "11.Loại phòng: " + customerList[i].getTypeRoom();
+        return infor;
+
+    }
+
+    function del() {
+
+        let choose = prompt(showList());
+        customerList.splice(choose - 1, 1);
+        let string1 = "";
+        for (let i = 0; i < customerList.length; i++) {
+            string1 += (i + 1 + ".name " + customerList[i][0]);
+        }
+        alert(string1);
+        check = false;
+        displayCustomer();
+    }
+
+    function edit() {
+        let choose = prompt("Danh sách khách hàng \n" + showList());
+        let choose2 = prompt("Thông tin khách hàng:" + "\n" + showInfor(choose - 1));
+        switch (choose2) {
+            case "1": {
+                customerList[choose - 1].setName(prompt("Nhập tên: "));
+                break;
+            }
+            case "2": {
+                alert(customerList[choose - 1].getCmnd());
+                customerList[choose - 1].setCmnd(inputCMND("Sửa lại"));
+
+                break;
+            }
+            case  "3": {
+                customerList[choose - 1].setEmail(inputGmail("Sửa "));
+                break;
+            }
+            case "4": {
+                customerList[choose - 1].setBirtday(inputBirtday("Sửa "));
+                break;
+            }
+            case "5": {
+                customerList[choose - 1].setAddress(prompt("Nhập địa chỉ: "));
+                break;
+            }
+            case "6": {
+                customerList[choose - 1].setCustomer1(prompt("Loại khách hàng: "));
+                break;
+            }
+            case "7": {
+                customerList[choose - 1].setTypeService(prompt("Loại dịch vụ: "));
+                break;
+            }
+            case "8": {
+                customerList[choose - 1].setDiscount(prompt("Giảm giá: "));
+                break;
+            }
+            case "9": {
+                customerList[choose - 1].setSlDikem(prompt("Số lượng đi kèm: "));
+                break;
+            }
+            case "10": {
+                customerList[choose - 1].setRenday(prompt("Ngày thuê: "));
+                break;
+            }
+            case "11": {
+                customerList[choose - 1].setTypeRoom(prompt("Loại phòng: "));
+                break;
+            }
+
+        }
+        displayCustomer();
+
+    }
+    function inputCMND(thongTin) {
+        let cmnd="";
+        let check1=false;
+        do {
+            cmnd = prompt(thongTin+"chứng minh nhân dân:");
+            if (!isNaN(cmnd)) {
+                cmnd = Number.parseFloat(cmnd);
+            }
+            if (!Number.isInteger(cmnd)) {
+                alert("CMND không hợp lệ");
+                continue;
+            }
+            if (cmnd < 10000000 || cmnd > 99999999) {
+                alert("CMND không hợp lệ");
+                continue;
+            }
+            check1 = true;
+        } while (!check1);
+        return cmnd;
+    }
+    function inputGmail(thongTin) {
+        let email = "";
+        let check = false;
+        do {
+            let countAt = 0;
+            let countDoc = 0;
+            email = prompt(thongTin+ "Gmail: ");
+            for (let i = 0; i < email.length; i++) {
+                if (email.charAt(i) === "@") {
+                    countAt++;
+                    for (let j = i + 1; j < email.length; j++) {
+                        if (email.charAt(j) === ".") {
+                            countDoc++;
+                        }
+
+                    }
+
+                }
+            }
+            if (countAt != 1 || countDoc < 1) {
+                alert("Email bạn nhập không đúng định dạng");
+            } else {
+                check = true;
+            }
+        } while (!check)
+        return email;
+    }
+    function inputBirtday(thongTin) {
+        check = false;
+        let birtday="";
+        do {
+            birtday = prompt(thongTin+"Birthday: ");
+            if (birtday.charAt(2) === "/" && birtday.charAt(5) === "/" && birtday.length === 10) {
+                let day = birtday.substring(0, 2);
+                let month = birtday.substring(3, 5);
+                let year = birtday.substring(6, 10);
+                if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                    day = Number.parseInt(day);
+                    month = Number.parseInt(month);
+                    year = Number.parseInt(year);
+                }
+                if (day < 32 && month < 13 && year > 1500) {
+                    check = true;
+                }
+            }
+            if (!check) {
+                alert("Ngày sinh không hợp lệ");
+            }
+        } while (!check);
+        return birtday;
+    }
+    displayCustomer();
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="text" id="search" >
+    <input  type="button" id="click"  value="Search" onclick="click1()">
+</form>
+<script>
+    let arrayEl=["hello","banana","chicken" ];
+    let arrayVn=["xin chào" , "chuối","gà"];
+    function click1() {
+        let search1=document.getElementById("search").value;
+        let check;
+        let index;
+        for ( let i=0;i<arrayEl.length;i++){
+            if (arrayEl[i]==search1){
+                index=i;
+                check =true;
+                break;
+            }
+        }
+        if (check){
+            alert(search1 + ": "+ arrayVn[index]);
+        }else{
+            alert("not");
+        }
+    }
+</script>
+</body>
+</html>

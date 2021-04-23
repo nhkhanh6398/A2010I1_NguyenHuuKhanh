@@ -1,0 +1,8 @@
+SELECT * FROM furama_database.dichvu;
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('1', 'Phòng Máy Lạnh', '50', '2', '5', '500000', 'ok', '1', '1');
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('2', 'Phòng Tình Nhân', '20', '1', '2', '1000000', 'ok', '1', '1');
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('3', 'Villa 5 Phòng', '100', '2', '15', '2000000', 'ok', '2', '2');
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('4', 'Villa Gia Đình', '100', '2', '15', '3000000', 'ok', '3', '2');
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('5', 'Villa Vip', '100', '3', '12', '4500000', 'ok', '1', '2');
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('6', 'Hose Stay', '50', '1', '5', '500000', 'ok', '1', '3');
+INSERT INTO `furama_database`.`dichvu` (`iddichvu`, `namedichvu`, `dientich`, `sotang`, `songuoitoida`, `chiphithue`, `trangthai`, `idkieuthue`, `idloaidichvu`) VALUES ('7', 'Hose Blue', '50', '1', '5', '500000', 'ok', '2', '3');

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrayA = [];
+    let number = parseInt(prompt("Nhập số lượng mảng: "));
+
+    checkArray(number);
+
+
+    function checkArray() {
+        for (let i = 0; i < number; i++) {
+            arrayA[i] = prompt("Nhập kí tự mảng:");
+
+        }
+        let b = prompt("Nhập kí tự cần tìm:");
+        let count = 0;
+        let check = false;
+        for (let i = 0; i < number; i++) {
+            if (arrayA[i] == b) {
+                count++;
+                check = true;
+            }
+        }
+        if (check){
+            console.log(count);
+        }else {
+            console.log("-1");
+        }
+
+    }
+</script>
+</body>
+</html>

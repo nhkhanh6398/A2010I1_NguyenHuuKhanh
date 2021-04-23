@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhập: </label>
+<input type="text" id="nhap">
+
+<input type="button" onclick="resultmet()" value="Met">
+<input type="button" onclick="resultfoot()" value="Foot">
+<script>
+
+    function resultmet() {
+        let meter = document.getElementById("nhap").value * 0.305;
+        alert(meter);
+    }
+
+    function resultfoot() {
+        let foot = document.getElementById("nhap").value * 3.279;
+        alert(foot);
+    }
+</script>
+</body>
+</html>

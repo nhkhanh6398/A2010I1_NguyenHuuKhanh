@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QUẢN LÝ KHU NGHỈ DƯỠNG FURAMA</title>
+</head>
+<body>
+<form>
+    <label>Nhập tên: </label>
+    <input type="text" name="ten" value=""><br><br>
+    <label>Số CMND: </label>
+    <input type="text" name="cmt" value=""><br><br>
+    <label>Ngày sinh: </label>
+    <input type="date" name="ngaysinh"><br><br>
+    <label>Email: </label>
+    <input type="email" name="email"><br><br>
+    <label>Địa chỉ: </label>
+    <textarea name="diachi" rows="1" cols="30"></textarea><br><br>
+    <label>Loại Customer</label>
+    <select name="customer" id="">
+        <option value="diamond">Diamond</option>
+        <option value="platium">Platium</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="member">Menber</option>
+    </select><br><br>
+    <label>Giảm giá: </label>
+    <input id="giamgia" type="text" name="discount" value=""><br><br>
+    <label>Số lượng đi kèm: </label>
+    <input id="sl" type="text" name="soluong" value=""><br><br>
+    <label>Số ngày thuê: </label>
+    <input id="snt" type="text" name="songaythue"><br><br>
+    <label>Loại dịch vụ: </label>
+    <select name="dichvu" id="dv">
+        <option value="500">Villa</option>
+        <option value="300">House</option>
+        <option value="100">Room</option>
+    </select><br><br>
+    <label>Loại phòng thuê: </label>
+    <select name="phongthue" id="pt">
+        <option value="vip">Vip</option>
+        <option value="business">Business</option>
+        <option value="normal">Normal</option>
+    </select><br><br>
+    <input type="submit" value="Tính Tiền" onclick="tt()">
+    <input type="reset" value="Nhập lại">
+</form>
+<script>
+    function tt() {
+        let giamGia = parseInt(document.getElementById("giamgia").value);
+        let loaidv = parseInt(document.getElementById("dv").value);
+        let songay = parseInt(document.getElementById("snt").value);
+        let tongtien = (loaidv * songay * (1 - giamGia / 100));
+        alert("Tổng tiền là: " + tongtien);
+    }
+</script>
+</body>
+</html>

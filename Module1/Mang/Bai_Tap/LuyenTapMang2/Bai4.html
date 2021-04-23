@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Viết một chương trình để đếm số từ trong một chuỗi
+    let count = prompt("Nhập số từ muốn kiểm tra: ");
+    let arrayKt= [];
+    for (let i =0; i <count; i++){
+        arrayKt[i]=prompt("Nhập số kí tự: "+ (i+1));
+    }
+    let check = false;
+    let countt = 0;
+    for (let i = 0; i<arrayKt.length;i++){
+        if (isNaN(arrayKt[i])){
+            check=true;
+            countt++;
+        }
+    }
+    console.log(countt);
+</script>
+</body>
+</html>

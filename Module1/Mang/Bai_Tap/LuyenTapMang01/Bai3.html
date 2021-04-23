@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng
+    let countNumber = parseInt(prompt("Nhập số lượng phần tử: "));
+    let arrayNumber = [];
+    for (let i = 0; i<countNumber;i++){
+        arrayNumber[i]=parseInt(prompt("Nhập các phần tử: ")+i);
+    }
+    let max = arrayNumber[0];
+    let sum=0;
+    for (let i = 1; i<countNumber;i++){
+
+        if (arrayNumber[i]>max){
+            max=arrayNumber[i];
+        }
+    }for (let i = 0;i<countNumber;i++){
+        sum+=arrayNumber[i];
+    }
+
+    console.log("Số lớn nhất là: "+max);
+    console.log("Tổng số là: "+(sum/countNumber));
+</script>
+</body>
+</html>

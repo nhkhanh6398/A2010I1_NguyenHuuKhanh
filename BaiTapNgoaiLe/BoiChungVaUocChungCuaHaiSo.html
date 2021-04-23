@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập a: "));
+    let b = parseInt(prompt("Nhập b: "));
+    BCNN(a,b);
+    function UCLN(a,b) {
+        while (a!=b){
+            if (a>b){
+                a-=b;
+            }else {
+                b-=a;
+            }
+        }
+        return a;
+    }
+    function BCNN(a,b) {
+        let result = UCLN(a,b);
+        return console.log("ước chung lớn nhất: "+UCLN(a,b)+"\n"+"bội chung nhỏ nhất "+ (a*b / result));
+    }
+</script>
+</body>
+</html>

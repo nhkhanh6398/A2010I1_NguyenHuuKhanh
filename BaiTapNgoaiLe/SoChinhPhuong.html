@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function KiemTra(){
+        let n = parseInt(prompt("Nhập số: "));
+        let i = 0;
+        while(i*i<=n){
+            if (i*i == n){
+                alert("Số "+ n +" là số chính phương!");
+                return;
+            }
+            i++;
+        }
+        alert("Số "+ n +" không phải là số chính phương!");
+
+    }
+    KiemTra();
+
+
+</script>
+</body>
+</html>

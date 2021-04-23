@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="Tìm kiếm" id="tenTimKiem"><input type="button" value="Tìm kiếm" onclick="timKiem()"><br></br>
+<input type="button" value="Thêm Nhân Viên" onclick="them()">
+<p id="showDS"></p>
+<script>
+    class DanhSachNV {
+        constructor(maNV, tenNV, ngaySinh, email,) {
+            this.MaSv = maNV;
+            this.TenNV = tenNV;
+            this.NgaySinh = ngaySinh;
+            this.Email = email;
+        }
+
+        getMaSv() {
+            return this.MaSv;
+        }
+
+        getTenNV() {
+            return this.TenNV;
+        }
+
+        getNgaySinh() {
+            return this.NgaySinh;
+        }
+
+        getEmail() {
+            return this.Email;
+        }
+
+        setMaSV(maSV) {
+            this.MaSv = maSV;
+        }
+
+        setTenNV(tenNV) {
+            this.TenNV = tenNV;
+        }
+
+        setNgaySinh(ngaySinh) {
+            this.NgaySinh = ngaySinh;
+        }
+
+        setEmail(email) {
+            this.Email = email;
+        }
+        getInfor(){
+            return "1. Mã NV: " + this.getMaSv() + "\n" +
+                "2. Tên NV: " + this.getTenNV() + "\n" +
+                "3. Ngày Sinh NV: " + this.getNgaySinh() + "\n" +
+                "4. Email NV: " + this.getEmail() + "\n"
+        }
+
+    }
+
+    let arrNV = [];
+    let nhanVien1 = new DanhSachNV("01", "khanh1", "06/03/1998", "abc1@cba.com");
+    let nhanVien2 = new DanhSachNV("02", "khanh2", "06/03/1999", "abc2@cba.com");
+    let nhanVien3 = new DanhSachNV("03", "khanh3", "06/03/2000", "abc3@cba.com");
+    let nhanVien4 = new DanhSachNV("04", "khanh4", "06/03/2001", "abc4@cba.com");
+    arrNV.push(nhanVien1);
+    arrNV.push(nhanVien2);
+    arrNV.push(nhanVien3);
+    arrNV.push(nhanVien4);
+    showbang(arrNV);
+
+    function timKiem() {
+        let ten = document.getElementById("tenTimKiem").value;
+        let danhSachTK = [];
+        for (let i = 0; i < arrNV.length; i++) {
+            if (arrNV[i].getTenNV().includes(ten)) {
+                danhSachTK.push(arrNV[i]);
+            }
+        }
+        showbang(danhSachTK);
+    }
+    function sapXepDS(danhSach) {
+        danhSach.sort(function (a, b) {
+            let tenA = a.getTenNV();
+            let tenB = b.getTenNV();
+            if (tenA > tenB) {
+                return 1;
+            } else if (tenA < tenB) {
+                return -1
+            } else {
+                return 0;
+            }
+
+        });
+        return danhSach;
+    }
+    function showbang(danhSach) {
+        danhSach =sapXepDS(danhSach);
+        let bang = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Mã NV</th>\n' +
+            '        <th>Tên NV</th>\n' +
+            '        <th>Ngày sinh</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < arrNV.length; i++) {
+            bang += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + arrNV[i].getMaSv() + '</td>\n' +
+                '        <td>' + arrNV[i].getTenNV() + '</td>\n' +
+                '        <td>' + arrNV[i].getNgaySinh() + '</td>\n' +
+                '        <td>' + arrNV[i].getEmail() + '</td>\n' +
+                '        <td><input type="button" value="Sửa" onclick="SuaNV(' + i + ')"></td>\n' +
+                '        <td><input type="button" value="Xóa" onclick="XoaNV(' + i + ')"></td>\n' +
+                '    </tr>'
+        }
+        bang += '</table>';
+        document.getElementById("showDS").innerHTML = bang;
+    }
+
+    function them() {
+        let maNv;
+        let tenNv;
+        let ngaySinh;
+        let email;
+        let add = new DanhSachNV();
+        maNv = prompt("Nhập mã nhân viên: ");
+        tenNv = prompt("Nhập tên nhân viên: ");
+        ngaySinh = inputBirtday("Nhập ");
+        email = inputGmail("Nhập ");
+        alert("Đã thêm thành công");
+
+        add.setMaSV(maNv);
+        add.setTenNV(tenNv);
+        add.setNgaySinh(ngaySinh);
+        add.setEmail(email);
+        arrNV.push(add);
+        showbang(arrNV);
+    }
+
+    function SuaNV(i) {
+        let choose = parseInt(prompt("Chọn thông tin cần sửa: \n"
+            +arrNV[i].getInfor() +"5.Exit"));
+        switch (choose) {
+            case 1: {
+                arrNV[i].setMaSV(prompt("Sửa mã nhân viên: "));
+                SuaNV(i);
+                break;
+            }
+            case 2: {
+                arrNV[i].setTenNV(prompt("Sửa tên nhân viên: "));
+                SuaNV(i);
+                break;
+            }
+            case 3: {
+                arrNV[i].setNgaySinh(inputBirtday("Sửa "));
+                SuaNV(i);
+                break;
+            }
+            case 4: {
+                arrNV[i].setEmail(inputGmail("Sửa "));
+                SuaNV(i);
+                break;
+            }
+            case 5: {
+                break;
+            }default:{
+                alert("Thông tin bạn chọn không có!");
+                SuaNV(i);
+            }
+        }
+        showbang(arrNV);
+    }
+
+    function XoaNV(i) {
+        let xoa = confirm("Bạn có muốn xóa " + arrNV[i].getTenNV());
+        if (xoa){
+            arrNV.splice(i,1);
+        }
+        showbang(arrNV);
+    }
+
+    function inputGmail(thongTin) {
+        let email = "";
+        let check = false;
+        do {
+            let countAt = 0;
+            let countDoc = 0;
+            email = prompt(thongTin+ "Gmail: ");
+            for (let i = 0; i < email.length; i++) {
+                if (email.charAt(i) === "@") {
+                    countAt++;
+                    for (let j = i + 1; j < email.length; j++) {
+                        if (email.charAt(j) === ".") {
+                            countDoc++;
+                        }
+
+                    }
+
+                }
+            }
+            if (countAt != 1 || countDoc < 1) {
+                alert("Email bạn nhập không đúng định dạng");
+            } else {
+                check = true;
+            }
+        } while (!check);
+        return email;
+    }
+    function inputBirtday(thongTin) {
+        check = false;
+        let birtday="";
+        do {
+            birtday = prompt(thongTin+"ngày sinh: ");
+            if (birtday.charAt(2) === "/" && birtday.charAt(5) === "/" && birtday.length === 10) {
+                let day = birtday.substring(0, 2);
+                let month = birtday.substring(3, 5);
+                let year = birtday.substring(6, 10);
+                if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                    day = Number.parseInt(day);
+                    month = Number.parseInt(month);
+                    year = Number.parseInt(year);
+                }
+                if (day < 32 && month < 13 && year > 1500) {
+                    check = true;
+                }
+            }
+            if (!check) {
+                alert("Ngày sinh không hợp lệ");
+            }
+        } while (!check);
+        return birtday;
+    }
+</script>
+</body>
+</html>

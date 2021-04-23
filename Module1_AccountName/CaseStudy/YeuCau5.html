@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let customerList = [];
+
+        displayMainmenu();
+        function displayMainmenu(){
+            let menu = prompt("1. Add Name Customer" + "\n" + "2. Display Customer" + "\n" + "3.Delete Customer" + "\n" + "4. Edit Customer" +"\n"+ "5.Exit");
+            switch (menu) {
+                case "1": {
+                    add();
+                    break;
+                }
+                case "2": {
+                    dis();
+                    break;
+                }
+                case "3": {
+                    del();
+                }
+                case "4": {
+                    edit();
+                }
+                case "5": {
+                    break;
+                }
+            }
+        }
+
+        function add() {
+            let count = parseInt(prompt("Nhập số lượng muốn thêm: "));
+            let customer = [];
+            for (let i = 0; i < count; i++) {
+                customer = new Array();
+                let name = prompt("Nhập tên: " + (i + 1));
+                let cmnd = prompt("Chứng minh nhân dân:");
+                let gmail = prompt("Gmail: ");
+                let address = prompt("Nhập địa chỉ: ");
+                customer[0] = name;
+                customer[1] = cmnd;
+                customer[2] = gmail;
+                customer[3] = address;
+                customerList.push(customer);
+
+            }
+            displayMainmenu();
+            // let string = "";
+            // for (let i = 0; i < customerList.length; i++) {
+            //     string += (i + 1 + " Name: " + customerList[i][0] + "\n" + "CMND:  " + customerList[i][1] + "\n");
+            // }
+            // alert(string);
+        }
+
+        function showList() {
+            let string = "";
+            for (let i = 0; i < customerList.length; i++) {
+                string += (i + 1 + " Name: " + customerList[i][0] + "\n");
+            }
+            return string;
+        }
+
+        function showInfor(i) {
+            let infor = " 1.Name: " + customerList[i][0] + "\n" + " 2.CMND: " + customerList[i][1] + "\n" + " 3.Gmail: "
+                + customerList[i][2] + "\n" + "4.Địa chỉ: " + customerList[i][3];
+            return infor;
+        }
+
+        function del() {
+
+            let choose = prompt(showList());
+            customerList.splice(choose - 1, 1);
+            let string1 = "";
+            for (let i = 0; i < customerList.length; i++) {
+                string1 += (i + 1 + ".name " + customerList[i][0]);
+            }
+            alert(string1);
+            displayMainmenu();
+        }
+
+        function dis() {
+            let choose = prompt("Danh sách khách hàng \n" + showList());
+            let choose2 = prompt("Thông tin khách hàng:" + "\n" + showInfor(choose - 1));
+            displayMainmenu();
+        }
+
+        function edit() {
+            let choose = prompt("Danh sách khách hàng \n" + showList());
+            let choose2 = prompt("Thông tin khách hàng:" + "\n" + showInfor(choose - 1));
+            switch (choose2) {
+                case "1": {
+                    customerList[choose2 - 1][0] = prompt("Nhập tên: ");
+                    break;
+                }
+                case "2": {
+                    customerList[choose2 - 1][1] = prompt("CMND: ");
+                    break;
+                }
+                case  "3": {
+                    customerList[choose2 - 1][2] = prompt("Nhập gmail: ");
+                    break;
+                }
+                case "4": {
+                    customerList[choose2-1][3] = prompt("Nhập address: ");
+                    break;
+                }
+
+            }displayMainmenu();
+    }
+
+</script>
+</body>
+</html>

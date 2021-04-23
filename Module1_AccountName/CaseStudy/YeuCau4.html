@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let customerList=[];
+    let check = true;
+    while (check) {
+        let menu = prompt("1. Add Name Customer" + "\n" + "2. Delete Customer");
+        switch (menu) {
+            case "1": {
+                let count = parseInt(prompt("Nhập số lượng muốn thêm: "));
+                let customer = [];
+                for (let i = 0; i < count; i++) {
+                    customer=new Array(2);
+                    let name=prompt("Nhập tên: ");
+                    let cmnd = prompt("Chứng minh nhân dân:");
+                    customer[0] =name;
+                    customer[1]=cmnd;
+                    customerList.push(customer);
+                }
+                let string="";
+                for (let i = 0; i < customerList.length; i++) {
+                    string += (i+1 + ".name " +customerList[i][0] +" - cmnd " +customerList[i][1]+ "\n");
+                }
+                alert(string);
+                break;
+            }
+            case "2": {
+                let string="";
+                for (let i = 0; i < customerList.length; i++) {
+                    string += (i+1 + ".name " +customerList[i][0] +" - cmnd " +customerList[i][1]+ "\n");
+                }
+                let choose=prompt(string);
+                customerList.splice(choose-1,1);
+                let string1="";
+                for (let i = 0; i < customerList.length; i++) {
+                    string1 += (i+1 + ".name " +customerList[i][0] +" - cmnd " +customerList[i][1]+ "\n");
+                }
+                alert(string1);
+                check=false;
+
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

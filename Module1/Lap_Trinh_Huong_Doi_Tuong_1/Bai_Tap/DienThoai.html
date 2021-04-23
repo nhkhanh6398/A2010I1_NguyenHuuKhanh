@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class DienThoai {
+        constructor() {
+            this.pin = 100;
+            this.status = false;
+            this.vungNhoSoanThao = [];
+            this.vungNhoThuDen = [];
+            this.vungNhoDaGui = [];
+        }
+        getTrangThai(){
+            return this.status;
+        }
+        getPin(){
+            return this.pin;
+        }
+        batTatDt(){
+            this.status = !this.status;
+            this.pin--;
+        }
+        sacPin(){
+            this.pin = 100;
+        }
+        soanTn(tinNhan){
+            this.vungNhoSoanThao.push(tinNhan);
+            this.pin--;
+        }
+        guiTn(dienThoai,tinNhan){
+            this.soanTn(tinNhan);
+            this.vungNhoDaGui=this.vungNhoSoanThao;
+            dienThoai.nhanTn(this.vungNhoDaGui);
+            this.pin--;
+        }
+        nhanTn(tinNhan){
+            this.vungNhoThuDen.push(tinNhan);
+            this.pin--;
+        }
+        showTnDaGui(){
+            alert(this.vungNhoDaGui);
+            this.pin--;
+        }
+        showTnDaNhan(){
+            alert(this.vungNhoThuDen) ;
+        }
+    }
+    let iphone = new DienThoai();
+    let nokia = new DienThoai();
+    iphone.guiTn(nokia,"hello nokia");
+    nokia.showTnDaNhan();
+    nokia.guiTn(iphone,"Hello Iphone");
+    iphone.showTnDaNhan();
+</script>
+</body>
+</html>

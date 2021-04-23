@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Market Research Survey</title>
+    <link rel="stylesheet" type="text/css" href="FormLaySurveyKhachHang.css">
+    <div class="click">
+    <h1>Market Research Survey</h1>
+        <h4>Please take a few moments to complete this satisfaction survey.</h4></div>
+    <hr>
+</head>
+<body>
+<form>
+    <div class="click">
+        <label  id="lab1"><b> What is your age range?</b></label>
+        <div>
+        <select id="sel1" style="width: 300px">
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-50">35-50</option>
+            <option value="50+">50+</option>
+        </select>
+        </div>
+    </div>
+    <div class="click">
+        <label class="2" id="lab2"><b>What is your yearly income range?</b></label>
+        <div>
+            <select id="sel2" style="width: 300px">
+                <option value="$0-$25,000">$0-$25,000</option>
+                <option value="$25,001-$50,000">$25,001-$50,000</option>
+                <option value="$50,001-$100,000">$50,001-$100,000</option>
+                <option value="$100,000+">$100,100+</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="click">
+    <label class="3" id="lab3"><b>Gender</b></label><br>
+        <input type="radio" name="male" value="Male" checked>Male</br>
+        <input type="radio" name="female" value="Female">Female
+    </div>
+    <div class="click">
+     <br>
+        <label class="4" id="lab4"><b>Which of the following products have your purchased in the last 2 months. Please check all that apply.</b></label><br>
+        <input type="checkbox" name="product1"> Product 1 </br>
+        <input type="checkbox" name="product2"> Product 2</br>
+        <input type="checkbox" name="product3"> Product 3
+    </div>
+    <br>
+    <div class="click">
+    <label class="5" id="lab5"><b>How often would you use our new product?</b></label> <br>
+        <input type="radio" name="date" checked> Daily </br>
+        <input type="radio" name="date"> Weekly </br>
+        <input type="radio" name="date"> Monthly
+    </div>
+    <div class="click">
+        <br>
+        <label class="6" id="lab6"><b>What would you pay for the new product</b></label></br>
+        <label>$<input type="text"style="width: 50px;">.<input type="text" style="width: 20px"></label><br>
+        <label style="vertical-align: text-top">Dollars</label>
+        <label style="vertical-align: text-top">Cents</label>
+    </div>
+    <div class="click">
+        <br>
+        <label class="7" id="lab7"><b>What features would you like to see in the new product</b></label><br>
+        <textarea cols="50" rows="10"></textarea>
+    </div>
+    <div class="click">
+        <label>Please rate your level of agreement with the following statements</label>
+        <table border="1">
+            <tr>
+                <th style="width: 200px"></th>
+                <th>Strongly Disagree</th>
+                <th>Disagree</th>
+                <th>Agree</th>
+                <th>Strongly Agree</th>
+            </tr>
+            <tr>
+                <td><b>Our products are priced fairly.</b></td>
+            <td><input type="radio" name="priced"></td>
+            <td><input type="radio" name="priced"></td>
+            <td><input type="radio" name="priced"></td>
+            <td><input type="radio" name="priced"></td>
+            </tr>
+            <tr>
+                <td><b>Our products are high quality.</b></td>
+                <td><input type="radio" name="high"></td>
+                <td><input type="radio" name="high"></td>
+                <td><input type="radio" name="high"></td>
+                <td><input type="radio" name="high"></td>
+            </tr>
+            <tr>
+                <td><b>You would recommend our product to a friend or cowoker.</b></td>
+                <td><input type="radio" name="recommen"></td>
+                <td><input type="radio" name="recommen"></td>
+                <td><input type="radio" name="recommen"></td>
+                <td><input type="radio" name="recommen"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="click">
+    <input type="submit" name="sub" value="Submit">
+    </div>
+</form>
+</body>
+</html>

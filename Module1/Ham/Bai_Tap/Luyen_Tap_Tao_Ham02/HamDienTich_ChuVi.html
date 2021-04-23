@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let bankinh = parseInt(prompt("Nhập bán kính: "));
+    dienTich(bankinh);
+    chuVi(bankinh);
+    function dienTich() {
+        let s = bankinh*bankinh*3.14;
+        console.log("Diện tích là: "+s);
+    }
+    function chuVi() {
+        let c = 2*bankinh*3.14;
+        console.log("Chu vi là: "+c);
+    }
+</script>
+</body>
+</html>

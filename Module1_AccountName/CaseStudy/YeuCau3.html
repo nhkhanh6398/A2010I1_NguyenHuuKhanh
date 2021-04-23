@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name;
+    let cmd;
+    let birthday;
+    let email;
+    let address;
+    let customer;
+    let typeService;
+    let discount;
+    let slDikem;
+    let rendDay;
+    let typeRoom;
+    let check = false;
+
+    let tempName="";
+    name = prompt("Input name: ");
+    name = name.trim().toLowerCase(); // hàm trim() loại bỏ khoảng trống giữa hai đầu hai bên
+                                        // hàm toLowerCase() biến tất cả kí tự hoa thành chữ thường
+    for (let i = 0; i<name.length;i++){
+        if (name.charAt(i)===" " && name.charAt(i + 1)===" "){
+            continue;
+        }
+        if (i===0||name.charAt(i-1)===" "){
+            tempName += name.charAt(i).toUpperCase(); //toUpperCase biến chữ thường  thành chữ cái hoa
+            continue;
+        }
+        tempName+=name.charAt(i);
+    }name=tempName;
+    alert(name);
+
+    do {
+        cmd = prompt("Input CMD: ");
+        if (!isNaN(cmd)) {
+            cmd = Number.parseFloat(cmd);
+        }
+        if (!Number.isInteger(cmd)) {
+            alert("CMND không hợp lệ");
+            continue;
+        }
+        if (cmd < 10000000 || cmd > 99999999) {
+            alert("CMND không hợp lệ");
+            continue;
+        }
+        check = true;
+    } while (!check)
+    check = false;
+
+
+    do {
+        birthday = prompt("Input birthday: ");
+        if (birthday.charAt(2) === "/" && birthday.charAt(5) === "/" && birthday.length === 10) {
+            let day = birthday.substring(0, 2);
+            let month = birthday.substring(3, 5);
+            let year = birthday.substring(6, 10);
+            if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                day = Number.parseInt(day);
+                month = Number.parseInt(month);
+                year = Number.parseInt(year);
+            }
+            if (day < 32 && month < 13 && year > 1500) {
+                check = true;
+            }
+        }
+        if (!check) {
+            alert("Ngày sinh không hợp lệ");
+        }
+    } while (!check);
+    check = false;
+    do {
+        let countAt = 0;
+        let countDoc = 0;
+        email = prompt("Input email: ");
+        for (let i = 0; i < email.length; i++) {
+            if (email.charAt(i) === "@") {
+                countAt++;
+                for (let j = i + 1; j < email.length; j++) {
+                    if (email.charAt(j) === ".") {
+                        countDoc++;
+                    }
+
+                }
+
+            }
+        }
+        if (countAt != 1 || countDoc < 1) {
+            alert("Email bạn nhập không đúng định dạng");
+        } else {
+            check = true;
+        }
+    } while (!check)
+    check = false;
+
+    let tempAddress= "";
+    address = prompt("Input address: ");
+    address = name.trim().toLowerCase();
+    for (let i = 0; i<address.length;i++){
+        if (address.charAt(i)===" "&& address.charAt(i+1)===" "){
+            continue;
+        }
+        if (i===0 || address.charAt(i-1)===" "){
+            tempAddress += address.charAt(i).toUpperCase();
+            continue;
+        }
+        tempAddress+=address.charAt(i);
+    }
+    address=tempAddress;
+    alert(address);
+    customer = prompt("Input customer: ");
+    typeService = prompt("Input type service: ");
+    discount = prompt("Input discount: ");
+
+    do {
+        slDikem = prompt("Input số lượng đi kèm: ");
+        if (!isNaN(slDikem)&&slDikem>0){
+            slDikem = Number.isInteger(slDikem);
+            check=true;
+        }
+        if (!check){
+            alert("Không phải là số nguyên dương");
+        }
+    }while (!check);
+    check= false;
+    while (!check){
+        rendDay = prompt("Input rend days: ");
+        if (!isNaN(rendDay)&&rendDay>0){
+            rendDay = Number.isInteger(rendDay);
+            check=true;
+        }
+        if (!check){
+            alert("Không hợp yêu cầu! Mời bạn nhập lại");
+        }
+    }
+
+    typeRoom = prompt("Input type room: ");
+
+    alert("Tên: " + name + "\n" +
+        "CMND: " + cmd + "\n" +
+        "Ngày sinh: " + birthday + "\n" +
+        "Email: " + email + "\n" +
+        "Địa chỉ: " + address + "\n" +
+        "Loại Customer: " + customer + "\n" +
+        "Loại dịch vụ: " + typeService + "\n" +
+        "Giảm giá: " + discount + "\n" +
+        "Số lượng đi kèm: " + slDikem + "\n" +
+        "Ngày thuê: " + rendDay + "\n" +
+        "Loại phòng thuê: " + typeRoom + "\n");
+
+</script>
+</body>
+</html>

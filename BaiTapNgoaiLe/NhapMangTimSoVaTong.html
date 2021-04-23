@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập số lượng: "));
+    let arr=[];
+    for (let i = 0; i<a;i++){
+        arr[i] = parseInt(prompt("Nhập số: "));
+    }
+   alert(sumSNT(arr));
+
+    function sumSNT(arr) {
+        let sum=0;
+        let b = [];
+        for (let i = 0; i<arr.length;i++){
+            if (isPrime(arr[i])){
+                b.push(arr[i]);
+                sum += arr[i]
+            }
+        }
+        return ("các số nguyên tố: "+b+"\n"+"tổng là: "+sum);
+    }
+    function isPrime(num){
+        let check = true;
+        if (num<2){
+            check=false;
+        }
+        for (let i = 2; i<num; i++){
+            if (num%i==0){
+                check=false;
+            }
+        } if (check){
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
