@@ -32,8 +32,37 @@
             top: 5px;
             left: 8%;
         }
-        .text-in-img4{
-            top: 20%
+
+        .text-in-img4 {
+            top: 20%;
+            left: 70%;
+        }
+
+        .hover_img:hover {
+            opacity: 0.9;
+        }
+
+        .text-footer {
+            font-size: small;
+        }
+        .customer-bg-color-1{
+            background-color: #ebebeb;
+        }
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu a::after {
+            transform: translateY(15px) rotate(-90deg);
+            /*transform: rotate(-90deg);*/
+            position: absolute;
+            right: 6px;
+            top: .8em;
+        }
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-left: .1rem;
+            margin-right: .1rem;
         }
     </style>
 </head>
@@ -49,53 +78,79 @@
                 <a class="nav-link" href="#"><span><b>|  Surface</b></span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Computer
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Computers
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <div class="btn-group dropright">
-                        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                            New Surface Laptop 4
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Over View</a>
-                            <a class="dropdown-item" href="#">Tech specs</a>
-                        </div>
-                    </div>
-                    <div class="btn-group dropright">
-                        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                            Surface Pro X
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Over View</a>
-                            <a class="dropdown-item" href="#">Tech specs</a>
-                        </div>
-                    </div>
-                    <div class="btn-group dropright">
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                <ul class="dropdown-menu p-0 mt-0" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
+                            NEW Surface Laptop 4
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
                             Surface Laptop Go
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Over View</a>
-                            <a class="dropdown-item" href="#">Tech specs</a>
-                        </div>
-                    </div>
-                    <div class="btn-group dropright">
-                        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
                             Surface Pro 7
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Over View</a>
-                            <a class="dropdown-item" href="#">Tech specs</a>
-                        </div>
-                    </div>
-                </div>
-
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
+                            Surface Pro X
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
+                            Surface Go 2
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
+                            Surface Book 3
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <a class="nav-link p-lg-3 text-dark" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Surface Duo
+                    </a>
+                    <li class="nav-item dropdown-submenu">
+                        <a class="dropdown-item p-lg-3 dropdown-toggle" href="#">
+                            Surface Studio 2
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Overview</a></li>
+                            <li><a class="dropdown-item" href="#">Tech specs</a></li>
+                        </ul>
+                    </li>
+                    <a class="dropdown-item p-lg-3 text-dark" href="#">Compare devices</a>
+                    <a class="dropdown-item p-lg-3 text-dark" href="#">Help me</a>
+                </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -216,8 +271,6 @@
         <div class="col-lg-2"></div>
     </div>
 </div>
-
-
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col-lg-12">
@@ -236,7 +289,6 @@
         <div class="col-lg-2"></div>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col-lg-12">
@@ -418,7 +470,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row mt-5">
         <div class="col-lg-12">
@@ -445,14 +496,216 @@
         <div class="col-lg-12 ">
             <img width="100%" src="img/Surface_Home_HMC_HighlightFeature_Spring_21_V2.jpg" alt="">
         </div>
-        <div class="col-lg-4 position-absolute bg-light text-center text-in-img4">
-            <h3>Choose your perfect Surface</h3>
-            <p>Just answer a few simple questions about what you're looking for and we'll help you choose. Or compare tech specs of each computer and find the Surface built to unlock your originality.</p>
+        <div class="col-lg-3 position-absolute bg-light text-center text-in-img4">
+            <h3 class="mt-3">Choose your perfect Surface</h3>
+            <p>Just answer a few simple questions about what you're looking for and we'll help you choose. Or compare
+                tech specs of each computer and find the Surface built to unlock your originality.</p>
+            <p><a href="#"><b>Help me choose ></b></a></p>
+            <p><a href="#"><b>Compare Surface ></b></a></p>
         </div>
     </div>
-
 </div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-4 hover_img">
+                    <a href="#"><img class="w-100 h-auto"
+                                     src="https://c.s-microsoft.com/en-us/CMSImages/1920_Panel24_3Up_Footer_Surface.jpg?version=7bcc912d-1a61-9307-f613-1997da2a573e"></a>
+                    <h5 class="mt-5"><a class="text-dark text-decoration-none " href="#">Protect your Surface</a></h5>
+                    <a href="#"><b>See Microsoft Complete protection plans ></b></a>
+                </div>
+                <div class="col-lg-4 hover_img">
+                    <a href="#"><img class="w-100 h-auto"
+                                     src="https://c.s-microsoft.com/en-us/CMSImages/Surface_Lg_Generic_ContentPlacement_3UP_20_Business_V1.jpg?version=89c8b139-8e32-4d1f-6dd9-09b13aeb5afe"
+                                     alt=""></a>
+                    <h5 class="mt-5"><a class="text-dark text-decoration-none " href="#">Surface for your business</a>
+                    </h5>
+                    <a href="#"><b>Shop for Business ></b></a>
+                </div>
+                <div class="col-lg-4 hover_img">
+                    <a href="#"><img class="w-100 h-auto"
+                                     src="https://c.s-microsoft.com/en-us/CMSImages/Surface_Lg_Generic_ContentPlacement_3UP_20_Acc_V1.jpg?version=0a81779c-5c7e-a61b-908c-4ce93f2a6950"
+                                     alt=""></a>
+                    <h5 class="mt-5"><a class="text-dark text-decoration-none " href="#">Protect your Surface</a></h5>
+                    <a href="#"><b>Shop Surface accessories ></b></a>
+                </div>
+            </div>
+            <hr class="mt-5">
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 pl-3">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <img src="img/Prefooter_Icon_Support.svg.png">
+                            <a class="nav-link " href="#"><b>Surface support</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <img src="img/Prefooter_Icon_Register%20(1).svg" alt="">
+                            <a class="nav-link" href="#"><b>Register your Surface</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <img src="img/newsletter-icon%20(1).svg" alt="">
+                            <a class="nav-link" href="#"><b>Get the Surface newsletter</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <img src="img/Prefooter_Icon_Register%20(1).svg" alt="">
+                            <a class="nav-link " href="#"><b>Power cord recall</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row mt-5 bg-dark text-white">
+        <div class="col-lg-12">
+            <p class="ml-3 pt-4 pb-3" style="font-size: x-small">* Some accessories and software sold separately. See
+                individual product pages for
+                details.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row ml-5 mt-3">
+                <p>Follow this page </p>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/facebook.svg" alt=""></a>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/twitter.svg" alt=""></a>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/instagram.svg" alt=""></a>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/linkedin.svg" alt=""></a>
+            </div>
+
+        </div>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="row mt-3 ml-5">
+                <p>Share this page</p>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/facebook.svg" alt=""></a>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/twitter.svg" alt=""></a>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/instagram.svg" alt=""></a>
+                <a href="#" class="ml-3"><img width="30" src="../../bootstrap-icons-1.4.1/linkedin.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row" style="background-color: #c6c8ca">
+        <div class="col-lg-12">
+            <div class="row ">
+                <div class="col-lg-2 mt-4 text-center">
+                    <p><b class="text-body">What's new</b></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Surface Laptop 4</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Surface Laptop Go</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Surface Go 2</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Surface Pro X</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Surface Duo</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft 365</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Windows 10 apps</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">HoloLens 2</a></p>
+                </div>
+                <div class="col-lg-2 mt-4 text-center">
+                    <p><b class="text-body">Microsoft Store</b></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Account profile</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Download Center</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft Store support</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Returns</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Order tracking</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Virtual workshops and training</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft Store Promise</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Financing</a></p>
+                </div>
+                <div class="col-lg-2 mt-4 text-center">
+                    <p><b class="text-body">Education</b></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft in education</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Office for students</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Office 365 for schools</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Deals for students & parents</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft Azure in education</a></p>
+                </div>
+                <div class="col-lg-2 mt-4 text-center">
+                    <p><b class="text-body">Enterprise</b></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Azure</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">AppSource</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Automotive</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Government</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Healthcare</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Manufacturing</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Financial services</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Retail</a></p>
+                </div>
+                <div class="col-lg-2 mt-4 text-center">
+                    <p><b class="text-body">Developer</b></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft Visual Studio</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Windows Dev Center</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Developer Center</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft developer program</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Channel 9</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Office Dev Center</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Microsoft Garage</a></p>
+                </div>
+                <div class="col-lg-2 mt-4 text-center">
+                    <p><b class="text-body">Company</b></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Careers</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">About Microsoft</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Company news</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Privacy at Microsoft</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Investors</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Diversity and inclusion</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Accessibility</a></p>
+                    <p><a href="#" class="text-dark text-muted text-footer">Security</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: #c6c8ca">
+        <div class="col-lg-12 ">
+            <div class="row">
+                <div class="col-lg-2 text-center">
+                    <a class="text-footer text-dark" href="#"><img src="../../bootstrap-icons-1.4.1/globe.svg" alt="">
+                        English (United States)
+                    </a>
+                </div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 text-center pl-0">
+                    <a href="#" class="text-footer text-dark">Sitemap</a>
+                    <a href="#" class="text-footer text-dark ml-3">Contact Microsoft</a>
+                    <a href="#" class="text-footer text-dark ml-3">Privacy</a>
+                    <a href="#" class="text-footer text-dark ml-3">Terms of use</a>
+                    <a href="#" class="text-footer text-dark ml-3">Trademarks</a>
+                    <a href="#" class="text-footer text-dark ml-3">Safety & eco</a>
+                    <a href="#" class="text-footer text-dark ml-3">About our ads</a>
+                    <a class="text-footer ml-3 text-dark">© Microsoft 2021</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="../../bootstrap/jquery-3.6.0.min.js"></script>
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+        }
+        var $subMenu = $(this).next(".dropdown-menu");
+        $subMenu.toggleClass('show');
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+            $('.dropdown-submenu .show').removeClass("show");
+        });
+        return false;
+    });
+</script>
 </body>
 </html>
