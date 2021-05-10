@@ -15,16 +15,17 @@
         <td>Name</td>
         <td>Cost</td>
     </tr>
-    <c:forEach var="products" items='${requestScope["list"]}' varStatus="loop">
+    <c:forEach  items='${requestScope["list"]}' var="products" varStatus="loop">
         <tr>
             <td>${loop.index+1}</td>
             <td>${products.getId()}</td>
-            <td><a href="/product?action=view$id=${products.getId()}">${products.getName()}</a></td>
+            <td><a href="/product?action=view&id=${products.getId()}">${products.getName()}</a></td>
             <td>${products.getCost()}</td>
-            <td><a href="/product?action=edit=${products.getId()}">Edit</a></td>
-            <td><a href="/product?action=delete=${products.getId()}">Delete</a></td>
+            <td><a href="/product?action=edit&id=${products.getId()}">Edit</a></td>
+            <td><a href="/product?action=delete&id=${products.getId()}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
+
 </body>
 </html>
