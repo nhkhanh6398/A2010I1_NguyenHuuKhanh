@@ -19,7 +19,8 @@ public class UserResponsitoryImpl implements UserResponsitory {
         try {
             Statement statement = this.baseRepository.getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("select *\n" +
-                    "from users");
+                    "from users\n" +
+                    "order by `name`");
 
             User user = null;
             while (resultSet.next()) {
