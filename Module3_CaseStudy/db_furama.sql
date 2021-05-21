@@ -86,7 +86,7 @@ create table customer (
     customer_type_id int,
     customer_name varchar(45),
     customer_birthday date,
-    customer_gender BIT(1),
+    customer_gender varchar(5),
     customer_id_card varchar(45),
     customer_phone varchar(45),
     customer_email varchar(45),
@@ -137,3 +137,29 @@ create table contract_detail (
     foreign key (contract_id) references contract (contract_id),
     foreign key (attach_service_id) references attach_service (attach_service_id)
 );
+INSERT INTO `db_furama`.`customer_type` (`customer_type_id`, `customer_type_name`) VALUES ('1', 'Diamond');
+INSERT INTO `db_furama`.`customer_type` (`customer_type_id`, `customer_type_name`) VALUES ('2', 'Platinium');
+INSERT INTO `db_furama`.`customer_type` (`customer_type_id`, `customer_type_name`) VALUES ('3', 'Gold');
+INSERT INTO `db_furama`.`customer_type` (`customer_type_id`, `customer_type_name`) VALUES ('4', 'Silver');
+INSERT INTO `db_furama`.`customer_type` (`customer_type_id`, `customer_type_name`) VALUES ('5', 'Member');
+
+insert into customer value (1,1,'Nguyễn Hữu Khánh','1998/09/12','nam','123456789','03366897','nhkhanh@gmail.com','Đà Nẳng');
+insert into customer value(2,1,'Trần Thị Thu Hiền','1998/03/20','nữ','123456789','03366897','ttthien@gmail.com','Đà Nẳng'),
+(3,2,'Nguyễn Minh Hiếu','1999/10/12','nam','123456789','03366897','mhieu@gmail.com','Gia Lai'),
+(4,3,'Nguyễn Khánh Bun','2006/03/12','nam','123456789','03366897','kbun@gmail.com','Quảng Trị');
+INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('1', 'Lễ Tân');
+INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('2', 'Phục Vụ');
+INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('3', 'Chuyên Viên');
+INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('4', 'Giám Sát');
+INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('5', 'Quản Lý');
+INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('6', 'Giám Đốc');
+INSERT INTO `db_furama`.`education_degree` (`education_degree_id`, `education_degree_name`) VALUES ('1', 'Trung cấp');
+INSERT INTO `db_furama`.`education_degree` (`education_degree_id`, `education_degree_name`) VALUES ('2', 'Cao đẳng');
+INSERT INTO `db_furama`.`education_degree` (`education_degree_id`, `education_degree_name`) VALUES ('3', 'Đại học');
+INSERT INTO `db_furama`.`education_degree` (`education_degree_id`, `education_degree_name`) VALUES ('4', 'Sau đại học');
+
+INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('1', 'Sale – Marketing');
+INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('2', 'Hành Chính');
+INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('3', 'Phục vụ');
+INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('4', 'Quản lý');
+

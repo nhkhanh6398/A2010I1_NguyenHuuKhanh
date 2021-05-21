@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f85214f7-97d2-4b33-aa0a-eef7e8396ce0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Module3_CaseStudy/db_furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3_CaseStudy/db_furama.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dependency_manager/bai_tap/thu_vien_java_and_web_by_gradle/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../dependency_manager/bai_tap/thu_vien_java_and_web_by_gradle/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jdbc/bai_tap/quan_ly_user/src/model/responsitory/UserResponsitory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../jdbc/bai_tap/quan_ly_user/src/model/responsitory/UserResponsitory.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1sqeyL8iXgIpHwNwXBfos0POLVO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bai_tap/Call_SP" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f85214f7-97d2-4b33-aa0a-eef7e8396ce0" name="Default Changelist" comment="" />
+      <created>1621604799192</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621604799192</updated>
+      <workItem from="1621604800548" duration="42000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1621604841013">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1621604841013" />
+  </component>
+</project>
