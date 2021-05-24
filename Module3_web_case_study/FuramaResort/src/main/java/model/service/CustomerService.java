@@ -1,6 +1,7 @@
 package model.service;
 
 import model.bean.Customer;
+import model.bean.TypeCustomer;
 
 import java.util.List;
 
@@ -10,4 +11,5 @@ public interface CustomerService {
     boolean update (int id, Customer customer);
     boolean delete(int id);
     List<Customer> seacrhCustomer(String name);
+    List<TypeCustomer> showTypeCustomer();
 }

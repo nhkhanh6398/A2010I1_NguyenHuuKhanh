@@ -3,6 +3,8 @@ package controller;
 import model.bean.User;
 import model.responsitory.UserResponsitory;
 import model.responsitory.UserResponsitoryImpl;
+import model.service.UserService;
+import model.service.UserServiceImpl;
 
 
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = "")
 public class UserServlet extends HttpServlet {
-private UserResponsitory userService = new UserResponsitoryImpl();
+private UserService userService = new UserServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {

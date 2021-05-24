@@ -3,6 +3,7 @@ package model.responsitory.customer;
 import model.bean.Customer;
 import model.responsitory.base.BaseRepository;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,7 +43,25 @@ public class CustomerResponsitoryImpl  implements CustomerResponsitory{
 
     @Override
     public boolean save(Customer customer) {
-        return false;
+        int row = 0;
+        try {
+            PreparedStatement preparedStatement = this.baseRepository.getConnection().
+                    prepareStatement("INSERT INTO customer (customer_type_id, customer_name, " +
+                            "customer_birthday, customer_gender, customer_id_card,customer_phone, customer_email,customer_address)" +
+                            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1,customer.getTypeCustomer());
+            preparedStatement.setString(2,customer.getNameCustomer());
+            preparedStatement.setString(3,customer.getBirthCustomer());
+            preparedStatement.setString(4,customer.getGenderCustomer());
+            preparedStatement.setString(5, String.valueOf(customer.getCmndCustomer()));
+            preparedStatement.setString(5, String.valueOf(customer.getPhoneCustomer()));
+            preparedStatement.setString(4,customer.getEmailCustomer());
+            preparedStatement.setString(4,customer.getAddressCustomer());
+            row = preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return row>0;
     }
 
     @Override
@@ -59,4 +78,6 @@ public class CustomerResponsitoryImpl  implements CustomerResponsitory{
     public List<Customer> seacrhCustomer(String name) {
         return null;
     }
+
+
 }

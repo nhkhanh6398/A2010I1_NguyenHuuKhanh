@@ -10,4 +10,5 @@ public interface CustomerResponsitory {
     boolean update (int id, Customer customer);
     boolean delete(int id);
     List<Customer> seacrhCustomer(String name);
+
 }

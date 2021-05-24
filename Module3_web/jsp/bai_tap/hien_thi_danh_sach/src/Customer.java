@@ -1,7 +1,7 @@
 public class Customer {
     private String name;
     private String dayOfBirth;
-    private String diaChi;
+    private String address;
     private String image;
 
     public Customer() {
@@ -10,7 +10,7 @@ public class Customer {
     public Customer(String name, String dayOfBirth, String diaChi, String image) {
         this.name = name;
         this.dayOfBirth = dayOfBirth;
-        this.diaChi = diaChi;
+        this.address = diaChi;
         this.image = image;
     }
 
@@ -30,12 +30,12 @@ public class Customer {
         this.dayOfBirth = dayOfBirth;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getImage() {
