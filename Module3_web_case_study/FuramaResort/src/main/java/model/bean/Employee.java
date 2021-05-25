@@ -143,4 +143,22 @@ public class Employee {
     public void setUsernameEmployee(String usernameEmployee) {
         this.usernameEmployee = usernameEmployee;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "idEmployee=" + idEmployee +
+                ", nameEmployee='" + nameEmployee + '\'' +
+                ", birthEmployee='" + birthEmployee + '\'' +
+                ", cmndEmployee=" + cmndEmployee +
+                ", salaryEmployee=" + salaryEmployee +
+                ", phoneEmployee=" + phoneEmployee +
+                ", emailEmployee='" + emailEmployee + '\'' +
+                ", addressEmployee='" + addressEmployee + '\'' +
+                ", educationIdEmployee=" + educationIdEmployee +
+                ", positionIdEmployee=" + positionIdEmployee +
+                ", divisionIdEmployee=" + divisionIdEmployee +
+                ", usernameEmployee='" + usernameEmployee + '\'' +
+                '}';
+    }
 }

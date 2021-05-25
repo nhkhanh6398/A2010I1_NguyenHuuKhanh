@@ -70,12 +70,44 @@ public class EmployeeResponsitoryImpl implements EmployeeResponsitory {
 
     @Override
     public boolean update(int id, Employee employee) {
-        return false;
+        int row = 0;
+        try {
+            PreparedStatement preparedStatement = this.baseRepository.getConnection()
+                    .prepareStatement("UPDATE employee" +
+                            " SET employee_name= ?, employee_birthday = ?, employee_id_card = ?, employee_salary = ?," +
+                            " employee_phone = ?, employee_email= ?, employee_address = ?, position_id = ?," +
+                            " education_degree_id = ?, division_id = ? " +
+                            " WHERE employee_id = ?");
+            preparedStatement.setString(1,employee.getNameEmployee());
+            preparedStatement.setString(2,employee.getBirthEmployee());
+            preparedStatement.setInt(3,employee.getCmndEmployee());
+            preparedStatement.setDouble(4,employee.getSalaryEmployee());
+            preparedStatement.setInt(5,employee.getPhoneEmployee());
+            preparedStatement.setString(6,employee.getEmailEmployee());
+            preparedStatement.setString(7,employee.getAddressEmployee());
+            preparedStatement.setInt(8,employee.getPositionIdEmployee());
+            preparedStatement.setInt(9,employee.getEducationIdEmployee());
+            preparedStatement.setInt(10,employee.getDivisionIdEmployee());
+            preparedStatement.setInt(11,id);
+            row = preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return row>0;
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
+        int row = 0;
+        try {
+            PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement(
+                    "delete from employee where employee_id = ?");
+            preparedStatement.setInt(1,id);
+            row = preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return row>0;
     }
 
     @Override

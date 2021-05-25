@@ -58,7 +58,7 @@ create table attach_service (
 );
 
 create table employee (
-	employee_id int primary key,
+	employee_id int primary key auto_increment,
     employee_name varchar(45),
     employee_birthday date,
     employee_id_card varchar(45),
@@ -168,6 +168,17 @@ INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('1',
 INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('2', 'Hành Chính');
 INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('3', 'Phục vụ');
 INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('4', 'Quản lý');
+
+INSERT INTO `db_furama`.`user` (`username`, `password`) VALUES ('kha', '123');
+INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('1', 'Hoàng Kha', '1998/05/05', '123456', '50', '03669985', 'hkha@gmail.com', 'Đà Nẳng', '1', '1', '1');
+
+UPDATE `employee`
+ SET `employee_name` = ?, `employee_birthday` = ?, `employee_id_card` = ?, `employee_salary` = ?,
+ `employee_phone` = ?, `employee_email` = ?, `employee_address` = ?, `position_id` = ?,
+ `education_degree_id` = ?, `division_id` = ? 
+ WHERE (`employee_id` = ?);
+
+
 
 -- update customer
 -- set customer_type_id = 2, customer_name = 'hihi', customer_birthday = '2016/05/06', customer_gender = 'nam',

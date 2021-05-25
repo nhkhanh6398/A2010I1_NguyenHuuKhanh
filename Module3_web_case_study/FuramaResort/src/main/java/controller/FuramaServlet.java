@@ -35,10 +35,14 @@ public class FuramaServlet extends HttpServlet {
             case "createEmployee":
                 createEmployee(request,response);
                 break;
+            case "editEmployee":
+                editEmployee(request,response);
+                break;
             default:
                 break;
         }
     }
+
 
 
 
@@ -70,6 +74,9 @@ public class FuramaServlet extends HttpServlet {
             case "edit":
                 formEdit(request,response);
                 break;
+            case "deleteEmployee":
+                deleteEmployee(request,response);
+                break;
             case "delete":
                 delete(request, response);
                 break;
@@ -79,6 +86,8 @@ public class FuramaServlet extends HttpServlet {
         }
 
     }
+
+
 
     private void formEditEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -122,7 +131,24 @@ public class FuramaServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    }
+    private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String birthday = request.getParameter("birthday");
+        int cmnd = Integer.parseInt(request.getParameter("cmnd"));
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        int phone = Integer.parseInt(request.getParameter("phone"));
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int education = Integer.parseInt(request.getParameter("education"));
+        int position = Integer.parseInt(request.getParameter("position"));
+        int division = Integer.parseInt(request.getParameter("division"));
+        Employee employee = new Employee(name,birthday,cmnd,salary,phone,email,address,position,education,division);
+        System.out.println(employeeService.update(id,employee));
+        request.setAttribute("msg", "Edited!");
+        request.setAttribute("showByIdEmployee", employeeService.showByIdEmployee(id));
+        request.getRequestDispatcher("editEmployee.jsp").forward(request,response);
     }
     private void formEdit(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -160,6 +186,18 @@ public class FuramaServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        employeeService.delete(id);
+        request.setAttribute("list", employeeService.showList());
+        try {
+            request.getRequestDispatcher("employee.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void create(HttpServletRequest request, HttpServletResponse response) {

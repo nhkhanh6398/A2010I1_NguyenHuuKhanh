@@ -49,7 +49,7 @@
             <tr>
                 <th>CMND:</th>
                 <td>
-                    <input type="text" name="gender" size="15"
+                    <input type="text" name="cmnd" size="15"
                            value="<c:out value='${showByIdEmployee.cmndEmployee}' />"
                     />
                 </td>
@@ -57,7 +57,7 @@
             <tr>
                 <th> Salary:</th>
                 <td>
-                    <input type="text" name="cmnd" size="15"
+                    <input type="text" name="salary" size="15"
                            value="<c:out value='${showByIdEmployee.salaryEmployee}' />"
                     />
                 </td>
@@ -89,33 +89,42 @@
             <tr>
                 <th> Education:</th>
                 <td>
-                    <input type="text" name="type" size="45"
-                           value="<c:choose><c:when test="${showByIdEmployee.educationIdEmployee ==1}">Trung cấp</c:when>
-<c:when test="${showByIdEmployee.educationIdEmployee == 2}">Cao đẳng</c:when><c:when test="${showByIdEmployee.educationIdEmployee == 3}">Đại học</c:when><c:when test="${showByIdEmployee.educationIdEmployee == 4}">Sau đại học</c:when></c:choose>"
-                    />
-                    <%--<c:out value='${showById.typeCustomer}' />--%>
+                    <select name="education" id="education">
+                        <option value="1" id="tc">Trung Cấp</option>
+                        <option value="1" id="cd">Cao Đẳng</option>
+                        <option value="1" id="dh">Đại Học</option>
+                        <option value="1" id="sdh">Sau Đại Học</option>
+                    </select>
                 </td>
+                <%--                <td>--%>
+                <%--                    <input type="text" name="education" size="45"--%>
+                <%--                           value="<c:choose><c:when test="${showByIdEmployee.educationIdEmployee ==1}">Trung cấp</c:when><c:when test="${showByIdEmployee.educationIdEmployee == 2}">Cao đẳng</c:when><c:when test="${showByIdEmployee.educationIdEmployee == 3}">Đại học</c:when><c:when test="${showByIdEmployee.educationIdEmployee == 4}">Sau đại học</c:when></c:choose>"--%>
+                <%--                    />--%>
+                <%--                </td>--%>
             </tr>
             <tr>
                 <th> Position:</th>
                 <td>
-                    <input type="text" name="type" size="45"
-                           value="<c:choose><c:when test="${showByIdEmployee.positionIdEmployee ==1}">Lễ Tân</c:when>
-<c:when test="${showByIdEmployee.positionIdEmployee == 2}">Phục Vụ</c:when><c:when test="${showByIdEmployee.positionIdEmployee == 3}">Chuyên Viên</c:when><c:when test="${showByIdEmployee.positionIdEmployee == 4}">Giám Sát</c:when>
-<c:when test="${showByIdEmployee.positionIdEmployee == 5}">Quản Lý</c:when><c:when test="${showByIdEmployee.positionIdEmployee == 6}">Giám Đốc</c:when></c:choose>"
-                    />
-                    <%--<c:out value='${showById.typeCustomer}' />--%>
+                    <select name="position" id="position">
+                        <option value="1" id="lt">Lễ Tân</option>
+                        <option value="2" id="pvu">Phục Vụ</option>
+                        <option value="3" id="cv">Chuyên Viên</option>
+                        <option value="4" id="gs">Giám Sát</option>
+                        <option value="5" id="qly">Quản Lý</option>
+                        <option value="5" id="gd">Giám Đốc</option>
+                    </select>
                 </td>
+
             </tr>
             <tr>
                 <th> Division:</th>
                 <td>
-                    <input type="text" name="type" size="45"
-                           value="<c:choose><c:when test="${showByIdEmployee.educationIdEmployee ==1}">Sale – Marketing</c:when>
-<c:when test="${showByIdEmployee.educationIdEmployee == 2}">Hành Chính</c:when><c:when test="${showByIdEmployee.educationIdEmployee == 3}">Phục vụ</c:when>
-<c:when test="${showByIdEmployee.educationIdEmployee == 4}">Quản lý</c:when></c:choose>"
-                    />
-                    <%--<c:out value='${showById.typeCustomer}' />--%>
+                    <select name="division" id="division">
+                        <option value="1" id="sl">Sale – Marketing</option>
+                        <option value="2" id="hc">Hành Chính</option>
+                        <option value="3" id="pv">Phục vụ</option>
+                        <option value="4" id="ql">Quản lý</option>
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -128,5 +137,75 @@
     </form>
 </div>
 <jsp:include page="footer.jsp"></jsp:include>
+<script>
+    function editSelect() {
+        let id = ${showByIdEmployee.divisionIdEmployee};
+        let division = "";
+        switch (id) {
+            case 1:
+                division = "sl";
+                break;
+            case 2:
+                division = "hc";
+                break;
+            case 3:
+                division = "pv";
+                break;
+            case 4:
+                division = "ql";
+                break;
+        }
+        document.getElementById(division).selected = true;
+    }
+    function editSelectPosition() {
+        let id = ${showByIdEmployee.positionIdEmployee};
+        let position = " ";
+        switch (id) {
+            case 1:
+                position = "lt";
+                break;
+            case 2:
+                position = "pvu";
+                break;
+            case 3:
+                position = "cv";
+                break;
+            case 4:
+                position = "gs";
+                break;
+            case 5:
+                position = "qly";
+                break;
+            case 6:
+                position = "gd";
+                break;
+        }
+        document.getElementById(position).selected = true;
+    };
+    function editSelectEducation() {
+        let id = ${showByIdEmployee.educationIdEmployee};
+        let education = " ";
+        switch (id) {
+            case 1:
+                education = "tc";
+                break;
+            case 2:
+                education = "cd";
+                break;
+            case 3:
+                education = "dh";
+                break;
+            case 4:
+                education = "sdh";
+                break;
+        }
+        document.getElementById(education).selected = true;
+    };
+    $(window).on('load', function () {
+        editSelectEducation();
+        editSelectPosition();
+        editSelect();
+    });
+</script>
 </body>
 </html>
