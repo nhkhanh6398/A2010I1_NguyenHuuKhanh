@@ -37,10 +37,6 @@ create table user_role (
     foreign key (role_id) references `role` (role_id)
 );
 
-create table customer_type (
-	customer_type_id int primary key,
-    customer_type_name varchar(45)
-);
 
 create table service_type (
 	service_type_id int primary key,
@@ -81,8 +77,14 @@ create table employee (
     foreign key (username) references user (username)
 );
 
+create table customer_type (
+	customer_type_id int primary key,
+    customer_type_name varchar(45)
+);
+
+
 create table customer (
-	customer_id int primary key,
+	customer_id int primary key auto_increment,
     customer_type_id int,
     customer_name varchar(45),
     customer_birthday date,
@@ -147,6 +149,10 @@ insert into customer value (1,1,'Nguyễn Hữu Khánh','1998/09/12','nam','1234
 insert into customer value(2,1,'Trần Thị Thu Hiền','1998/03/20','nữ','123456789','03366897','ttthien@gmail.com','Đà Nẳng'),
 (3,2,'Nguyễn Minh Hiếu','1999/10/12','nam','123456789','03366897','mhieu@gmail.com','Gia Lai'),
 (4,3,'Nguyễn Khánh Bun','2006/03/12','nam','123456789','03366897','kbun@gmail.com','Quảng Trị');
+INSERT INTO `db_furama`.`customer` (`customer_id`, `customer_type_id`, `customer_name`, `customer_birthday`, `customer_gender`, `customer_id_card`, `customer_phone`, `customer_email`, `customer_address`) VALUES ('5', '4', 'Lê Hoài An', '1990-05-03', 'nam', '123465789', '1234685', 'han@gmail.com', 'Huế');
+INSERT INTO `db_furama`.`customer` (`customer_id`, `customer_type_id`, `customer_name`, `customer_birthday`, `customer_gender`, `customer_id_card`, `customer_phone`, `customer_email`, `customer_address`) VALUES ('6', '4', 'Võ Vũ Thuận', '1997-03-05', 'nam', '65894632', '02668559', 'vthuan@gmail.com', 'Quảng Bình');
+INSERT INTO `db_furama`.`customer` (`customer_id`, `customer_type_id`, `customer_name`, `customer_birthday`, `customer_gender`, `customer_id_card`, `customer_phone`, `customer_email`, `customer_address`) VALUES ('7', '5', 'Võ Thị Thùy Nhung', '1997-12-21', 'nữ', '336659532', '03456226', 'tnhung@gmail.com', 'Quảng Trị');
+
 INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('1', 'Lễ Tân');
 INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('2', 'Phục Vụ');
 INSERT INTO `db_furama`.`position` (`position_id`, `position_name`) VALUES ('3', 'Chuyên Viên');
@@ -163,3 +169,7 @@ INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('2',
 INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('3', 'Phục vụ');
 INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('4', 'Quản lý');
 
+-- update customer
+-- set customer_type_id = 2, customer_name = 'hihi', customer_birthday = '2016/05/06', customer_gender = 'nam',
+-- customer_id_card ='112566', customer_phone = '036997754', customer_email = 'nhkhanh@gmail.com', customer_address = 'd'
+-- where customer_id = 3;

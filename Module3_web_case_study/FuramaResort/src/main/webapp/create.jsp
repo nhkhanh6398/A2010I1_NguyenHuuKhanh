@@ -17,10 +17,11 @@
     </style>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <center>
     <h1>Customer Management</h1>
     <h2>
-        <a href="/">List All Customer</a>
+        <a href="?action=customer">List All Customer</a>
     </h2>
     <p><c:if test='${requestScope["msg"] != null}'>
         <span class="message">${requestScope["msg"]}</span>
@@ -30,17 +31,20 @@
 <div align="center">
     <form method="post">
         <table border="1" cellpadding="5">
-            <caption>
-                <h2>Add New Customer</h2>
-            </caption>
             <tr>
                 <th><label>Type Customer</label>
                 </th>
                 <td>
-                    <select name="type">
-                <c:forEach var="typeCustomer" items="${listTypeCustomer}">
-                        <option><c:out value="${typeCustomer.idType}"/></option>
-                </c:forEach>
+                    <select name="type" required>
+                        <option value="">--Please choose an option--</option>
+                        <option value="1">Diamond</option>
+                        <option value="2">Platinium</option>
+                        <option value="3">Gold</option>
+                        <option value="4">Silver</option>
+                        <option value="5">Member</option>
+<%--                <c:forEach var="typeCustomer" items="${listTypeCustomer}">--%>
+<%--                        <option><c:out value="${typeCustomer.idType}"/></option>--%>
+<%--                </c:forEach>--%>
                     </select>
                 </td>
             </tr>
@@ -71,7 +75,7 @@
             <tr>
                 <th>Customer BirthDay:</th>
                 <td>
-                    <input type="text" name="birthday" id="birthday" size="15"/>
+                    <input type="date" name="birthday" id="birthday" size="15"/>
                 </td>
             </tr>
             <tr>

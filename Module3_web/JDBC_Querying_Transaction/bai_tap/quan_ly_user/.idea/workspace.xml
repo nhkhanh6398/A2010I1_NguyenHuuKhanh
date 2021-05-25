@@ -25,7 +25,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4843df36-2dd6-47e5-9d6f-8ad22147bd45" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../jdbc/db_jdbc.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../jdbc/db_jdbc.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Call_SP/quan_ly_user/src/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Call_SP/quan_ly_user/src/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/build/classes/java/main/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/build/classes/java/main/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/build/libs/FuramaResort-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/build/libs/FuramaResort-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/src/main/java/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/src/main/java/controller/FuramaServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/src/main/webapp/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/src/main/webapp/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module3_web_case_study/FuramaResort/src/main/webapp/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +76,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Call_SP/quan_ly_user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../thuc_hanh/quan_li_users" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,6 +201,7 @@
       <workItem from="1621172207968" duration="10000" />
       <workItem from="1621253805102" duration="609000" />
       <workItem from="1621342807917" duration="2852000" />
+      <workItem from="1621856158026" duration="26000" />
     </task>
     <servers />
   </component>
@@ -216,10 +229,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1620998768092" />
-    <state x="389" y="105" key="FileChooserDialogImpl" timestamp="1621346210303">
+    <state x="389" y="105" key="FileChooserDialogImpl" timestamp="1621856181979">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1621346210303" />
+    <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1621856181979" />
     <state width="905" height="215" key="GridCell.Tab.0.bottom" timestamp="1621346211450">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

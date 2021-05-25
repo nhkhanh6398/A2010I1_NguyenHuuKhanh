@@ -1,28 +1,59 @@
 package model.bean;
 
 public class Employee {
+    private int idEmployee;
     private String nameEmployee;
     private String birthEmployee;
     private int cmndEmployee;
+    private double salaryEmployee;
     private int phoneEmployee;
     private String emailEmployee;
-    private String educationEmployee;
-    private String positionEmployee;
-    private double salaryEmployee;
+    private String addressEmployee;
+    private int educationIdEmployee;
+    private int positionIdEmployee;
+    private int divisionIdEmployee;
+    private String usernameEmployee;
 
-    public Employee(String nameEmployee, String birthEmployee, int cmndEmployee, int phoneEmployee, String emailEmployee,
-                    String educationEmployee, String positionEmployee, double salaryEmployee) {
+
+
+    public Employee() {
+    }
+
+    public Employee(int idEmployee, String nameEmployee, String birthEmployee, int cmndEmployee, double salaryEmployee,
+                    int phoneEmployee, String emailEmployee, String addressEmployee, int educationIdEmployee, int positionIdEmployee, int divisionIdEmployee, String usernameEmployee) {
+        this.idEmployee = idEmployee;
         this.nameEmployee = nameEmployee;
         this.birthEmployee = birthEmployee;
         this.cmndEmployee = cmndEmployee;
+        this.salaryEmployee = salaryEmployee;
         this.phoneEmployee = phoneEmployee;
         this.emailEmployee = emailEmployee;
-        this.educationEmployee = educationEmployee;
-        this.positionEmployee = positionEmployee;
-        this.salaryEmployee = salaryEmployee;
+        this.addressEmployee = addressEmployee;
+        this.educationIdEmployee = educationIdEmployee;
+        this.positionIdEmployee = positionIdEmployee;
+        this.divisionIdEmployee = divisionIdEmployee;
+        this.usernameEmployee = usernameEmployee;
     }
 
-    public Employee() {
+    public Employee(String name, String birthday, int cmnd, double salary, int phone, String email, String address, int position, int education, int division) {
+        this.nameEmployee = name;
+        this.birthEmployee = birthday;
+        this.cmndEmployee = cmnd;
+        this.salaryEmployee = salary;
+        this.phoneEmployee = phone;
+        this.emailEmployee = email;
+        this.addressEmployee = address;
+        this.educationIdEmployee = education;
+        this.positionIdEmployee = position;
+        this.divisionIdEmployee = division;
+    }
+
+    public int getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
     public String getNameEmployee() {
@@ -49,6 +80,14 @@ public class Employee {
         this.cmndEmployee = cmndEmployee;
     }
 
+    public double getSalaryEmployee() {
+        return salaryEmployee;
+    }
+
+    public void setSalaryEmployee(double salaryEmployee) {
+        this.salaryEmployee = salaryEmployee;
+    }
+
     public int getPhoneEmployee() {
         return phoneEmployee;
     }
@@ -65,27 +104,43 @@ public class Employee {
         this.emailEmployee = emailEmployee;
     }
 
-    public String getEducationEmployee() {
-        return educationEmployee;
+    public String getAddressEmployee() {
+        return addressEmployee;
     }
 
-    public void setEducationEmployee(String educationEmployee) {
-        this.educationEmployee = educationEmployee;
+    public void setAddressEmployee(String addressEmployee) {
+        this.addressEmployee = addressEmployee;
     }
 
-    public String getPositionEmployee() {
-        return positionEmployee;
+    public int getEducationIdEmployee() {
+        return educationIdEmployee;
     }
 
-    public void setPositionEmployee(String positionEmployee) {
-        this.positionEmployee = positionEmployee;
+    public void setEducationIdEmployee(int educationIdEmployee) {
+        this.educationIdEmployee = educationIdEmployee;
     }
 
-    public double getSalaryEmployee() {
-        return salaryEmployee;
+    public int getPositionIdEmployee() {
+        return positionIdEmployee;
     }
 
-    public void setSalaryEmployee(double salaryEmployee) {
-        this.salaryEmployee = salaryEmployee;
+    public void setPositionIdEmployee(int positionIdEmployee) {
+        this.positionIdEmployee = positionIdEmployee;
+    }
+
+    public int getDivisionIdEmployee() {
+        return divisionIdEmployee;
+    }
+
+    public void setDivisionIdEmployee(int divisionIdEmployee) {
+        this.divisionIdEmployee = divisionIdEmployee;
+    }
+
+    public String getUsernameEmployee() {
+        return usernameEmployee;
+    }
+
+    public void setUsernameEmployee(String usernameEmployee) {
+        this.usernameEmployee = usernameEmployee;
     }
 }
