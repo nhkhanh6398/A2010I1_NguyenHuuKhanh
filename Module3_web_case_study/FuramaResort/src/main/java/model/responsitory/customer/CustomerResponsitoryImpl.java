@@ -69,25 +69,25 @@ public class CustomerResponsitoryImpl implements CustomerResponsitory {
         int row = 0;
         try {
             PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement(
-                            " update customer set customer_type_id = ?, customer_name = ?," +
+                    " update customer set customer_type_id = ?, customer_name = ?," +
                             " customer_birthday = ?, customer_gender = ?,customer_id_card = ?," +
                             " customer_phone = ?, customer_email = ?, customer_address = ? " +
-                                    "where customer_id = ?");
+                            "where customer_id = ?");
 
-            preparedStatement.setInt(1,customer.getTypeCustomer());
-            preparedStatement.setString(2,customer.getNameCustomer());
-            preparedStatement.setString(3,customer.getBirthCustomer());
-            preparedStatement.setString(4,customer.getGenderCustomer());
-            preparedStatement.setInt(5,customer.getCmndCustomer());
-            preparedStatement.setInt(6,customer.getPhoneCustomer());
-            preparedStatement.setString(7,customer.getEmailCustomer());
-            preparedStatement.setString(8,customer.getAddressCustomer());
-            preparedStatement.setInt(9,customer.getIdCustomer());
+            preparedStatement.setInt(1, customer.getTypeCustomer());
+            preparedStatement.setString(2, customer.getNameCustomer());
+            preparedStatement.setString(3, customer.getBirthCustomer());
+            preparedStatement.setString(4, customer.getGenderCustomer());
+            preparedStatement.setInt(5, customer.getCmndCustomer());
+            preparedStatement.setInt(6, customer.getPhoneCustomer());
+            preparedStatement.setString(7, customer.getEmailCustomer());
+            preparedStatement.setString(8, customer.getAddressCustomer());
+            preparedStatement.setInt(9, customer.getIdCustomer());
             row = preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return row>0;
+        return row > 0;
     }
 
     @Override
@@ -97,17 +97,41 @@ public class CustomerResponsitoryImpl implements CustomerResponsitory {
             PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement("delete\n" +
                     "from customer\n" +
                     "where customer_id = ?");
-            preparedStatement.setInt(1,customer_id);
+            preparedStatement.setInt(1, customer_id);
             row = preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return row>0;
+        return row > 0;
     }
 
     @Override
     public List<Customer> seacrhCustomer(String name) {
-        return null;
+        List<Customer> customerList = new ArrayList<>();
+        Customer customer = null;
+        try {
+            PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement("select *\n" +
+                    "from customer\n" +
+                    "where customer_name like ?;");
+            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("customer_id");
+                int type = rs.getInt("customer_type_id");
+                String nameCustomer = rs.getString("customer_name");
+                String birthday = rs.getString("customer_birthday");
+                String gender = rs.getString("customer_gender");
+                int cmnd = rs.getInt("customer_id_card");
+                int phone = rs.getInt("customer_phone");
+                String email = rs.getString("customer_email");
+                String address = rs.getString("customer_address");
+                customer = new Customer(id,type, nameCustomer, birthday, gender, cmnd, phone, email, address);
+                customerList.add(customer);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerList;
     }
 
 

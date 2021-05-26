@@ -47,6 +47,7 @@ public class CustomerServiceImpl implements CustomerService {
             preparedStatement.setInt(1,customer_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
+
                 int type = resultSet.getInt("customer_type_id");
                 String name = resultSet.getString("customer_name");
                 String birthday = resultSet.getString("customer_birthday");

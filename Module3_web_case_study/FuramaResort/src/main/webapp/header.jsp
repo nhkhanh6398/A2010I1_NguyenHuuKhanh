@@ -40,12 +40,7 @@
                 </div>
             </nav>
         </div>
-        <div class="col-lg-2 ">
-            <form class="d-flex m-3">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
+
     </div>
 </div>
 <script src="jquery/jquery-3.5.1.min.js"></script>

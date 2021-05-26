@@ -19,7 +19,7 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container-fluid">
-    <div class="row ">
+    <div class="row mt-2 ">
         <div class="col-lg-2 border ">
             <nav class="sidebar">
                 <ul class="nav flex-column">
@@ -29,10 +29,21 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-lg-10"></div>
+        <div class="col-lg-8"></div>
+        <div class="col-lg-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Search Customer
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid">
+
     <div class="row">
         <div class="col-lg-12">
             <h2 class="text-center">List Customers</h2>
@@ -40,7 +51,7 @@
                 <thead>
                 <tr>
                     <th>ID Customer</th>
-                    <th>ID Type Customer</th>
+                    <th>Type Customer</th>
                     <th>Name Customer</th>
                     <th>CMND Customer</th>
                     <th>Gender Customer</th>
@@ -55,7 +66,12 @@
                 <tbody><c:forEach var="customer" items="${list}">
                     <tr>
                         <td><c:out value="${customer.idCustomer}"/></td>
-                        <td><c:out value="${customer.typeCustomer}"/></td>
+                        <td><c:choose><c:when test="${customer.typeCustomer==1}">Diamond</c:when>
+                            <c:when test="${customer.typeCustomer==2}">Platinium</c:when>
+                            <c:when test="${customer.typeCustomer==3}">Gold</c:when>
+                            <c:when test="${customer.typeCustomer==4}">Silver</c:when>
+                            <c:when test="${customer.typeCustomer==5}">Member</c:when>
+                        </c:choose></td>
                         <td><c:out value="${customer.nameCustomer}"/></td>
                         <td><c:out value="${customer.cmndCustomer}"/></td>
                         <td><c:out value="${customer.genderCustomer}"/></td>
@@ -74,7 +90,26 @@
     </div>
 </div>
 <jsp:include page="footer.jsp"></jsp:include>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="?action=searchCustomer" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Input Name: </label>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <%--<script src="js/jquery-3.6.0.min.js"></script>--%>
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -88,6 +123,9 @@
             "pageLength": 5
         });
     });
+    $(document).on('load', function () {
+        $('#exampleModal').modal('show');
+    })
 </script>
 </body>
 </html>

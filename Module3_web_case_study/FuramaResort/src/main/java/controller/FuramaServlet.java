@@ -38,6 +38,9 @@ public class FuramaServlet extends HttpServlet {
             case "editEmployee":
                 editEmployee(request,response);
                 break;
+            case "searchCustomer":
+                searchCustomer(request,response);
+                break;
             default:
                 break;
         }
@@ -58,6 +61,9 @@ public class FuramaServlet extends HttpServlet {
             case "employee":
                 employee(request,response);
                 break;
+            case "searchCustomer":
+                fromSearchCustomer(request,response);
+                break;
             case "createEmployee":
                 formCreateEmployee(request,response);
                 break;
@@ -65,6 +71,14 @@ public class FuramaServlet extends HttpServlet {
                 customer(request, response);
                 break;
             case "service":
+                fromService(request,response);
+                break;
+            case "house":
+                house(request,response);
+                break;
+            case "room":
+                break;
+            case "villa":
                 break;
             case "contract":
                 break;
@@ -86,7 +100,31 @@ public class FuramaServlet extends HttpServlet {
         }
 
     }
+    private void searchCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        System.out.println(customerService.seacrhCustomer(name));
+        List<Customer> customerList = customerService.seacrhCustomer(name);
+        request.setAttribute("list", customerList);
+        request.getRequestDispatcher("customer.jsp").forward(request,response);
 
+    }
+    private void fromSearchCustomer(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            request.getRequestDispatcher("customer.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void house(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("house.jsp").forward(request,response);
+    }
+
+    private void fromService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("service.jsp").forward(request,response);
+    }
 
 
     private void formEditEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

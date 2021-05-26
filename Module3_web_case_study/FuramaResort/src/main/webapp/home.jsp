@@ -21,7 +21,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="text-center">Wellcom to Furama</h1>
+            <h1 class="text-center">Wellcome to Furama</h1>
         </div>
     </div>
 </div>

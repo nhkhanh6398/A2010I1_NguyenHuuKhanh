@@ -14,7 +14,15 @@
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css"/>--%>
     <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css">
-
+    <style>
+        table {
+            display: block;
+            max-width: fit-content;
+            margin: 0 auto;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -65,10 +73,27 @@
                         <td><c:out value="${employee.phoneEmployee}"/></td>
                         <td><c:out value="${employee.emailEmployee}"/></td>
                         <td><c:out value="${employee.addressEmployee}"/></td>
-                        <td><c:out value="${employee.educationIdEmployee}"/></td>
-                        <td><c:out value="${employee.positionIdEmployee}"/></td>
-                        <td><c:out value="${employee.divisionIdEmployee}"/></td>
+                        <td><c:choose><c:when test="${employee.educationIdEmployee==1}">Trung Cấp</c:when>
+                            <c:when test="${employee.educationIdEmployee==2}">Cao Đẳng</c:when>
+                            <c:when test="${employee.educationIdEmployee==3}">Đại Học</c:when>
+                            <c:when test="${employee.educationIdEmployee==4}">Sau Đại Học</c:when>
+                        </c:choose></td>
+                        <td>
+                            <c:choose><c:when test="${employee.positionIdEmployee==1}">Lễ Tân</c:when>
+                                <c:when test="${employee.positionIdEmployee==2}">Phục Vụ</c:when>
+                                <c:when test="${employee.positionIdEmployee==3}">Chuyên viên</c:when>
+                                <c:when test="${employee.positionIdEmployee==4}">Giám Sát</c:when>
+                                <c:when test="${employee.positionIdEmployee==5}">Quản Lý</c:when>
+                                <c:when test="${employee.positionIdEmployee==6}">Giám Đốc</c:when>
+                            </c:choose>
+                        </td>
+                        <td><c:choose><c:when test="${employee.divisionIdEmployee==1}">Sale – Marketing</c:when>
+                            <c:when test="${employee.divisionIdEmployee==2}">Hành Chính</c:when>
+                            <c:when test="${employee.divisionIdEmployee==3}">Phục vụ</c:when>
+                            <c:when test="${employee.divisionIdEmployee==4}">Quản lý</c:when>
+                        </c:choose></td>
                         <td><c:out value="${employee.usernameEmployee}"/></td>
+
                         <td><a href="?action=editEmployee&id=${employee.idEmployee}" class="text-white">Edit</a></td>
                         <td><a href="?action=deleteEmployee&id=${employee.idEmployee}" class="text-white">Delete</a></td>
                     </tr>
