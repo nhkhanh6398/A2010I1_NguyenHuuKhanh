@@ -4,12 +4,20 @@ public class Service {
     private int idService;
     private String nameService;
     private double areaService;
-    private String costService;
+    private double costService;
     private int peopleMaxService;
     private String typeRentService;
 
-    public Service(int idService, String nameService, double areaService, String costService, int peopleMaxService, String typeRentService) {
+    public Service(int idService, String nameService, double areaService, double costService, int peopleMaxService, String typeRentService) {
         this.idService = idService;
+        this.nameService = nameService;
+        this.areaService = areaService;
+        this.costService = costService;
+        this.peopleMaxService = peopleMaxService;
+        this.typeRentService = typeRentService;
+    }
+
+    public Service(String nameService, double areaService, double costService, int peopleMaxService, String typeRentService) {
         this.nameService = nameService;
         this.areaService = areaService;
         this.costService = costService;
@@ -44,11 +52,11 @@ public class Service {
         this.areaService = areaService;
     }
 
-    public String getCostService() {
+    public double getCostService() {
         return costService;
     }
 
-    public void setCostService(String costService) {
+    public void setCostService(double costService) {
         this.costService = costService;
     }
 

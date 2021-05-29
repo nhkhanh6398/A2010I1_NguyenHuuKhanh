@@ -2,10 +2,13 @@ package controller;
 
 import model.bean.Customer;
 import model.bean.Employee;
+import model.bean.Service;
 import model.service.customer.CustomerService;
 import model.service.customer.CustomerServiceImpl;
 import model.service.employee.EmployeeService;
 import model.service.employee.EmployeeServiceImpl;
+import model.service.service.ServiceService;
+import model.service.service.ServiceServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +22,7 @@ import java.util.List;
 public class FuramaServlet extends HttpServlet {
     private CustomerService customerService = new CustomerServiceImpl();
     private EmployeeService employeeService = new EmployeeServiceImpl();
+    private ServiceService serviceService = new ServiceServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -35,6 +39,9 @@ public class FuramaServlet extends HttpServlet {
             case "createEmployee":
                 createEmployee(request, response);
                 break;
+            case "createService":
+                createService(request,response);
+                break;
             case "editEmployee":
                 editEmployee(request, response);
                 break;
@@ -44,10 +51,18 @@ public class FuramaServlet extends HttpServlet {
             case "searchEmployee":
                 searchEmployee(request, response);
                 break;
+            case "searchService":
+                searchService(request,response);
+                break;
+            case "editService":
+                editService(request,response);
+                break;
             default:
                 break;
         }
     }
+
+
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,11 +83,23 @@ public class FuramaServlet extends HttpServlet {
             case "searchCustomer":
                 fromSearchCustomer(request, response);
                 break;
+            case "searchService":
+                formSearchService(request,response);
+                break;
+            case "editService":
+                formEditService(request,response);
+                break;
             case "createEmployee":
                 formCreateEmployee(request, response);
                 break;
+            case "createService":
+                formCreateService(request,response);
+                break;
             case "customer":
                 customer(request, response);
+                break;
+            case "deleteService":
+                deleteService(request,response);
                 break;
             case "service":
                 fromService(request, response);
@@ -105,10 +132,35 @@ public class FuramaServlet extends HttpServlet {
 
     }
 
+    private void formEditService(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            int id =Integer.parseInt( request.getParameter("id"));
+            request.setAttribute("showByIdService", serviceService.showByIdService(id));
+            request.getRequestDispatcher("editService.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void formCreateService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("service.jsp").forward(request,response);
+    }
+
+
     private void FormSearchEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
-
+    private void formSearchService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("service.jsp").forward(request,response);
+    }
+    private void searchService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        serviceService.seacrhService(name);
+        request.setAttribute("list", serviceService.seacrhService(name));
+        request.getRequestDispatcher("service.jsp").forward(request,response);
+    }
     private void searchEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         employeeService.seacrhCustomer(name);
@@ -141,6 +193,7 @@ public class FuramaServlet extends HttpServlet {
     }
 
     private void fromService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list", serviceService.listAll());
         request.getRequestDispatcher("service.jsp").forward(request, response);
     }
 
@@ -187,7 +240,20 @@ public class FuramaServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    private void editService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        double area = Double.parseDouble(request.getParameter("area"));
+        double cost = Double.parseDouble(request.getParameter("cost"));
+        int people = Integer.parseInt(request.getParameter("people"));
+        String rent = request.getParameter("rent");
+        Service service = new Service(name,area,cost,people,rent);
+        serviceService.update(id,service);
+        request.setAttribute("msg", "Edited!");
+        request.setAttribute("showByIdService", serviceService.showByIdService(id));
+        request.getRequestDispatcher("editService.jsp").forward(request,response);
 
+    }
     private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
@@ -242,9 +308,13 @@ public class FuramaServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
+    private void deleteService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("idService"));
+        serviceService.delete(id);
+        request.setAttribute("list",serviceService.listAll());
+        request.getRequestDispatcher("service.jsp").forward(request,response);
+    }
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("idEmployee"));
         employeeService.delete(id);
@@ -309,7 +379,18 @@ public class FuramaServlet extends HttpServlet {
         request.getRequestDispatcher("employee.jsp").forward(request, response);
 
     }
-
+    private void createService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        int area = Integer.parseInt( request.getParameter("area"));
+        double cost = Double.parseDouble(request.getParameter("cost"));
+        int people = Integer.parseInt(request.getParameter("people"));
+        String rent = request.getParameter("rent");
+        Service service = new Service(name,area,cost,people,rent);
+        System.out.println(serviceService.save(service));
+        request.setAttribute("list", serviceService.listAll());
+        request.setAttribute("msg", "Created!");
+        request.getRequestDispatcher("service.jsp").forward(request,response);
+    }
     private void formCreate(HttpServletRequest request, HttpServletResponse response) {
         try {
 //            request.setAttribute("listTypeCustomer", customerService.showTypeCustomer());

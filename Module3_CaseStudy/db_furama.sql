@@ -100,7 +100,7 @@ create table customer (
 
 
 create table service (
-	service_id int primary key,
+	service_id int primary key auto_increment,
     service_name varchar(45),
     service_area int,
     service_cost double,
@@ -172,12 +172,25 @@ INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('4',
 INSERT INTO `db_furama`.`user` (`username`, `password`) VALUES ('kha', '123');
 INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('1', 'Hoàng Kha', '1998/05/05', '123456', '50', '03669985', 'hkha@gmail.com', 'Đà Nẳng', '1', '1', '1');
 
-UPDATE `employee`
- SET `employee_name` = ?, `employee_birthday` = ?, `employee_id_card` = ?, `employee_salary` = ?,
- `employee_phone` = ?, `employee_email` = ?, `employee_address` = ?, `position_id` = ?,
- `education_degree_id` = ?, `division_id` = ? 
- WHERE (`employee_id` = ?);
+-- UPDATE `employee`
+--  SET `employee_name` = ?, `employee_birthday` = ?, `employee_id_card` = ?, `employee_salary` = ?,
+--  `employee_phone` = ?, `employee_email` = ?, `employee_address` = ?, `position_id` = ?,
+--  `education_degree_id` = ?, `division_id` = ? 
+--  WHERE (`employee_id` = ?);
 
+INSERT INTO `db_furama`.`rent_type` (`rent_type_id`, `rent_type_name`, `rent_type_cost`) VALUES ('1', 'Theo Năm', '200000');
+INSERT INTO `db_furama`.`rent_type` (`rent_type_id`, `rent_type_name`, `rent_type_cost`) VALUES ('2', 'Theo Tháng', '20000');
+INSERT INTO `db_furama`.`rent_type` (`rent_type_id`, `rent_type_name`, `rent_type_cost`) VALUES ('3', 'Theo Ngày', '1500');
+INSERT INTO `db_furama`.`rent_type` (`rent_type_id`, `rent_type_name`, `rent_type_cost`) VALUES ('4', 'Theo Giờ', '150');
+INSERT INTO `db_furama`.`attach_service` (`attach_service_id`, `attach_service_name`, `attach_service_cost`, `attach_service_unit`, `attach_service_status`) VALUES ('1', 'massage', '1220', '1', 'ok');
+INSERT INTO `db_furama`.`attach_service` (`attach_service_id`, `attach_service_name`, `attach_service_cost`, `attach_service_unit`, `attach_service_status`) VALUES ('2', 'karaoke', '1230', '1', 'ok');
+INSERT INTO `db_furama`.`attach_service` (`attach_service_id`, `attach_service_name`, `attach_service_cost`, `attach_service_unit`, `attach_service_status`) VALUES ('3', 'thức uống', '120', '1', 'ok');
+INSERT INTO `db_furama`.`attach_service` (`attach_service_id`, `attach_service_name`, `attach_service_cost`, `attach_service_unit`, `attach_service_status`) VALUES ('4', 'thuê xe', '15', '1', 'ok');
+INSERT INTO `db_furama`.`service_type` (`service_type_id`, `service_type_name`) VALUES ('1', 'Room');
+INSERT INTO `db_furama`.`service_type` (`service_type_id`, `service_type_name`) VALUES ('2', 'House');
+INSERT INTO `db_furama`.`service_type` (`service_type_id`, `service_type_name`) VALUES ('3', 'Villa');
+INSERT INTO `db_furama`.`service` (`service_id`, `service_name`, `service_area`, `service_cost`, `service_max_people`, `rent_type_id`, `service_type_id`, `standard_room`) VALUES ('1', 'Phòng Máy Lạnh', '50', '2', '5', '1', '1', 'room');
+INSERT INTO `db_furama`.`service` (`service_id`, `service_name`, `service_area`, `service_cost`, `service_max_people`, `rent_type_id`, `service_type_id`, `standard_room`) VALUES ('2', 'Phòng Tình Nhân', '20', '2', '10', '2', '2', 'room');
 
 
 -- update customer
