@@ -48,6 +48,7 @@ public class Employee {
         this.divisionIdEmployee = division;
     }
 
+
     public int getIdEmployee() {
         return idEmployee;
     }

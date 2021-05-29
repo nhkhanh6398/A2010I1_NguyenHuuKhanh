@@ -112,6 +112,33 @@ public class EmployeeResponsitoryImpl implements EmployeeResponsitory {
 
     @Override
     public List<Employee> seacrhCustomer(String name) {
-        return null;
+        List<Employee> employeeList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement("select *\n" +
+                    "from employee\n" +
+                    "where employee_name like ?;");
+            preparedStatement.setString(1,"%"+ name+"%");
+            ResultSet rs = preparedStatement.executeQuery();
+            Employee employee = null;
+            while (rs.next()){
+                int id = rs.getInt("employee_id");
+                String nameEmployee = rs.getString("employee_name");
+                String birthday = rs.getString("employee_birthday");
+                int cmnd = rs.getInt("employee_id_card");
+                double salary = rs.getDouble("employee_salary");
+                int phone = rs.getInt("employee_phone");
+                String email = rs.getString("employee_email");
+                String address = rs.getString("employee_address");
+                int position = rs.getInt("position_id");
+                int education = rs.getInt("education_degree_id");
+                int division = rs.getInt("division_id");
+                String user = rs.getString("username");
+                employee = new Employee(id,nameEmployee,birthday,cmnd,salary,phone,email,address,position,education,division,user);
+                employeeList.add(employee);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return employeeList;
     }
 }

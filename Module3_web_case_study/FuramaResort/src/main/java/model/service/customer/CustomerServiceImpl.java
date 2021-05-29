@@ -13,6 +13,7 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
     private BaseRepository baseRepository = new BaseRepository();
     CustomerResponsitory customerResponsitory = new CustomerResponsitoryImpl();
+
     @Override
     public List<Customer> showList() {
         return this.customerResponsitory.showList();
@@ -20,7 +21,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean save(Customer customer) {
-        return this.customerResponsitory.save(customer);
+        if (customer.getPhoneCustomer().matches("(090)+[0-9]{7}")
+                || customer.getPhoneCustomer().matches("(091)+[0-9]{7}")
+                || customer.getPhoneCustomer().matches("((84)+90)+[0-9]{7}")
+                || customer.getPhoneCustomer().matches("((84)+91)+[0-9]{7}")) {
+            if (customer.getCmndCustomer().matches("[0-9]{9}") || customer.getCmndCustomer().matches("[0-9]{12}")) {
+                if (customer.getEmailCustomer().matches("[A-Za-z_.0-9]+@[a-z]+.[a-z]+.[a-z]+")) {
+                    return this.customerResponsitory.save(customer);
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -44,19 +55,19 @@ public class CustomerServiceImpl implements CustomerService {
         try {
             PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement(
                     "select * from customer where customer_id = ?");
-            preparedStatement.setInt(1,customer_id);
+            preparedStatement.setInt(1, customer_id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
 
                 int type = resultSet.getInt("customer_type_id");
                 String name = resultSet.getString("customer_name");
                 String birthday = resultSet.getString("customer_birthday");
                 String gender = resultSet.getString("customer_gender");
-                int cmnd = resultSet.getInt("customer_id_card");
-                int phone = resultSet.getInt("customer_phone");
+                String cmnd = resultSet.getString("customer_id_card");
+                String phone = resultSet.getString("customer_phone");
                 String email = resultSet.getString("customer_email");
                 String address = resultSet.getString("customer_address");
-                customer = new Customer(type,name,birthday,gender,cmnd,phone,email,address);
+                customer = new Customer(type, name, birthday, gender, cmnd, phone, email, address);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

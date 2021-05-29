@@ -27,8 +27,8 @@ public class CustomerResponsitoryImpl implements CustomerResponsitory {
                 customer.setNameCustomer(resultSet.getString("customer_name"));
                 customer.setBirthCustomer(resultSet.getString("customer_birthday"));
                 customer.setGenderCustomer(resultSet.getString("customer_gender"));
-                customer.setCmndCustomer(resultSet.getInt("customer_id_card"));
-                customer.setPhoneCustomer(resultSet.getInt("customer_phone"));
+                customer.setCmndCustomer(resultSet.getString("customer_id_card"));
+                customer.setPhoneCustomer(resultSet.getString("customer_phone"));
                 customer.setEmailCustomer(resultSet.getString("customer_email"));
                 customer.setAddressCustomer(resultSet.getString("customer_address"));
                 customerList.add(customer);
@@ -53,8 +53,8 @@ public class CustomerResponsitoryImpl implements CustomerResponsitory {
             preparedStatement.setString(2, customer.getNameCustomer());
             preparedStatement.setString(3, customer.getBirthCustomer());
             preparedStatement.setString(4, customer.getGenderCustomer());
-            preparedStatement.setInt(5, customer.getCmndCustomer());
-            preparedStatement.setInt(6, customer.getPhoneCustomer());
+            preparedStatement.setString(5, customer.getCmndCustomer());
+            preparedStatement.setString(6, customer.getPhoneCustomer());
             preparedStatement.setString(7, customer.getEmailCustomer());
             preparedStatement.setString(8, customer.getAddressCustomer());
             row = preparedStatement.executeUpdate();
@@ -78,8 +78,8 @@ public class CustomerResponsitoryImpl implements CustomerResponsitory {
             preparedStatement.setString(2, customer.getNameCustomer());
             preparedStatement.setString(3, customer.getBirthCustomer());
             preparedStatement.setString(4, customer.getGenderCustomer());
-            preparedStatement.setInt(5, customer.getCmndCustomer());
-            preparedStatement.setInt(6, customer.getPhoneCustomer());
+            preparedStatement.setString(5, customer.getCmndCustomer());
+            preparedStatement.setString(6, customer.getPhoneCustomer());
             preparedStatement.setString(7, customer.getEmailCustomer());
             preparedStatement.setString(8, customer.getAddressCustomer());
             preparedStatement.setInt(9, customer.getIdCustomer());
@@ -121,8 +121,8 @@ public class CustomerResponsitoryImpl implements CustomerResponsitory {
                 String nameCustomer = rs.getString("customer_name");
                 String birthday = rs.getString("customer_birthday");
                 String gender = rs.getString("customer_gender");
-                int cmnd = rs.getInt("customer_id_card");
-                int phone = rs.getInt("customer_phone");
+                String cmnd = rs.getString("customer_id_card");
+                String phone = rs.getString("customer_phone");
                 String email = rs.getString("customer_email");
                 String address = rs.getString("customer_address");
                 customer = new Customer(id,type, nameCustomer, birthday, gender, cmnd, phone, email, address);

@@ -2,17 +2,32 @@ package model.bean;
 
 public class Customer {
     private int idCustomer;
+    private String codeCustomer;
     private String nameCustomer;
     private String birthCustomer;
     private String genderCustomer;
-    private int cmndCustomer;
-    private int phoneCustomer;
+    private String cmndCustomer;
+    private String phoneCustomer;
     private String emailCustomer;
     private String addressCustomer;
     private int typeCustomer;
 
-    public Customer(int idCustomer, String nameCustomer, String birthCustomer, String genderCustomer, int cmndCustomer,
-                    int phoneCustomer, String emailCustomer, String addressCustomer, int typeCustomer) {
+    public Customer(int idCustomer, String codeCustomer, String nameCustomer, String birthCustomer, String genderCustomer,
+                    String cmndCustomer, String phoneCustomer, String emailCustomer, String addressCustomer, int typeCustomer) {
+        this.idCustomer = idCustomer;
+        this.codeCustomer = codeCustomer;
+        this.nameCustomer = nameCustomer;
+        this.birthCustomer = birthCustomer;
+        this.genderCustomer = genderCustomer;
+        this.cmndCustomer = cmndCustomer;
+        this.phoneCustomer = phoneCustomer;
+        this.emailCustomer = emailCustomer;
+        this.addressCustomer = addressCustomer;
+        this.typeCustomer = typeCustomer;
+    }
+
+    public Customer(int idCustomer, String nameCustomer, String birthCustomer, String genderCustomer, String cmndCustomer,
+                    String phoneCustomer, String emailCustomer, String addressCustomer, int typeCustomer) {
         this.idCustomer = idCustomer;
         this.nameCustomer = nameCustomer;
         this.birthCustomer = birthCustomer;
@@ -27,7 +42,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int typeCustomer, String nameCustomer, String birthCustomer, String genderCustomer, int cmndCustomer, int phoneCustomer,
+    public Customer(int typeCustomer, String nameCustomer, String birthCustomer, String genderCustomer, String cmndCustomer, String phoneCustomer,
                     String emailCustomer, String addressCustomer) {
         this.typeCustomer = typeCustomer;
         this.nameCustomer = nameCustomer;
@@ -40,7 +55,7 @@ public class Customer {
 
     }
 
-    public Customer(int id, int type, String name, String birthDay, String gender, int cmnd, int phone, String email, String address) {
+    public Customer(int id, int type, String name, String birthDay, String gender, String cmnd, String phone, String email, String address) {
         this.idCustomer = id;
         this.typeCustomer = type;
         this.nameCustomer = name;
@@ -84,19 +99,19 @@ public class Customer {
         this.genderCustomer = genderCustomer;
     }
 
-    public int getCmndCustomer() {
+    public String getCmndCustomer() {
         return cmndCustomer;
     }
 
-    public void setCmndCustomer(int cmndCustomer) {
+    public void setCmndCustomer(String cmndCustomer) {
         this.cmndCustomer = cmndCustomer;
     }
 
-    public int getPhoneCustomer() {
+    public String getPhoneCustomer() {
         return phoneCustomer;
     }
 
-    public void setPhoneCustomer(int phoneCustomer) {
+    public void setPhoneCustomer(String phoneCustomer) {
         this.phoneCustomer = phoneCustomer;
     }
 
@@ -118,6 +133,14 @@ public class Customer {
 
     public int getTypeCustomer() {
         return typeCustomer;
+    }
+
+    public String getCodeCustomer() {
+        return codeCustomer;
+    }
+
+    public void setCodeCustomer(String codeCustomer) {
+        this.codeCustomer = codeCustomer;
     }
 
     public void setTypeCustomer(int typeCustomer) {
