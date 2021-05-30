@@ -117,7 +117,7 @@ create table service (
 );
 
 create table contract (
-	contract_id int primary key,
+	contract_id int primary key auto_increment,
     contract_start_date datetime,
 	contract_end_date datetime,
 	contract_deposit double,
@@ -130,8 +130,9 @@ create table contract (
     foreign key (customer_id) references customer (customer_id),
     foreign key (service_id) references service (service_id)
 );
+
 create table contract_detail (
-	contract_detail_id int primary key,
+	contract_detail_id int primary key auto_increment,
     contract_id int,
     attach_service_id int,
     quatily int,
@@ -191,6 +192,16 @@ INSERT INTO `db_furama`.`service_type` (`service_type_id`, `service_type_name`) 
 INSERT INTO `db_furama`.`service_type` (`service_type_id`, `service_type_name`) VALUES ('3', 'Villa');
 INSERT INTO `db_furama`.`service` (`service_id`, `service_name`, `service_area`, `service_cost`, `service_max_people`, `rent_type_id`, `service_type_id`, `standard_room`) VALUES ('1', 'Phòng Máy Lạnh', '50', '2', '5', '1', '1', 'room');
 INSERT INTO `db_furama`.`service` (`service_id`, `service_name`, `service_area`, `service_cost`, `service_max_people`, `rent_type_id`, `service_type_id`, `standard_room`) VALUES ('2', 'Phòng Tình Nhân', '20', '2', '10', '2', '2', 'room');
+
+INSERT INTO `db_furama`.`contract` (`contract_id`, `contract_start_date`, `contract_end_date`, `contract_deposit`, `contract_total_money`, `employee_id`, `customer_id`, `service_id`) VALUES ('1', '2021/05/30', '2021/06/30', '50', '100', '1', '1', '1');
+INSERT INTO `db_furama`.`contract_detail` (`contract_detail_id`, `contract_id`, `attach_service_id`, `quatily`) VALUES ('1', '1', '1', '12000');
+
+select cus.customer_name, ct.contract_id,cd.contract_detail_id, asv.attach_service_name
+from customer cus
+inner join contract ct on ct.customer_id = cus.customer_id
+inner join contract_detail cd on cd.contract_id = ct.contract_id
+inner join attach_service asv on asv.attach_service_id = cd.attach_service_id
+group by cus.customer_id;
 
 
 -- update customer

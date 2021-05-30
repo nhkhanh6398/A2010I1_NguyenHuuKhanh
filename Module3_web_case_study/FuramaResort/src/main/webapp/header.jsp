@@ -37,6 +37,7 @@
                     <a class="navbar-brand" href="?action=customer">Customer</a>
                     <a class="navbar-brand" href="?action=service">Service</a>
                     <a class="navbar-brand" href="?action=contract">Contract</a>
+                    <a class="navbar-brand" href="?action=showAll">Customer Use Service</a>
                 </div>
             </nav>
         </div>
