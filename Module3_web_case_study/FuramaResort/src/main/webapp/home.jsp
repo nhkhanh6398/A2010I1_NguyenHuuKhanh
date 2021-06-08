@@ -29,21 +29,21 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/furama1.jpg" class="d-block w-100" alt="...">
+                        <img src="img/furama1.jpg" class="d-block w-100 h-75" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="text-dark">Wellcome to Furama</h1>
                         </div>
                     </div>
                     <div class="carousel-item">
 
-                        <img src="img/furama2.jpg" class="d-block w-100" alt="...">
+                        <img src="img/furama2.jpg" class="d-block w-100 h-75" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="text-dark">Wellcome to Furama</h1>
                         </div>
 
                     </div>
                     <div class="carousel-item">
-                        <img src="img/furama3.jpg" class="d-block w-100" alt="...">
+                        <img src="img/furama3.jpg" class="d-block w-100 h-75" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="text-dark">Wellcome to Furama</h1>
                         </div>

@@ -104,7 +104,7 @@
                             <c:when test="${employee.divisionIdEmployee==4}">Quản lý</c:when>
                         </c:choose></td>
                         <td><c:out value="${employee.usernameEmployee}"/></td>
-                        <td><a href="?action=editEmployee&id=${employee.idEmployee}" class="text-white">Edit</a></td>
+                        <td><a href="?action=editEmployee&id=${employee.idEmployee}" class="text-white nav-link rounded btn-danger">Edit</a></td>
                         <td><a class="btn btn-danger" href="#" onclick="customerSetId('${employee.idEmployee}','${employee.nameEmployee}')"
                                data-toggle="modal" data-target="#deleteModal">Delete</a>
                         </td>

@@ -126,9 +126,9 @@ create table contract (
     customer_id int,
     service_id int,
     
-    foreign key (employee_id) references employee (employee_id),
-    foreign key (customer_id) references customer (customer_id),
-    foreign key (service_id) references service (service_id)
+    foreign key (employee_id) references employee (employee_id) on delete cascade,
+    foreign key (customer_id) references customer (customer_id) on delete cascade,
+    foreign key (service_id) references service (service_id) on delete cascade
 );
 
 create table contract_detail (
@@ -137,7 +137,7 @@ create table contract_detail (
     attach_service_id int,
     quatily int,
     
-    foreign key (contract_id) references contract (contract_id),
+    foreign key (contract_id) references contract (contract_id) on delete cascade,
     foreign key (attach_service_id) references attach_service (attach_service_id)
 );
 INSERT INTO `db_furama`.`customer_type` (`customer_type_id`, `customer_type_name`) VALUES ('1', 'Diamond');
@@ -172,6 +172,10 @@ INSERT INTO `db_furama`.`division` (`division_id`, `division_name`) VALUES ('4',
 
 INSERT INTO `db_furama`.`user` (`username`, `password`) VALUES ('kha', '123');
 INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('1', 'Hoàng Kha', '1998/05/05', '123456', '50', '03669985', 'hkha@gmail.com', 'Đà Nẳng', '1', '1', '1');
+INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('2', 'Đoàn Mai', '1998/05/05', '123456', '50', '03669985', 'hkha@gmail.com', 'Đà Nẳng', '1', '1', '1');
+INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('3', 'Phan Hải', '1998/05/05', '123456', '50', '03669985', 'hkha@gmail.com', 'Đà Nẳng', '1', '1', '1');
+INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('4', 'Phan Thu', '1998/05/05', '123456', '50', '03669985', 'hkha@gmail.com', 'Đà Nẳng', '1', '1', '1');
+INSERT INTO `db_furama`.`employee` (`employee_id`, `employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`) VALUES ('5', 'Trung Hiếu', '2021-06-06', '632525', '50', '123', 'thieu@gmail.com', 'Huế', '1', '2', '2');
 
 -- UPDATE `employee`
 --  SET `employee_name` = ?, `employee_birthday` = ?, `employee_id_card` = ?, `employee_salary` = ?,
@@ -196,14 +200,28 @@ INSERT INTO `db_furama`.`service` (`service_id`, `service_name`, `service_area`,
 INSERT INTO `db_furama`.`contract` (`contract_id`, `contract_start_date`, `contract_end_date`, `contract_deposit`, `contract_total_money`, `employee_id`, `customer_id`, `service_id`) VALUES ('1', '2021/05/30', '2021/06/30', '50', '100', '1', '1', '1');
 INSERT INTO `db_furama`.`contract_detail` (`contract_detail_id`, `contract_id`, `attach_service_id`, `quatily`) VALUES ('1', '1', '1', '12000');
 
-select cus.customer_name, ct.contract_id,cd.contract_detail_id, asv.attach_service_name
-from customer cus
-inner join contract ct on ct.customer_id = cus.customer_id
-inner join contract_detail cd on cd.contract_id = ct.contract_id
-inner join attach_service asv on asv.attach_service_id = cd.attach_service_id
-group by cus.customer_id;
+-- select cus.customer_name, ct.contract_id,cd.contract_detail_id, asv.attach_service_name
+-- from customer cus
+-- inner join contract ct on ct.customer_id = cus.customer_id
+-- inner join contract_detail cd on cd.contract_id = ct.contract_id
+-- inner join attach_service asv on asv.attach_service_id = cd.attach_service_id
+-- group by cus.customer_id;
 
+-- delete  em,ct
+-- from   employee em
+-- inner join contract ct  on ct.employee_id = em.employee_id
+-- inner join contract_detail dt on dt.contract_id = ct.contract_id
+-- where em.employee_id = 1
+-- and ct.employee_id = em.employee_id;
 
+-- select em.employee_id, ct.contract_id
+-- from employee em
+-- inner join contract ct on ct.employee_id = em.employee_id
+-- group by ct.contract_id;
+
+-- delete 
+-- from employee
+-- where employee_id = 1;
 -- update customer
 -- set customer_type_id = 2, customer_name = 'hihi', customer_birthday = '2016/05/06', customer_gender = 'nam',
 -- customer_id_card ='112566', customer_phone = '036997754', customer_email = 'nhkhanh@gmail.com', customer_address = 'd'

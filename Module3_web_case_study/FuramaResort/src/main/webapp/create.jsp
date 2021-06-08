@@ -51,43 +51,52 @@
             <tr>
                 <th>Customer Name:</th>
                 <td>
-                    <input type="text" name="name" id="name" size="45"/>
+                    <input type="text" name="name" id="name" size="45" value="${name}"/>
                 </td>
             </tr>
             <tr>
                 <th>Customer Email:</th>
                 <td>
-                    <input type="text" name="email" id="email" size="45"/>
+                    <input type="email" name="email" id="email" size="45" value="${email}"/>
+                    <p>
+                        <span style="color: red" class="message">${messageEmail}</span>
+                    </p>
                 </td>
             </tr>
             <tr>
                 <th>Customer Gender:</th>
                 <td>
-                    <input type="text" name="gender" id="gender" size="15"/>
+                    <input type="text" name="gender" id="gender" size="15" value="${gender}"/>
                 </td>
             </tr>
             <tr>
                 <th>Customer CMND:</th>
                 <td>
-                    <input type="text" name="cmnd" id="cmnd" size="15"/>
+                    <input type="text" name="cmnd" id="cmnd" size="15" value="${cmnd}"/>
+                    <p>
+                        <span style="color: red" class="message">${massageCmnd}</span>
+                    </p>
                 </td>
             </tr>
             <tr>
                 <th>Customer BirthDay:</th>
                 <td>
-                    <input type="date" name="birthday" id="birthday" size="15"/>
+                    <input type="date" name="birthday" id="birthday" size="15" value="${birthday}"/>
                 </td>
             </tr>
             <tr>
                 <th>Customer Address:</th>
                 <td>
-                    <input type="text" name="address" id="address" size="15"/>
+                    <input type="text" name="address" id="address" size="15" value="${address}"/>
                 </td>
             </tr>
             <tr>
                 <th>Customer Phone:</th>
                 <td>
-                    <input type="text" name="phone" id="phone" size="15"/>
+                    <input type="text" name="phone" id="phone" size="15" value="${phone}"/>
+                    <p>
+                        <span style="color: red" class="message">${massagePhone}</span>
+                    </p>
                 </td>
             </tr>
             <tr>

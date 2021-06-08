@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css">
 </head>
-<body>
+<body background="img/bg.jpg">
 <div class="container-fluid" >
     <div class="row">
         <div class="col-lg-2">
@@ -26,11 +26,11 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row bg-light">
+<div class="container-fluid" >
+    <div class="row " style="background: #7abaff">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="?action=home">Home</a>
                     <a class="navbar-brand" href="?action=employee">Employee</a>

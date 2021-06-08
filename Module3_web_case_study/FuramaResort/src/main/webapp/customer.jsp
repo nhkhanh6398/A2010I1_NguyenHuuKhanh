@@ -25,9 +25,9 @@
 <div class="container-fluid">
     <div class="row mt-2 ">
         <div class="col-lg-2 ">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-                Create Customer
-            </button>
+
+                <a class="nav-link rounded btn-primary" href="?action=create">Create Customer</a>
+
         </div>
         <div class="col-lg-8"></div>
         <div class="col-lg-2">
@@ -115,86 +115,7 @@
     <input type="hidden" name="idCustomer" id="idCustomer">
 </form>
 <jsp:include page="footer.jsp"></jsp:include>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form action="?action=create" method="post">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel1">Create Customer</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table border="1" cellpadding="5">
-                        <tr>
-                            <th><label>Type Customer</label>
-                            </th>
-                            <td>
-                                <select name="type" required>
-                                    <option value="">--Please choose an option--</option>
-                                    <option value="1">Diamond</option>
-                                    <option value="2">Platinium</option>
-                                    <option value="3">Gold</option>
-                                    <option value="4">Silver</option>
-                                    <option value="5">Member</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer Name:</th>
-                            <td>
-                                <input type="text" name="name" id="name" size="45" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer Email:</th>
-                            <td>
-                                <input type="text" name="email" id="email" size="45" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer Gender:</th>
-                            <td>
-                                <input type="text" name="gender" id="gender" size="15" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer CMND:</th>
-                            <td>
-                                <input type="text" name="cmnd" id="cmnd" size="15" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer BirthDay:</th>
-                            <td>
-                                <input type="date" name="birthday" id="birthday" size="15" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer Address:</th>
-                            <td>
-                                <input type="text" name="address" id="address" size="15" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Customer Phone:</th>
-                            <td>
-                                <input type="text" name="phone" id="phone" size="15" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center">
-                                <input type="submit" value="Save"/>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

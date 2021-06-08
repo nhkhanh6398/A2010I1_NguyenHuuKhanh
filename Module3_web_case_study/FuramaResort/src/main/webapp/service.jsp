@@ -26,7 +26,7 @@
     <div class="row mt-2 ">
         <div class="col-lg-2 ">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-                Create Customer
+                Create Service
             </button>
         </div>
         <div class="col-lg-8"></div>
