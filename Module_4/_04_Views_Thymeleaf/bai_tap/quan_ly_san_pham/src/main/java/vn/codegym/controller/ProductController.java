@@ -40,4 +40,24 @@ public class ProductController {
         productService.update(id,product);
         return "redirect:/";
     }
+    @GetMapping("/product/{id}/delete")
+    public String homeDelete(@PathVariable int id, Model model){
+        model.addAttribute("product", productService.finById(id));
+        return "delete";
+    }
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute Product product, @RequestParam int id){
+        productService.remove(id);
+        return "redirect:/";
+    }
+    @GetMapping("/product/{id}/view")
+    public String homeView(@PathVariable int id, Model model){
+        model.addAttribute("product", productService.finById(id));
+        return "view";
+    }
+    @PostMapping("/view")
+    public String view(@ModelAttribute Product product, @RequestParam int id){
+        productService.finById(id);
+        return "redirect:/";
+    }
 }
