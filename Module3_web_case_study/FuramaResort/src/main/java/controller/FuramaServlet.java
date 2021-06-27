@@ -47,7 +47,6 @@ public class FuramaServlet extends HttpServlet {
             case "edit":
                 edit(request, response);
                 break;
-
             case "createEmployee":
                 createEmployee(request, response);
                 break;
@@ -72,11 +71,15 @@ public class FuramaServlet extends HttpServlet {
             case "createContract":
                 createContract(request, response);
                 break;
-
+            case "login":
+                loginUser(request,response);
+                break;
             default:
                 break;
         }
     }
+
+
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -145,11 +148,30 @@ public class FuramaServlet extends HttpServlet {
             case "delete":
                 delete(request, response);
                 break;
+            case "home":
+                showHome(request,response);
+                break;
             default:
-                showHome(request, response);
+                homeLogin(request,response);
+//                showHome(request, response);
                 break;
         }
 
+    }
+
+    private void homeLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("index.jsp").forward(request,response);
+    }
+    private void loginUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userName = request.getParameter("userName");
+        String pass = request.getParameter("pass");
+        if ((userName.equals("admin"))&& pass.equals("minhhieu")){
+            this.showHome(request,response);
+        }else {
+            request.setAttribute("userName", userName);
+            request.setAttribute("msg", "Incorrect username or password. Please re-enter.");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     private void fromshowAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

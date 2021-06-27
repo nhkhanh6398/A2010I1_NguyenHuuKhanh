@@ -22,7 +22,8 @@
         </div>
         <div class="col-lg-8"></div>
         <div class="col-lg-2 pt-lg-5">
-            <b class="text-danger text-center">Nguyễn Hữu Khánh</b>
+            <b class="text-danger text-center">Minh Hiếu</b>
+            <a href="?action=logout">Log out</a>
         </div>
     </div>
 </div>
