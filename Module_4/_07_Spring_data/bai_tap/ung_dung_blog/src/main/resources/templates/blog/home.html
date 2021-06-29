@@ -6,6 +6,12 @@
 </head>
 <body>
 <a href="/create">Create new Blog</a>
+<form method="get">
+    <label>Search Blog</label>
+    <input name="search" type="text">
+    <input type="submit" value="Search">
+</form>
+
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>

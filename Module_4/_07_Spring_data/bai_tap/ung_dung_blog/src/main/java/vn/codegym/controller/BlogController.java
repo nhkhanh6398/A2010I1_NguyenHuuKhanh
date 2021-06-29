@@ -1,11 +1,13 @@
 package vn.codegym.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.codegym.model.Blog;
 import vn.codegym.service.BlogService;
 import vn.codegym.service.CategoryService;
@@ -13,6 +15,7 @@ import vn.codegym.service.CategoryService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 public class BlogController {
@@ -23,49 +26,61 @@ public class BlogController {
     CategoryService categoryService;
 
     @GetMapping("/")
-    public String home(Model model, @PageableDefault(size = 3) Pageable pageable){
-        model.addAttribute("list",blogService.fillAllBlog(pageable));
+    public String home(@RequestParam("search") Optional<String> search, Model model, @PageableDefault(size = 3) Pageable pageable) {
+
+        if (search.isPresent()) {
+            Page<Blog> blog = blogService.findAllByName(search.get(), pageable);
+            model.addAttribute("list", blog);
+            return "/blog/home";
+        }
+        model.addAttribute("list", blogService.fillAllBlog(pageable));
         return "/blog/home";
     }
+
     @GetMapping("/create")
-    public String createHome(Model model){
+    public String createHome(Model model) {
         model.addAttribute("blog", new Blog());
         model.addAttribute("listCategory", categoryService.findAll());
         return "/blog/create";
     }
+
     @PostMapping("/create")
-    public String create(@ModelAttribute Blog blog, @RequestParam("date1") String date) {
+    public String create(@ModelAttribute Blog blog, @RequestParam("date1") String date,RedirectAttributes redirectAttributes) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date1 = null;
         try {
             date1 = simpleDateFormat.parse(date);
             blog.setDate(date1);
-        }catch (ParseException e){
+        } catch (ParseException e) {
             return "/blog/create";
         }
         blogService.save(blog);
+        redirectAttributes.addFlashAttribute("message", "Blog " + blog.getName() + " created");
         return "redirect:/";
     }
+
     @GetMapping("delete/{id}")
-    public String delete(@PathVariable int id){
+    public String delete(@PathVariable int id) {
         blogService.remove(id);
         return "redirect:/";
     }
+
     @GetMapping("edit/{id}")
-    public String editHome(@PathVariable int id, Model model){
-    Blog blog = blogService.findById(id);
-    if (blog!=null){
-        model.addAttribute("blog", blog);
-        return "/blog/edit";
-    }else {
-        model.addAttribute("message", "Not found ");
-        return "/blog/home";
+    public String editHome(@PathVariable int id, Model model,RedirectAttributes redirectAttributes) {
+        Blog blog = blogService.findById(id);
+        if (blog != null) {
+            model.addAttribute("blog", blog);
+            return "/blog/edit";
+        } else {
+            redirectAttributes.addFlashAttribute("message", "Not found ");
+            return "/blog/home";
+        }
     }
-    }
+
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("blog") Blog blog,Model model){
+    public String edit(@ModelAttribute("blog") Blog blog, Model model, RedirectAttributes redirectAttributes) {
         blogService.save(blog);
-        model.addAttribute("message", "Blog" +blog.getName()+ "updated");
+        redirectAttributes.addFlashAttribute("message", "Blog " + blog.getName() + " updated");
         return "redirect:/";
     }
 }

@@ -16,4 +16,5 @@ public interface BlogService {
 
     void remove(int  id);
     Page<Blog> fillAllBlog(Pageable pageable);
+    Page<Blog> findAllByName(String name, Pageable pageable);
 }

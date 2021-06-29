@@ -36,4 +36,9 @@ public class BlogServiceImpl implements BlogService {
     public Page<Blog> fillAllBlog(Pageable pageable) {
         return blogRepository.findAll(pageable);
     }
+
+    @Override
+    public Page<Blog> findAllByName(String name, Pageable pageable) {
+        return blogRepository.findAllByName(name,pageable);
+    }
 }
