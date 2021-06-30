@@ -45,15 +45,17 @@ public class BlogController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Blog blog, @RequestParam("date1") String date,RedirectAttributes redirectAttributes) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date1 = null;
-        try {
-            date1 = simpleDateFormat.parse(date);
-            blog.setDate(date1);
-        } catch (ParseException e) {
-            return "/blog/create";
-        }
+    public String create(@ModelAttribute Blog blog,RedirectAttributes redirectAttributes) {
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//
+//        Date date1 = null;
+//        try {
+//            date1 = simpleDateFormat.parse(date);
+//            blog.setDate(date1);
+//        } catch (ParseException e) {
+//            return "/blog/create";
+//        }
+        blog.setDate(new Date(System.currentTimeMillis()));
         blogService.save(blog);
         redirectAttributes.addFlashAttribute("message", "Blog " + blog.getName() + " created");
         return "redirect:/";
