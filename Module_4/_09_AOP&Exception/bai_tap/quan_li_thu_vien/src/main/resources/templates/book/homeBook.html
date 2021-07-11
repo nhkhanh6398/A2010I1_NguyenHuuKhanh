@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>All Books</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${book}" class="container my-5">
+                <p class="my-5">
+
+                    <a href="/add" class="btn btn-primary">
+                        <i class="fas fa-user-plus ml-2">  Add Book </i></a>
+                </p>
+                <th:block th:if="${message}">
+                    <p th:text="${message}"></p>
+                </th:block>
+                <div class="col-md-12">
+                    <h2 th:case="null">No record found !!</h2>
+                    <div th:case="*">
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+                                <th>ID </th>
+                                <th>Book Name</th>
+                                <th>Price</th>
+                                <th>Author</th>
+                                <th>Catagory</th>
+                                <th>Quantity</th>
+                                <th>Detail</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="books : ${book}">
+                                <td th:text="${books.id}"></td>
+                                <td th:text="${books.nameBook}"></td>
+                                <td th:text="${books.price}"></td>
+                                <td th:text="${books.author.name}"></td>
+                                <td th:text="${books.catagory.nameCatagory}"></td>
+                                <td th:text="${books.quantity}"></td>
+                                <td><a th:href="@{/book/{id}(id=${books.id})}" class="btn btn-primary"><i class="fas fa-marker ml-2"></i></a></td>
+                                <td><a th:href="@{/update/{id}(id=${books.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                <td><a th:href="@{/delete/{id}(id=${books.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <a th:href="@{'/books'(page=${book.number - 1})}" th:if="${book.hasPrevious()}">Previous</a>
+                        <span th:text="${book.number + 1}"></span>/<span th:text="${book.totalPages}"></span>
+                        <a th:href="@{'/books'(page=${book.number + 1})}" th:if="${book.hasNext()}">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>
