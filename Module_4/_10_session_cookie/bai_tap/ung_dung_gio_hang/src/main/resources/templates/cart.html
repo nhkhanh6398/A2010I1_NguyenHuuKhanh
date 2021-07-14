@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/}">Back</a>
+<h2>Giỏ Hàng (Số Lượng SP :<span th:text="${cartNum}"></span>) </h2>
+<table border="1" style="width: 100px;height: 100px">
+    <tr th:each="cart: ${carts}">
+        <th>
+            <img th:src="${cart.getValue().getProduct().getImg()}" style="width: 150px;height: 120px">
+        </th>
+        <td>
+            <span th:text="${cart.getValue().getProduct().getName()}"></span><br>
+            <span>Mã Sản Phẩm: </span><br>
+            <span>Đơn Giá: </span><br>
+            <span>Số Lượng: </span><br>
+            <span th:text="${cart.getValue().getProduct().getId()}"></span><br>
+            <span th:text="${cart.getValue().getProduct().getPrice()}"></span><br>
+            <input type="number" th:value="${cart.getValue().getQuantity()}">
+        </td>
+        <td>
+            <span></span><br>
+            <span th:text="${cart.getValue().getProduct().getId()}"></span><br>
+            <span th:text="${cart.getValue().getProduct().getPrice()}"></span><br>
+            <input type="number" th:value="${cart.getValue().getQuantity()}">
+        </td>
+        <td>
+            <a th:href="@{/delete/__${cart.getValue().getId()}__}">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">
+            Tổng tiền : <span th:text="${cartMoney}"></span>
+        </th>
+    </tr>
+</table>
+</body>
+</html>

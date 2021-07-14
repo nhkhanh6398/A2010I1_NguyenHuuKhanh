@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <a href="/create">Create</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-4" th:each="cart : ${list}">
+            <div class="card">
+                <div class="card-body">
+                    <img th:src="@{../../images/{img}(img=${cart.getImg()})}" class="img-thumbnail img-fluid">
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a class="card-text text-decoration-none" th:href="@{/view/__${cart.id}__}" th:text="${cart.name}"></a>
+                    </div>
+                    <p class="card-text text-center text-danger" th:text="${cart.price} + ' đ'">x</p>
+                    <div class="d-flex">
+                        <a th:href="@{/view/__${cart.id}__}" class=" ml-0 mr-auto">
+                            <button class="btn btn-primary" style="padding: 5px; font-size: 10px">Chi tiết sản phẩm</button>
+                        </a>
+                        <a th:href="@{/buycart/__${cart.id}__}" class=" mr-0 ml-auto">
+                            <button class="btn btn-danger" style="padding: 5px; font-size: 10px">Mua hàng</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="bootstrap/jquery-3.6.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
