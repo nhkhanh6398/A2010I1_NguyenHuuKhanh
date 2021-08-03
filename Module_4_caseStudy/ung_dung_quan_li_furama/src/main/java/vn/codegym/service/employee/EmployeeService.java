@@ -8,7 +8,7 @@ import vn.codegym.model.Employee;
 public interface EmployeeService {
     Page<Employee> findAll(Pageable pageable);
     void save(Employee employee);
-    void delete(Employee employee);
+    void delete(Integer id);
     void update(Employee employee);
     Employee findById(Integer id);
 }
