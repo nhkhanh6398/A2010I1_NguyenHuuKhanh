@@ -8,56 +8,16 @@
 <body>
 <div align="center">
 
-    <form method="post" th:action="@{/actionDeleteEmployee}" th:object="${employee}">
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="name" class="col-form-label">Employee Name:</label>
-                <input class="form-control"  th:field="*{name}" type="text" name="name" id="name" size="45" placeholder="Employee name"/>
-                <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
-            </div>
+    <input type="hidden" th:field="${employee.id}">
+    <div>
+        Content: <p th:text="${employee.name}"></p>
+        Do you sure to delete?
+    </div>
 
-            <div class="form-group col-md-6">
-                <label class="col-form-label">BirthDay:</label>
-                <input class="form-control" th:field="*{dateOfBirth}" type="date" name="birthday" id="birthday" size="45"
-                       placeholder="Birthday"/>
-                <div style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
-            </div>
+    <button type="button" id="submitEmployee" th:onclick="'javascript:actionDelete(\''+${employee.id}+'\')'"
+            class="btn btn-primary">Delete</button>
 
-            <div class="form-group col-md-6">
-                <label class="col-form-label">CMND:</label>
-                <input class="form-control" th:field="*{idCard}" type="text" name="cmnd" id="cmnd" size="15"
-                       placeholder="CMND"/>
-                <div style="color: red" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></div>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="col-form-label">Salary:</label>
-                <input class="form-control" th:field="*{salary}" type="text" name="salary" id="salary" size="15"
-                       placeholder="Salary"/>
-                <div style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></div>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="col-form-label">Phone:</label>
-                <input class="form-control" th:field="*{phoneNumber}" type="text" name="phone" id="phone" size="15"
-                       placeholder="Phone"/>
-                <div style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="col-form-label">Email:</label>
-                <input class="form-control" th:field="*{email}" type="text" name="email" id="email" size="45"
-                       placeholder="Email"/>
-                <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="col-form-label">Address:</label>
-                <input class="form-control" th:field="*{address}" type="text" name="address" id="address" size="15"
-                       placeholder="Address"/>
-                <div style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
-            </div>
-            <div class="col-md-12">
-                <input type="submit" id="submitEmployee" th:onclick="'javascript:actionDelete(\''+${id}+'\')'" class="btn btn-primary" value=" Delete ">
-            </div>
-        </div>
-    </form>
+
 </div>
 <script src="bootstrap/jquery-3.6.0.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import vn.codegym.model.Employee;
 import vn.codegym.repository.employee.EmployeeRepository;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
@@ -14,6 +16,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Page<Employee> findAll(Pageable pageable) {
         return employeeRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return employeeRepository.findAll();
     }
 
     @Override
@@ -34,6 +41,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee findById(Integer id) {
         return employeeRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Page<Employee> findAllByNameConaining(String searchEmployee, Pageable pageable) {
+        return employeeRepository.findAllByNameContaining(searchEmployee,pageable);
     }
 
 

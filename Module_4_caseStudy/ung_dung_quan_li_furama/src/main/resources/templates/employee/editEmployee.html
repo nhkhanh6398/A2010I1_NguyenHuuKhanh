@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<th:block th:include="fragments/nav"></th:block>
+<div align="center">
+    <form method="post" th:action="@{/editEmployee}" th:object="${employee}">
+        <table class="table">
+            <tr>
+                <td><input type="hidden" th:field="*{id}"></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input th:field="*{name}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></td>
+            </tr>
+            <tr>
+                <td>Birthday:</td>
+                <td><input th:field="*{dateOfBirth}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div></td>
+            </tr>
+            <tr>
+                <td>Cmnd:</td>
+                <td><input th:field="*{idCard}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></div></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input th:field="*{salary}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></div></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input th:field="*{phoneNumber}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input th:field="*{email}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input th:field="*{address}"></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div></td>
+            </tr>
+            <tr>
+                <td>Position:</td>
+                <td><select th:field="*{position}">
+                    <option th:each="position: ${listPosition}" th:value="${position.id}"
+                            th:text="${position.positionName}"></option>
+                </select></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></div></td>
+            </tr>
+            <tr>
+                <td>Education:</td>
+                <td><select th:field="*{educationDegree}">
+                    <option th:each="education: ${listEducation}" th:value="${education.id}"
+                            th:text="${education.name}"></option>
+                </select></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('educationDegree')}" th:errors="*{educationDegree}"></div></td>
+            </tr>
+            <tr>
+                <td>Division:</td>
+                <td><select th:field="*{division}">
+                    <option th:each="division: ${listDivision}" th:value="${division.id}"
+                            th:text="${division.divisionName}"></option>
+                </select></td>
+                <td><div style="color: red" th:if="${#fields.hasErrors('division')}" th:errors="*{division}"></div></td>
+            </tr>
+        </table>
+        <input type="submit" value="Edit">
+    </form>
+</div>
+<script src="/bootstrap/jquery-3.6.0.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

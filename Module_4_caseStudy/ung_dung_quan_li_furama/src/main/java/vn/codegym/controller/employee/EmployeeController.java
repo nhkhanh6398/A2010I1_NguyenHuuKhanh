@@ -40,6 +40,15 @@ public class EmployeeController {
         model.addAttribute("listDivision", divisionService.finall());
         return "employee/createEmployee";
     }
+    @GetMapping("/getSearchEmployee")
+    public String getSearch(){
+        return "employee/searchEmployee";
+    }
+    @PostMapping("/searchEmployee")
+    public String searchEmployee(@RequestParam("searchEmployee") String searchEmployee,Model model, @PageableDefault(value = 5) Pageable pageable){
+        model.addAttribute("list", employeeService.findAllByNameConaining(searchEmployee,pageable));
+        return "employee/getSearchEmployee";
+    }
     @PostMapping("/addEmployee")
     public String addEmployee(@Validated @ModelAttribute Employee employee, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes){
         if (bindingResult.hasFieldErrors()){
@@ -69,5 +78,24 @@ public class EmployeeController {
         model.addAttribute("list", employeeService.findAll(pageable));
         return "employee/deleted";
     }
-
+    @GetMapping("/update/{id}")
+    public String getUpdate(@PathVariable int id, Model model){
+        Employee employee = employeeService.findById(id);
+        model.addAttribute("employee",employee);
+        model.addAttribute("listPosition", positionService.finall());
+        model.addAttribute("listEducation", educationService.finall());
+        model.addAttribute("listDivision", divisionService.finall());
+        return "employee/editEmployee";
+    }
+    @PostMapping("/editEmployee")
+    public String update(@Validated @ModelAttribute Employee employee, BindingResult bindingResult, Model model){
+        if (bindingResult.hasFieldErrors()){
+            model.addAttribute("listPosition", positionService.finall());
+            model.addAttribute("listEducation", educationService.finall());
+            model.addAttribute("listDivision", divisionService.finall());
+            return "employee/editEmployee";
+        }
+        employeeService.save(employee);
+        return "redirect:/employee";
+    }
 }

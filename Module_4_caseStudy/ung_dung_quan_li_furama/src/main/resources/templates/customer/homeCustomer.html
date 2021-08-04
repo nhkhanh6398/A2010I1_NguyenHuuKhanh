@@ -16,7 +16,7 @@
                     <!-- Button trigger modal -->
                     <button type="button" id="btnCreate" class="btn btn-primary" data-toggle="modal"
                             data-target="#exampleModal1">
-                        Create Employee
+                        Create Customer
                     </button>
                 </div>
             </div>
@@ -45,45 +45,44 @@
                     <th>ID Employee</th>
                     <th>Name Employee</th>
                     <th>Birthday</th>
-                    <th>CMND Employee</th>
-                    <th>Salary Employee</th>
-                    <th>Phone Employee</th>
-                    <th>Email Employee</th>
-                    <th>Address Employee</th>
-                    <th>Education Employee</th>
-                    <th>Position Employee</th>
-                    <th>Division Employee</th>
+                    <th>CMND </th>
+                    <th>Gender </th>
+                    <th>Phone </th>
+                    <th>Email </th>
+                    <th>Address </th>
+                    <th>Contract</th>
+                    <th>Customer Type</th>
                     <th>Option View</th>
                     <th>Option Edit</th>
                     <th>Option Delete</th>
                 </tr>
                 </thead>
-                <tbody th:each="lists:${list}">
+                <tbody th:each="lists:${customer}">
                 <tr>
                     <td th:text="${lists.id}"></td>
                     <td th:text="${lists.name}"></td>
                     <td th:text="${lists.dateOfBirth}"></td>
                     <td th:text="${lists.idCard}"></td>
-                    <td th:text="${lists.salary}"></td>
+                    <td th:text="${lists.gender}"></td>
                     <td th:text="${lists.phoneNumber}"></td>
                     <td th:text="${lists.email}"></td>
                     <td th:text="${lists.address}"></td>
-                    <td th:text="${lists.educationDegree.name}"></td>
-                    <td th:text="${lists.position.positionName}"></td>
-                    <td th:text="${lists.division.divisionName}"></td>
+                    <td th:text="${lists.contracts}"></td>
+                    <td th:text="${lists.customerType.name}"></td>
+
                     <!--                        <td><a th:href="@{/viewEmployee/{id}(id=${lists.id})}" class="btn btn-primary"><i class="fas fa-marker ml-2"></i></a></td>-->
-                    <td>
-                        <button type="button" class="btn btn-primary" id="btnView"
-                                th:onclick="'javascript:showView(\''+${lists.id}+'\')'">
-                            <i class="fas fa-marker ml-2"></i></button>
-                    </td>
-                    <td><a th:href="@{/update/{id}(id=${lists.id})}" class="btn btn-primary"><i
-                            class="fas fa-user-edit ml-2"></i></a></td>
-                    <td>
-                        <button type="button" class="btn btn-primary" id="btnDelete"
-                                th:onclick="'javascript:showDelete(\''+${lists.id}+'\')'">
-                            <i class="fas fa-user-times ml-2"></i></button>
-                    </td>
+<!--                    <td>-->
+<!--                        <button type="button" class="btn btn-primary" id="btnView"-->
+<!--                                th:onclick="'javascript:showViewCustomer(\''+${lists.id}+'\')'">-->
+<!--                            <i class="fas fa-marker ml-2"></i></button>-->
+<!--                    </td>-->
+<!--                    <td><a th:href="@{/update/{id}(id=${lists.id})}" class="btn btn-primary"><i-->
+<!--                            class="fas fa-user-edit ml-2"></i></a></td>-->
+<!--                    <td>-->
+<!--                        <button type="button" class="btn btn-primary" id="btnDelete"-->
+<!--                                th:onclick="'javascript:showDeleteCustomer(\''+${lists.id}+'\')'">-->
+<!--                            <i class="fas fa-user-times ml-2"></i></button>-->
+<!--                    </td>-->
                     <!--                        <td><a th:href="@{/delete/{id}(id=${lists.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>-->
                 </tr>
                 </tbody>
@@ -92,9 +91,9 @@
         </div>
     </div>
     <div>
-        <a th:href="@{'/employee'(page=${list.number - 1})}" th:if="${list.hasPrevious()}">Previous</a>
-        <span th:text="${list.number + 1}"></span>/<span th:text="${list.totalPages}"></span>
-        <a th:href="@{'/employee'(page=${list.number + 1})}" th:if="${list.hasNext()}">Next</a>
+        <a th:href="@{'/customer'(page=${customer.number - 1})}" th:if="${customer.hasPrevious()}">Previous</a>
+        <span th:text="${customer.number + 1}"></span>/<span th:text="${customer.totalPages}"></span>
+        <a th:href="@{'/customer'(page=${customer.number + 1})}" th:if="${customer.hasNext()}">Next</a>
     </div>
 </div>
 
@@ -118,17 +117,15 @@
 
 <script src="bootstrap/jquery-3.6.0.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
-
 <script>
-
     $(document).ready(function () {
         $("#btnCreate").click(function () {
             $.ajax({
                 type: "GET",
-                url: "/createEmployee",
+                url: "/createCustomer",
                 dataType: "HTML",
                 success: function (data) {
-                    let title = "Create Employee"
+                    let title = "Create Customer";
                     $(".modal-title").html(title);
                     $(".modal-body").html(data);
                     $("#modelId").modal("show");
@@ -136,72 +133,6 @@
             })
         })
     })
-    $(document).ready(function () {
-        $("#btnSearchEmployee").click(function () {
-            $.ajax({
-                type: "GET",
-                url: "/getSearchEmployee",
-                dataType: "HTML",
-                success: function (data) {
-                    let title = "Search Employee"
-                    $(".modal-title").html(title);
-                    $(".modal-body").html(data);
-                    $("#modelId").modal("show");
-                }
-            })
-        })
-    })
-    function showView(id) {
-        $.ajax({
-            type: "GET",
-            url: "/viewEmployee/" + id,
-            dataType: "HTML",
-            success: function (data) {
-                let title = "View"
-                $(".modal-title").html(title);
-                $(".modal-body").html(data);
-                $("#modelId").modal("show");
-            }
-        })
-    }
-    function showDelete(id) {
-        $.ajax({
-            type: "GET",
-            url: "/delete/"+id,
-            dataType:"HTML",
-            success: function (data) {
-                $(".modal-body").html(data);
-                $("#modelId").modal("show");
-            }
-        })
-    }
-    function actionDelete(id) {
-        $.ajax({
-            type: "POST",
-            url: "/actionDeleteEmployee/" + id,
-            dataType: "HTML",
-            success: function (data) {
-                let message = "Delete!"
-                $("#modelId").modal('hide');
-                $("#tableCustomer").html(data);
-                $(".modal-body").html(message);
-                $("#modelId").modal('show');
-            }
-        })
-    }
-    function actionSearchEmployee() {
-        $.ajax({
-            type: "POST",
-            url: "/searchEmployee",
-            dataType: "HTML",
-            success: function (data) {
-                $("#modelId").modal('hide');
-                $("#tableCustomer").html(data);
-                $("#modelId").modal('show');
-            }
-        })
-    }
-
 </script>
 </body>
 </html>
