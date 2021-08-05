@@ -9,7 +9,7 @@ import java.util.List;
 public interface CustomerService {
     Page<Customer> findAll(Pageable pageable);
     void save(Customer customer);
-    void delete(Customer customer);
+    void delete(String id);
     void update(Customer customer);
     Customer findById(String id);
 

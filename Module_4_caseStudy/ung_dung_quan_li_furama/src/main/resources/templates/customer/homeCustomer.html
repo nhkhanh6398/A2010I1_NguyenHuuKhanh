@@ -71,18 +71,17 @@
                     <td th:text="${lists.customerType.name}"></td>
 
                     <!--                        <td><a th:href="@{/viewEmployee/{id}(id=${lists.id})}" class="btn btn-primary"><i class="fas fa-marker ml-2"></i></a></td>-->
-<!--                    <td>-->
-<!--                        <button type="button" class="btn btn-primary" id="btnView"-->
-<!--                                th:onclick="'javascript:showViewCustomer(\''+${lists.id}+'\')'">-->
-<!--                            <i class="fas fa-marker ml-2"></i></button>-->
-<!--                    </td>-->
-<!--                    <td><a th:href="@{/update/{id}(id=${lists.id})}" class="btn btn-primary"><i-->
-<!--                            class="fas fa-user-edit ml-2"></i></a></td>-->
-<!--                    <td>-->
-<!--                        <button type="button" class="btn btn-primary" id="btnDelete"-->
-<!--                                th:onclick="'javascript:showDeleteCustomer(\''+${lists.id}+'\')'">-->
-<!--                            <i class="fas fa-user-times ml-2"></i></button>-->
-<!--                    </td>-->
+                    <td>
+                        <button type="button" class="btn btn-primary btnView" id="btnView"><i class="fas fa-marker ml-2"></i></button>
+                        <input type="hidden" th:value="${lists.id}">
+                    </td>
+                    <td><a th:href="@{/updateCutomer/{id}(id=${lists.id})}" class="btn btn-primary"><i
+                            class="fas fa-user-edit ml-2"></i></a></td>
+                    <td>
+                        <button type="button" class="btn btn-primary btnDelete" id="btnDelete">
+                            <i class="fas fa-user-times ml-2"></i></button>
+                        <input type="hidden" th:value="${lists.id}">
+                    </td>
                     <!--                        <td><a th:href="@{/delete/{id}(id=${lists.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>-->
                 </tr>
                 </tbody>
@@ -133,6 +132,67 @@
             })
         })
     })
+    $(document).ready(function () {
+        $(".btnView").click(function () {
+            $.ajax({
+                type:"GET",
+                url: "/viewCustomer/" + $(this).next().val(),
+                dataType: "HTML",
+                success: function (data) {
+                    let title = "View Customer";
+                    $(".modal-title").html(title);
+                    $(".modal-body").html(data);
+                    $("#modelId").modal("show");
+                }
+            })
+        })
+    })
+
+    $(document).ready(function () {
+        $(".btnDelete").click(function () {
+            $.ajax({
+                type:"GET",
+                url: "/getDeleteCustomer/" + $(this).next().val(),
+                dataType: "HTML",
+                success: function (data) {
+                    let title = "Delete Customer";
+                    $(".modal-title").html(title);
+                    $(".modal-body").html(data);
+                    $("#modelId").modal("show");
+                }
+            })
+        })
+    })
+    // $(document).ready(function () {
+    //     $(".btnDeleteCustomer").click(function () {
+    //         $.ajax({
+    //             type:"POST",
+    //             url: "/deleteCustomer/" + $(this).next().val(),
+    //             dataType: "HTML",
+    //             success: function (data) {
+    //                 let message = "Delete!"
+    //                 $("#modelId").modal('hide');
+    //                 $("#tableCustomer").html(data);
+    //                 $(".modal-body").html(message);
+    //                 $("#modelId").modal('show');
+    //             }
+    //         })
+    //     })
+    // })
+    function actionDeleteCustomer(id) {
+        $.ajax({
+            type: "POST",
+            url: "/deleteCustomer/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                let message = "Delete!"
+                $("#modelId").modal('hide');
+                $("#tableCustomer").html(data);
+                $(".modal-body").html(message);
+                $("#modelId").modal('show');
+            }
+        })
+    }
 </script>
 </body>
 </html>

@@ -7,11 +7,13 @@
 </head>
 <body>
 <div align="center">
-    <table class="table" th:object="${employee}">
-            <td><input type="hidden" th:field="*{id}"></td>
-
+    <table class="table" th:object="${customer}">
         <tr>
-            <td>Name Employee</td>
+            <td>Name Customer</td>
+            <td><input type="text" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td>Name Customer</td>
             <td><input type="text" th:field="*{name}"></td>
         </tr>
         <tr>
@@ -23,8 +25,8 @@
             <td><input type="text" th:field="*{idCard}"></td>
         </tr>
         <tr>
-            <td>Salary</td>
-            <td><input type="text" th:field="*{salary}"></td>
+            <td>Gender</td>
+            <td><input type="text" th:field="*{gender}"></td>
         </tr>
         <tr>
             <td>Phone</td>
@@ -39,17 +41,10 @@
             <td><input type="text" th:field="*{address}"></td>
         </tr>
         <tr>
-            <td>Position</td>
-            <td><input type="text" th:field="*{position.positionName}"></td>
+            <td>Customer Type</td>
+            <td><input type="text" th:field="*{customerType.name}"></td>
         </tr>
-        <tr>
-            <td>Education</td>
-            <td><input type="text" th:field="*{educationDegree.name}"></td>
-        </tr>
-        <tr>
-            <td>Division</td>
-            <td><input type="text" th:field="*{division.divisionName}"></td>
-        </tr>
+
     </table>
 </div>
 <script src="bootstrap/jquery-3.6.0.min.js"></script>
