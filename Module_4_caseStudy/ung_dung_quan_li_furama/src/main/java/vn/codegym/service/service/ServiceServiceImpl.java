@@ -22,9 +22,11 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void delete(vn.codegym.model.Service service) {
-        serviceRepository.delete(service);
+    public void delete(String id) {
+        serviceRepository.deleteById(id);
     }
+
+
 
     @Override
     public void update(vn.codegym.model.Service service) {

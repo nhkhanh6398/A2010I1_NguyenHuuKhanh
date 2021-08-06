@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<th:block th:include="fragments/nav"></th:block>
+<div class="container-fluid">
+    <div class="row mt-2 ">
+        <div class="col-lg-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- Button trigger modal -->
+                    <button type="button" id="btnCreate" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal1">
+                        Create Service
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8"></div>
+        <div class="col-lg-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- Button trigger modal -->
+                    <button type="button" id="btnSearchEmployee" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal">
+                        Search Service
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--list-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="text-center">List Service</h2>
+            <table id="tableService" class="table table-striped table-bordered table-dark">
+                <thead>
+                <tr>
+                    <th>ID Employee</th>
+                    <th>Name Employee</th>
+                    <th>Area</th>
+                    <th>Cost</th>
+                    <th>Max People</th>
+                    <th>Standard Room</th>
+                    <th>Description Other Convenience</th>
+                    <th>Pool Area</th>
+                    <th>Number Of Floors</th>
+                    <th>Option View</th>
+                    <th>Option Edit</th>
+                    <th>Option Delete</th>
+                </tr>
+                </thead>
+                <tbody th:each="lists:${service}">
+                <tr>
+                    <td th:text="${lists.id}"></td>
+                    <td th:text="${lists.name}"></td>
+                    <td th:text="${lists.area}"></td>
+                    <td th:text="${lists.cost}"></td>
+                    <td th:text="${lists.maxPeople}"></td>
+                    <td th:text="${lists.standardRoom}"></td>
+                    <td th:text="${lists.descriptionOtherConvenience}"></td>
+                    <td th:text="${lists.poolArea}"></td>
+                    <td th:text="${lists.numberOfFloors}"></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="btnView"
+                                th:onclick="viewService([[${lists.id}]])">
+                            <i class="fas fa-marker ml-2"></i></button>
+                    </td>
+                    <td><a th:href="@{/updateService/{id}(id=${lists.id})}" class="btn btn-primary"><i
+                            class="fas fa-user-edit ml-2"></i></a></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="btnDelete"
+                                th:onclick="deleteEmployee([[${lists.id}]])">
+                            <i class="fas fa-user-times ml-2"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <a th:href="@{'/service'(page=${service.number - 1})}" th:if="${service.hasPrevious()}">Previous</a>
+        <span th:text="${service.number + 1}"></span>/<span th:text="${service.totalPages}"></span>
+        <a th:href="@{'/service'(page=${service.number + 1})}" th:if="${service.hasNext()}">Next</a>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="bootstrap/jquery-3.6.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnCreate").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/createService",
+                dataType: "HTML",
+                success: function (data) {
+                    let title = "Create Service";
+                    $(".modal-title").html(title);
+                    $(".modal-body").html(data);
+                    $("#modelId").modal("show");
+                }
+            })
+
+        })
+    })
+
+    function viewService(id) {
+        $.ajax({
+            type: "GET",
+            url: "/viewService/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                let title = "View Service";
+                $(".modal-title").html(title);
+                $(".modal-body").html(data);
+                $("#modelId").modal("show");
+            }
+        })
+    }
+    function deleteEmployee(id) {
+        $.ajax({
+            type: "GET",
+            url: "/getDeleteService/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                let title = "Delete Service";
+                $(".modal-title").html(title);
+                $(".modal-body").html(data);
+                $("#modelId").modal("show");
+            }
+        })
+    }
+    function actionDeleteService(id) {
+        $.ajax({
+            type:"POST",
+            url: "/deleteService/"+id,
+            dataType: "HTML",
+            success: function (data) {
+                let message = "Delete!"
+                $("#modelId").modal('hide');
+                $("#tableService").html(data);
+                $(".modal-body").html(message);
+                $("#modelId").modal('show');
+
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

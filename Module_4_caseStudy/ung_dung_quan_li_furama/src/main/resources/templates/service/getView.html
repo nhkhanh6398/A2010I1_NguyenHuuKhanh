@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div align="center">
+    <table class="table" th:object="${service}">
+        <tr>
+            <td>ID</td>
+            <td><input type="text" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>area</td>
+            <td><input type="text" th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>cost</td>
+            <td><input type="text" th:field="*{cost}"></td>
+        </tr>
+        <tr>
+            <td>maxPeople</td>
+            <td><input type="text" th:field="*{maxPeople}"></td>
+        </tr>
+        <tr>
+            <td>standardRoom</td>
+            <td><input type="text" th:field="*{standardRoom}"></td>
+        </tr>
+        <tr>
+            <td>descriptionOtherConvenience</td>
+            <td><input type="text" th:field="*{descriptionOtherConvenience}"></td>
+        </tr>
+        <tr>
+            <td>poolArea</td>
+            <td><input type="text" th:field="*{poolArea}"></td>
+        </tr>
+
+    </table>
+</div>
+<script src="bootstrap/jquery-3.6.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

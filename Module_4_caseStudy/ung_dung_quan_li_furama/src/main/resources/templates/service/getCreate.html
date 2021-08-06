@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div align="center">
+
+    <form method="post" th:action="@{/addService}" th:object="${service}">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="name" class="col-form-label">Id:</label>
+                <input class="form-control"  th:field="*{id}" type="text" name="name" id="id" size="45" placeholder="id"/>
+                <div style="color: red" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="name" class="col-form-label">Name:</label>
+                <input class="form-control"  th:field="*{name}" type="text" name="name" id="name" size="45" placeholder="Service name"/>
+                <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label">area:</label>
+                <input class="form-control" th:field="*{area}" type="text" name="birthday" id="birthday" size="45"
+                       placeholder="area"/>
+                <div style="color: red" th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label">cost:</label>
+                <input class="form-control" th:field="*{cost}" type="text" name="cmnd" id="cmnd" size="15"
+                       placeholder="cost"/>
+                <div style="color: red" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-form-label">maxPeople:</label>
+                <input class="form-control" th:field="*{maxPeople}" type="text" name="salary" id="salary" size="15"
+                       placeholder="maxPeople"/>
+                <div style="color: red" th:if="${#fields.hasErrors('maxPeople')}" th:errors="*{maxPeople}"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-form-label">standardRoom:</label>
+                <input class="form-control" th:field="*{standardRoom}" type="text" name="phone" id="phone" size="15"
+                       placeholder="standardRoom"/>
+                <div style="color: red" th:if="${#fields.hasErrors('standardRoom')}" th:errors="*{standardRoom}"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-form-label">descriptionOtherConvenience:</label>
+                <input class="form-control" th:field="*{descriptionOtherConvenience}" type="text" name="email" id="email" size="45"
+                       placeholder="descriptionOtherConvenience"/>
+                <div style="color: red" th:if="${#fields.hasErrors('descriptionOtherConvenience')}" th:errors="*{descriptionOtherConvenience}"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-form-label">poolArea:</label>
+                <input class="form-control" th:field="*{poolArea}" type="text" name="address" id="address" size="15"
+                       placeholder="poolArea"/>
+                <div style="color: red" th:if="${#fields.hasErrors('poolArea')}" th:errors="*{poolArea}"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-form-label">numberOfFloors:</label>
+                <input class="form-control" th:field="*{numberOfFloors}" type="text" name="address" id="contracts" size="15"
+                       placeholder="numberOfFloors"/>
+                <div style="color: red" th:if="${#fields.hasErrors('numberOfFloors')}" th:errors="*{numberOfFloors}"></div>
+            </div>
+
+            <div class="col-md-12">
+                <input type="submit" id="submitEmployee" class="btn btn-primary" value=" Submit ">
+            </div>
+        </div>
+    </form>
+</div>
+<script src="bootstrap/jquery-3.6.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
