@@ -24,18 +24,21 @@ public class CustomerController {
     @GetMapping("/customer")
     public String getCustomer(Model model, @PageableDefault(5) Pageable pageable){
         model.addAttribute("customer",customerService.findAll(pageable));
+        model.addAttribute("selectName" ,"customer");
         return "customer/homeCustomer";
     }
     @GetMapping("/createCustomer")
     public String getCreate(Model model){
         model.addAttribute("customer", new Customer());
         model.addAttribute("type",customerTypeRepository.findAll());
+        model.addAttribute("selectName" ,"customer");
         return "customer/homeCreate";
     }
     @PostMapping("/addCustomer")
     public String addCustomer(@Validated @ModelAttribute Customer customer, BindingResult bindingResult, Model model){
         if (bindingResult.hasFieldErrors()){
             model.addAttribute("type",customerTypeRepository.findAll());
+            model.addAttribute("selectName" ,"customer");
             return "customer/homeCreate";
         }
         customerService.save(customer);
@@ -44,6 +47,7 @@ public class CustomerController {
     @GetMapping("/viewCustomer/{id}")
     public String getViewCustomer(@PathVariable String id, Model model){
         model.addAttribute("customer", customerService.findById(id));
+        model.addAttribute("selectName" ,"customer");
         return "customer/viewCustomer";
 
     }
@@ -51,26 +55,31 @@ public class CustomerController {
     public String getUpdateCustomer(@PathVariable String id, Model model){
         model.addAttribute("customer", customerService.findById(id));
         model.addAttribute("type",customerTypeRepository.findAll());
+        model.addAttribute("selectName" ,"customer");
         return "customer/editCustomer";
     }
     @PostMapping("/editCustomer")
     public String editCustomer(@Validated @ModelAttribute Customer customer,BindingResult bindingResult, Model model){
         if (bindingResult.hasFieldErrors()){
             model.addAttribute("type",customerTypeRepository.findAll());
+            model.addAttribute("selectName" ,"customer");
             return "customer/editCustomer";
         }
+        model.addAttribute("selectName" ,"customer");
         customerService.save(customer);
         return "redirect:/customer";
     }
     @GetMapping("/getDeleteCustomer/{id}")
     public String getdelete(@PathVariable String id, Model model){
         model.addAttribute("customer",customerService.findById(id));
+        model.addAttribute("selectName" ,"customer");
         return "customer/getDelete";
     }
     @PostMapping("deleteCustomer/{id}")
     public String delete(@PathVariable String id,@PageableDefault(value = 5) Pageable pageable, Model model){
         customerService.delete(id);
         model.addAttribute("customer",customerService.findAll(pageable));
+        model.addAttribute("selectName" ,"customer");
         return "customer/delete";
 
     }

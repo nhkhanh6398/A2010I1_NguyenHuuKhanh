@@ -30,6 +30,7 @@ public class EmployeeController {
     @GetMapping("/employee")
     public String homeEmployee(Model model,@PageableDefault(value = 5) Pageable pageable){
         model.addAttribute("list", employeeService.findAll(pageable));
+        model.addAttribute("selectName" ,"employee");
         return "employee/homeEmployee";
     }
     @GetMapping("/createEmployee")
@@ -38,6 +39,7 @@ public class EmployeeController {
         model.addAttribute("listPosition", positionService.finall());
         model.addAttribute("listEducation", educationService.finall());
         model.addAttribute("listDivision", divisionService.finall());
+        model.addAttribute("selectName" ,"employee");
         return "employee/createEmployee";
     }
     @GetMapping("/getSearchEmployee")
@@ -47,6 +49,7 @@ public class EmployeeController {
     @PostMapping("/searchEmployee")
     public String searchEmployee(@RequestParam("searchEmployee") String searchEmployee,Model model, @PageableDefault(value = 5) Pageable pageable){
         model.addAttribute("list", employeeService.findAllByNameConaining(searchEmployee,pageable));
+        model.addAttribute("selectName" ,"employee");
         return "employee/getSearchEmployee";
     }
     @PostMapping("/addEmployee")
@@ -55,8 +58,10 @@ public class EmployeeController {
             model.addAttribute("listPosition", positionService.finall());
             model.addAttribute("listEducation", educationService.finall());
             model.addAttribute("listDivision", divisionService.finall());
+            model.addAttribute("selectName" ,"employee");
             return "employee/createEmployee";
         }
+        model.addAttribute("selectName" ,"employee");
         employeeService.save(employee);
         redirectAttributes.addFlashAttribute("message", "Create Employee!");
         return "redirect:/employee";
@@ -64,18 +69,21 @@ public class EmployeeController {
     @GetMapping("/viewEmployee/{id}")
     public String getView(@PathVariable int id, Model model){
         model.addAttribute("employee",employeeService.findById(id));
+        model.addAttribute("selectName" ,"employee");
         return "employee/viewEmployee";
     }
     @GetMapping("/delete/{id}")
     public String getDelete(@PathVariable int id,Model model){
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
+        model.addAttribute("selectName" ,"employee");
         return "employee/deleteEmployee";
     }
     @PostMapping("/actionDeleteEmployee/{id}")
     public String deleteEmployee(@ModelAttribute Employee employee, Pageable pageable, Model model){
         employeeService.delete(employee.getId());
         model.addAttribute("list", employeeService.findAll(pageable));
+        model.addAttribute("selectName" ,"employee");
         return "employee/deleted";
     }
     @GetMapping("/update/{id}")
@@ -85,6 +93,7 @@ public class EmployeeController {
         model.addAttribute("listPosition", positionService.finall());
         model.addAttribute("listEducation", educationService.finall());
         model.addAttribute("listDivision", divisionService.finall());
+        model.addAttribute("selectName" ,"employee");
         return "employee/editEmployee";
     }
     @PostMapping("/editEmployee")
@@ -93,8 +102,10 @@ public class EmployeeController {
             model.addAttribute("listPosition", positionService.finall());
             model.addAttribute("listEducation", educationService.finall());
             model.addAttribute("listDivision", divisionService.finall());
+            model.addAttribute("selectName" ,"employee");
             return "employee/editEmployee";
         }
+        model.addAttribute("selectName" ,"customer");
         employeeService.save(employee);
         return "redirect:/employee";
     }

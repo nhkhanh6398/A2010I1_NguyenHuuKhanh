@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Furama Resort</title>
     <link rel="icon" href="img/logo.png">
@@ -15,7 +16,7 @@
         </div>
         <div class="col-lg-8"></div>
         <div class="col-lg-2 pt-lg-5">
-            <a href="?action=logout">Log out</a>
+
         </div>
     </div>
 </div>
@@ -29,8 +30,16 @@
                     <a class="navbar-brand" href="/employee">Employee</a>
                     <a class="navbar-brand" href="/customer">Customer</a>
                     <a class="navbar-brand" href="/service">Service</a>
-                    <a class="navbar-brand" href="/contract">Contract</a>
-                    <a class="navbar-brand" href="/showAll">Customer Use Service</a>
+                    <form th:action="@{/__${selectName}__/search}" class="form-inline my-2 my-lg-0 form-1 pl-5"
+                          th:if="${selectName == 'employee' || selectName== 'customer' || selectName=='home' } " method="get">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                               aria-label="Search" name="nameSearch">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <div sec:authorize="isAuthenticated()">
+                        <p sec:authentication="name"></p>
+                        <a href="/logout">LogOut</a>
+                    </div>
                 </div>
             </nav>
         </div>
