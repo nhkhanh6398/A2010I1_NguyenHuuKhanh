@@ -39,6 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests().antMatchers("/").permitAll()
                 .antMatchers("/createCustomer").hasRole("ADMIN")
+                .antMatchers("/customer").hasRole("ADMIN")
+                .antMatchers("/employee").hasRole("ADMIN")
+                .antMatchers("/update/{id}").hasRole("ADMIN")
+                .antMatchers("/delete/{id}").hasRole("ADMIN")
+                .antMatchers("/viewEmployee/{id}").hasRole("ADMIN")
+                .antMatchers("/viewCustomer/{id}").hasRole("ADMIN")
                 .antMatchers("/createEmployee").hasRole("ADMIN")
                 .antMatchers("/updateCutomer/{id}").hasRole("ADMIN")
                 .antMatchers("/getDeleteCustomer/{id}").hasRole("ADMIN");

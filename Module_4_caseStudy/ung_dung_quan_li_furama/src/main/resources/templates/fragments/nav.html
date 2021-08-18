@@ -16,7 +16,10 @@
         </div>
         <div class="col-lg-8"></div>
         <div class="col-lg-2 pt-lg-5">
-
+            <div sec:authorize="isAuthenticated()">
+                <p sec:authentication="name"></p>
+                <a href="/logout">LogOut</a>
+            </div>
         </div>
     </div>
 </div>
@@ -36,10 +39,6 @@
                                aria-label="Search" name="nameSearch">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    <div sec:authorize="isAuthenticated()">
-                        <p sec:authentication="name"></p>
-                        <a href="/logout">LogOut</a>
-                    </div>
                 </div>
             </nav>
         </div>

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2be9498-7746-414c-baac-64c645014130" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../_10_session_cookie/bai_tap/ung_dung_gio_hang/src/main/java/vn/codegym/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_10_session_cookie/bai_tap/ung_dung_gio_hang/src/main/java/vn/codegym/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_10_session_cookie/bai_tap/ung_dung_gio_hang/src/main/java/vn/codegym/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_10_session_cookie/bai_tap/ung_dung_gio_hang/src/main/java/vn/codegym/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_10_session_cookie/bai_tap/ung_dung_gio_hang/src/main/java/vn/codegym/service/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_10_session_cookie/bai_tap/ung_dung_gio_hang/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module_4_caseStudy/ung_dung_quan_li_furama/src/main/java/vn/codegym/configSecurity/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module_4_caseStudy/ung_dung_quan_li_furama/src/main/java/vn/codegym/configSecurity/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module_4_caseStudy/ung_dung_quan_li_furama/src/main/resources/templates/fragments/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module_4_caseStudy/ung_dung_quan_li_furama/src/main/resources/templates/fragments/nav.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +37,7 @@
       <option name="presentableId" value="Default" />
       <updated>1626182883856</updated>
       <workItem from="1626182885868" duration="611000" />
+      <workItem from="1628686171475" duration="33000" />
     </task>
     <servers />
   </component>
@@ -48,9 +45,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1626183495156">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1829" y="119" key="FileChooserDialogImpl" timestamp="1628686202971">
+      <screen x="1366" y="0" width="1366" height="728" />
     </state>
+    <state x="1829" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1628686202971" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1626183495156" />
   </component>
 </project>

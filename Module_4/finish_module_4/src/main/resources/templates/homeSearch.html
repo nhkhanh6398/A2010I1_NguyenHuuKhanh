@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<form th:action="@{/search}" method="post">
+    <div class="modal-body">
+        <label>Input: </label>
+        <input class="form-control" type="text" name="key" placeholder="Keyword...">
+        <label>Choose: </label>
+        <select class="form-control" name="change">
+            <option value="all">--!--</option>
+            <option value="title">Tên khuyến mãi</option>
+            <option value="dateStart">Ngày bắt đầu</option>
+            <option value="dateEnd">Ngày kết thúc</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Search"></input>
+    </div>
+</form>
+</body>
+</html>

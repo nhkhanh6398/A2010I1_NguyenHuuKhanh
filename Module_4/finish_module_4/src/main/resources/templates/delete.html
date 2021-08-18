@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+
+    <input type="hidden" th:field="${promotion.id}">
+    <div>
+        Content: <p th:text="${promotion.title}"></p>
+        Do you sure to delete?
+    </div>
+
+    <button type="button" id="submitEmployee" th:onclick="'javascript:actionDelete(\''+${promotion.id}+'\')'"
+            class="btn btn-primary">Delete</button>
+
+
+</div>
+</body>
+</html>
