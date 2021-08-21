@@ -1,37 +1,32 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
+function showResult() {
+    // https://api.github.com/search/repositories?q=angular
+    let url = document.getElementById("keyword").value;
+    console.log(url);
+    let promise = new Promise(function (resolve, reject) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url);
+        xhttp.onload = function () {
+            if (xhttp.status === 200) {
+                resolve(JSON.parse(xhttp.responseText));
+            }
+            else {
+                reject(Error(xhttp.statusText));
+            }
+        };
+        xhttp.onerror = function () {
+            reject(Error('Error fetching data.')); // error occurred, reject the  Promise
+        };
+        xhttp.send();
     });
-};
-function fetchRepo() {
-    return __awaiter(this, void 0, void 0, function* () {
-        let res = yield fetch('https://api.github.com/search/repositories?q=angular');
-        res = (yield res.json());
-        return res.items;
-    });
-}
-function createItem(text) {
-    const item = document.createElement('li');
-    item.textContent = text;
-    return item;
-}
-const container = document.querySelector('.app .list');
-//aa
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        // step 1: fetch repo
-        const res = yield fetchRepo();
-        // step 2: lặp qua mảng các item trả về
-        // step 3: call hàm createItem sau đó truyền vào name của từng item ở mỗi vòng lặp
-        // step 4: call hàm container.appendChild(item mà hàm createItem trả về)
-        res.forEach((item) => {
-            const li = createItem(item.name);
-            container.appendChild(li);
+    promise.then(function (data) {
+        let b = data;
+        let output = "Total: " + b.items.length + "\n\n";
+        b.items.forEach(index => {
+            output += "id: " + index.id + "\nnode_id:" + index.node_id + "\nname: " + index.name + "\nfull_name: "
+                + index.full_name + "\nprivate: " + index.private + "\nurl: " + index.url + "\nhtml_url: " + index.html_url + "\n\n";
         });
+        document.getElementById("show").innerHTML = output;
+    }, function (data) {
+        document.getElementById("show").innerHTML = data + "";
     });
 }
-main();
