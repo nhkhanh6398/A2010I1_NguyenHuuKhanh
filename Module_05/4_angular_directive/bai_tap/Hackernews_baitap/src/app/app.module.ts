@@ -5,15 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { LikesComponent } from './likes/likes.component';
-import { AddComponent } from './add/add.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ContentComponent } from './add/content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LikesComponent,
-    AddComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContentComponent
   ],
     imports: [
         BrowserModule,
