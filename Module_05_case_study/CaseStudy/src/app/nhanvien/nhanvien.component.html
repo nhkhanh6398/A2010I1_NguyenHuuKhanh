@@ -1,0 +1,36 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">BirthDay</th>
+    <th scope="col">CMND</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Address</th>
+    <th scope="col">Bộ Phận</th>
+    <th scope="col">Trình Độ</th>
+    <th scope="col">Vị Trí</th>
+    <th scope="col">Option</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let array of listEmployee">
+    <th scope="row">{{array.idEmployee}}</th>
+    <td>{{array.name|titlecase}}</td>
+    <td>{{array.birthday}}</td>
+    <td>{{array.idCard}}</td>
+    <td>{{array.email}}</td>
+    <td>{{array.phone}}</td>
+    <td>{{array.address}}</td>
+    <td>{{array.idBoPhan}}</td>
+    <td>{{array.idTrinhDo}}</td>
+    <td>{{array.idViTri}}</td>
+    <td>
+      <button class="btn badge-warning m-2" [routerLink]="['/detailEmployee', array.idEmployee]">Detail</button>
+      <button class="btn badge-warning m-2" [routerLink]="['/editEmployee', array.idEmployee]">Edit</button>
+      <button class="btn badge-danger" [routerLink]="['/deleteEmployee', array.idEmployee]">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

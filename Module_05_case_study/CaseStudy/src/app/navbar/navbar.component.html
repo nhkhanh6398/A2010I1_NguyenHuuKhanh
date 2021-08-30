@@ -1,0 +1,35 @@
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col-lg-2">
+      <img class="w-25 m-3" src="images\logo.png" alt="logo" >
+    </div>
+    <div class="col-lg-8"></div>
+    <div class="col-lg-2 pt-lg-5">
+      <div>
+        <p></p>
+        <a href="/logout">LogOut</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" >
+  <div class="row " style="background: #7abaff">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <nav class="navbar navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Home</a>
+          <a class="navbar-brand" [routerLink]="['/listEmployee']">Employee</a>
+          <a class="navbar-brand" [routerLink]="['/listCustomer']">Customer</a>
+          <a class="navbar-brand" href="/service">Service</a>
+          <form>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                   aria-label="Search" name="nameSearch">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+</div>
