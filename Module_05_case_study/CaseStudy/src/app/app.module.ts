@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CreateEmployeeComponent } from './nhanvien/create-employee/create-employee.component';
 import {EmployeeModuleModule} from "./nhanvien/employee-module.module";
 import {CustomerModule} from "./khachhang/customer.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import {CustomerModule} from "./khachhang/customer.module";
     BrowserModule,
     AppRoutingModule,
     EmployeeModuleModule,
-    CustomerModule
+    CustomerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,6 @@ const routes: Routes = [
   {path: 'editEmployee/:id', component: EditEmployeeComponent},
   {path: 'deleteEmployee/:id', component: DeleteEmployeeComponent},
   {path: 'detailEmployee/:id', component: DetailEmployeeComponent},
-
 ];
 
 @NgModule({
