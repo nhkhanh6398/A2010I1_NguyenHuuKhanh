@@ -12,6 +12,7 @@ import { CreateEmployeeComponent } from './nhanvien/create-employee/create-emplo
 import {EmployeeModuleModule} from "./nhanvien/employee-module.module";
 import {CustomerModule} from "./khachhang/customer.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CreateCustomerComponent} from "./khachhang/create-customer/create-customer.component";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     DichvuComponent,
     HopdongComponent,
     NavbarComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    CreateCustomerComponent
   ],
   imports: [
     BrowserModule,

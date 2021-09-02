@@ -1,1 +1,56 @@
-<p>create-customer works!</p>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <form class="form-group" [formGroup]="createCustomer" (ngSubmit)="onSubmitCustomer()" >
+      <div class="form-group">
+        <label for="idCustomer">Id Customer </label>
+        <input type="text" class="form-control" id="idCustomer"  formControlName="idCustomer">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('idCustomer')?.invalid && createCustomer.get('idCustomer')?.touched &&
+             createCustomer.get('idCustomer')?.errors?.required">ID Không được để trống</div>
+        <div class="alert alert-danger" *ngIf="createCustomer.get('idCustomer')?.invalid && createCustomer.get('idCustomer')?.dirty &&
+             createCustomer.get('idCustomer')?.errors?.pattern">ID không đúng định dạng</div>
+      </div>
+      <div class="form-group">
+        <label for="name">Name </label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('name')?.invalid && createCustomer.get('name')?.touched &&
+             createCustomer.get('name')?.errors?.required">Name Không được để trống</div>
+      </div>
+      <div class="form-group">
+        <label for="Birthday">Birthday </label>
+        <input type="date" class="form-control" id="Birthday" formControlName="birthday">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('birthday')?.invalid && createCustomer.get('birthday')?.touched &&
+             createCustomer.get('birthday')?.errors?.required">Birthday Không được để trống</div>
+      </div>
+      <div class="form-group">
+        <label for="IDCard">ID Card </label>
+        <input type="text" class="form-control" id="IDCard" formControlName="idCard">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('idCard')?.invalid && createCustomer.get('idCard')?.touched &&
+             createCustomer.get('idCard')?.errors?.required">ID Card Không được để trống</div>
+      </div>
+
+      <div class="form-group">
+        <label for="Phone">Phone </label>
+        <input type="text" class="form-control" id="Phone" formControlName="phone">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('phone')?.invalid && createCustomer.get('phone')?.touched &&
+             createCustomer.get('phone')?.errors?.required">Phone Không được để trống</div>
+        <div class="alert alert-danger" *ngIf="createCustomer.get('phone')?.invalid && createCustomer.get('phone')?.dirty &&
+             createCustomer.get('phone')?.errors?.pattern">Phone không đúng định dạng</div>
+      </div>
+      <div class="form-group">
+        <label for="Email">Email </label>
+        <input type="text" class="form-control" id="Email" formControlName="email">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('email')?.invalid && createCustomer.get('email')?.touched &&
+             createCustomer.get('email')?.errors?.required">Email Không được để trống</div>
+      </div>
+      <div class="form-group">
+        <label for="Address">Address </label>
+        <input type="text" class="form-control" id="Address" formControlName="address">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('address')?.invalid && createCustomer.get('address')?.touched &&
+             createCustomer.get('address')?.errors?.required">Address Không được để trống</div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!createCustomer.valid">Submit</button>
+    </form>
+  </div>
+  <div class="col-2"></div>
+</div>
