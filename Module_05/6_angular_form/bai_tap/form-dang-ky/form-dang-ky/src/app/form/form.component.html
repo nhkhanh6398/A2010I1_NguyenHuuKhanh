@@ -1,0 +1,86 @@
+<h2 class="text-center">Create</h2>
+<form class="col-md-6 offset-md-3" [formGroup]="form_dangki" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label class="col">
+      Email
+      <input type="email" class="form-control" formControlName="email">
+    </label>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('email')?.valid && (form_dangki.get('email')?.touched)">
+    <div *ngIf="!f.email.errors?.required">Không được để trống</div>
+    <div *ngIf="!f.email.errors?.email">Không đúng định dạng</div>
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Password
+      <input type="password" class="form-control" formControlName="password" >
+    </label>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('password')?.valid &&
+   (form_dangki.get('password')?.touched) && (form_dangki.get('password')?.errors?.required)">Không được để trống
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('password')?.valid &&
+   (form_dangki.get('password')?.dirty) && (form_dangki.get('password')?.errors?.minlength)">Phải đủ 6 kí tự
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Confirm Password
+      <input type="password" class="form-control" formControlName="confirmPassword" >
+    </label>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('confirmPassword')?.valid &&
+   (form_dangki.get('confirmPassword')?.touched) && (form_dangki.get('confirmPassword')?.errors?.required)">Không được để trống
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="form_dangki.hasError('passwordnotmatch', ['pwGroup']) &&
+      form_dangki.get('pwGroup')?.touched">
+    Password does not match!
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Country
+      <input type="text" class="form-control" formControlName="country">
+    </label>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('country')?.valid &&
+   (form_dangki.get('country')?.touched) && (form_dangki.get('country')?.errors?.required)">Không được để trống
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Age
+      <input type="text" class="form-control" formControlName="age">
+    </label>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('age')?.valid &&
+   (form_dangki.get('age')?.touched) && (form_dangki.get('age')?.errors?.required)">Không được để trống
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('age')?.valid &&
+   (form_dangki.get('age')?.dirty) && (form_dangki.get('age')?.errors?.min)">Phải lớn hơn 18
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Gender
+      <p>Male</p><input type="radio" class="form-control" formControlName="gender" value="Male">
+      <p>FeMale</p><input type="radio" class="form-control" formControlName="gender" value="FeMale">
+    </label>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('gender')?.valid &&
+   (form_dangki.get('gender')?.touched) && (form_dangki.get('gender')?.errors?.required)">Không được để trống
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Phone
+      <input type="text" class="form-control" formControlName="phone" name="phone" ngModel pattern="[/^\+84\d{9,10}$/]">
+    </label>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="!form_dangki.get('phone')?.valid &&
+   (form_dangki.get('phone')?.touched) && (form_dangki.get('phone')?.errors?.required)">Không được để trống
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Submit</button>
+  </div>
+</form>
