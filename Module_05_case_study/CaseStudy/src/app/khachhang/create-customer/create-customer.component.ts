@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {arrayKhachHang} from "../array-KhachHang";
 import {Router} from "@angular/router";
+import {CustomerService} from "../customer.service";
 
 @Component({
   selector: 'app-create-customer',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class CreateCustomerComponent implements OnInit {
   createCustomer! : FormGroup;
-  constructor(private router: Router) { }
+  constructor(private router: Router,private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.createCustomer = new FormGroup({
@@ -26,7 +27,7 @@ export class CreateCustomerComponent implements OnInit {
 
   onSubmitCustomer() {
     if (this.createCustomer.valid){
-      arrayKhachHang.push(this.createCustomer.value);
+      this.customerService.setCustomer(this.createCustomer.value);
       this.router.navigate(['/listCustomer']);
     }
   }

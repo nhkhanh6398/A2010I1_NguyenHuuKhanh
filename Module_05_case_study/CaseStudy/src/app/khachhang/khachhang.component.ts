@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from "./customer";
 import {arrayKhachHang} from "./array-KhachHang";
+import {CustomerService} from "./customer.service";
 
 
 // @ts-ignore
@@ -11,9 +12,10 @@ import {arrayKhachHang} from "./array-KhachHang";
 })
 
 export class KhachhangComponent implements OnInit {
-  listCustomer: Customer[] = arrayKhachHang;
-  constructor() { }
+  listCustomer: Customer[] = [];
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.listCustomer = this.customerService.getAllCustomer();
   }
 }

@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateCustomerComponent} from "./khachhang/create-customer/create-customer.component";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import {CreateCustomerComponent} from "./khachhang/create-customer/create-custom
     HopdongComponent,
     NavbarComponent,
     CreateEmployeeComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+
   ],
   imports: [
     BrowserModule,

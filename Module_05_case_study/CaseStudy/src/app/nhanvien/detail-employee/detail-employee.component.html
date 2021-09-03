@@ -1,47 +1,55 @@
 <div class="row">
   <div class="col-2"></div>
   <div class="col-8">
-    <form class="form-group"  >
-      <div class="form-group">
-        <label for="idEmployee">Id Employee </label>
-        <input type="text" class="form-control" id="idEmployee" name="idEmployee" formControlName="idEmployee">
-      </div>
-      <div class="form-group">
-        <label for="name">Name </label>
-        <input type="text" class="form-control" id="name" formControlName="name">
+    <div align="center">
+      <table class="table" >
 
-      </div>
-      <div class="form-group">
-        <label for="Birthday">Birthday </label>
-        <input type="date" class="form-control" id="Birthday" formControlName="birthday">
-
-      </div>
-      <div class="form-group">
-        <label for="IDCard">ID Card </label>
-        <input type="text" class="form-control" id="IDCard" formControlName="idCard">
-
-      </div>
-      <div class="form-group">
-        <label for="Salary">Salary </label>
-        <input type="text" class="form-control" id="Salary" formControlName="salary">
-
-      </div>
-      <div class="form-group">
-        <label for="Phone">Phone </label>
-        <input type="text" class="form-control" id="Phone" formControlName="phone">
-
-      </div>
-      <div class="form-group">
-        <label for="Email">Email </label>
-        <input type="text" class="form-control" id="Email" formControlName="email">
-
-      </div>
-      <div class="form-group">
-        <label for="Address">Address </label>
-        <input type="text" class="form-control" id="Address" formControlName="address">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <tr>
+          <td>ID Employee</td>
+          <td>{{employeeInfor.idEmployee}}</td>
+        </tr>
+        <tr>
+          <td>Name Employee</td>
+          <td>{{employeeInfor.name}}</td>
+        </tr>
+        <tr>
+          <td>Birth Day</td>
+          <td>{{employeeInfor.birthday}}</td>
+        </tr>
+        <tr>
+          <td>ID Card</td>
+          <td>{{employeeInfor.idCard}}</td>
+        </tr>
+        <tr>
+          <td>Salary</td>
+          <td>{{employeeInfor.salary}}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{employeeInfor.phone}}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{employeeInfor.email}}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{employeeInfor.address}}</td>
+        </tr>
+        <tr>
+          <td>Position</td>
+          <td>{{employeeInfor.idBoPhan}}</td>
+        </tr>
+        <tr>
+          <td>Education</td>
+          <td>{{employeeInfor.idTrinhDo}}</td>
+        </tr>
+        <tr>
+          <td>Division</td>
+          <td>{{employeeInfor.idViTri}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="col-2"></div>
 </div>

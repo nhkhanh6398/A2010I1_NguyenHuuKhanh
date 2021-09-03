@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {CustomerService} from "../customer.service";
+import {Customer} from "../customer";
 
 @Component({
   selector: 'app-detail-customer',
@@ -7,10 +9,17 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./detail-customer.component.css']
 })
 export class DetailCustomerComponent implements OnInit {
-
-  constructor(private activatedRoute: ActivatedRoute) { }
+  // @ts-ignore
+  customerInfor: Customer;
+  id!: string | null;
+  constructor(private activatedRoute: ActivatedRoute,private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((pramMap)=>{
+      this.id = pramMap.get('id');
+      // @ts-ignore
+      this.customerInfor = this.customerService.getCustomerById(this.id);
+    });
   }
 
 }

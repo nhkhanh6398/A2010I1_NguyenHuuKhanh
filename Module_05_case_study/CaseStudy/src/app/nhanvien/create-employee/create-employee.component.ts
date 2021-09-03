@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {arrayEmployee} from "../array-Employee";
 import {Router} from "@angular/router";
+import {EmployeeService} from "../employee.service";
 
 @Component({
   selector: 'app-create-employee',
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 export class CreateEmployeeComponent implements OnInit {
   createEmployee!: FormGroup;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private employeeService : EmployeeService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   create() {
     if (this.createEmployee.valid) {
-      arrayEmployee.push(this.createEmployee.value);
+      this.employeeService.setEmployee(this.createEmployee.value);
       this.router.navigate(['/listEmployee']);
     }
   }
