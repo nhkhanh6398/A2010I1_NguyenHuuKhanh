@@ -13,6 +13,11 @@ import {EmployeeModuleModule} from "./nhanvien/employee-module.module";
 import {CustomerModule} from "./khachhang/customer.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateCustomerComponent} from "./khachhang/create-customer/create-customer.component";
+import {EditEmployeeComponent} from "./nhanvien/edit-employee/edit-employee.component";
+import {DeleteCustomerComponent} from "./khachhang/delete-customer/delete-customer.component";
+import {EditCustomerComponent} from "./khachhang/edit-customer/edit-customer.component";
+
+
 
 
 
@@ -26,6 +31,9 @@ import {CreateCustomerComponent} from "./khachhang/create-customer/create-custom
     NavbarComponent,
     CreateEmployeeComponent,
     CreateCustomerComponent,
+    EditEmployeeComponent,
+    DeleteCustomerComponent,
+    EditCustomerComponent,
 
   ],
   imports: [

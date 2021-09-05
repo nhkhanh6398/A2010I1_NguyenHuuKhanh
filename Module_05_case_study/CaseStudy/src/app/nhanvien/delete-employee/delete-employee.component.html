@@ -1,1 +1,18 @@
-<p>delete-employee works!</p>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <table class="table text-center">
+      <thead>
+      <th>Delete employee name: {{employeeInfor.name}}</th>
+      </thead>
+      <tr>
+        <td><a class="btn btn-primary" (click)="deleteEmployee(employeeInfor.idEmployee)">Delete</a></td>
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div class="col-2"></div>
+
+</div>

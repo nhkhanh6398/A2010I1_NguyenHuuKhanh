@@ -18,4 +18,23 @@ export class EmployeeService {
   setEmployee(employee : Employee){
     this.employees.push(employee);
   }
+  updateEmployee(employee: Employee){
+    this.employees.find(element =>{
+      if (element.idEmployee == employee.idEmployee){
+        element.name = employee.name;
+        element.birthday = employee.birthday;
+        element.email = employee.email;
+        element.salary = employee.salary;
+        element.phone = employee.phone;
+        element.address = employee.address;
+        element.idCard = employee.idCard;
+      }
+    })
+  }
+  deleteEmployeById(id: string){
+    let employee = this.getEmployeeById(id);
+    if (employee!= undefined){
+      this.employees.splice(this.employees.indexOf(employee),1);
+    }
+  }
 }

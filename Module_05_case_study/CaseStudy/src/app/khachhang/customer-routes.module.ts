@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {KhachhangComponent} from "./khachhang.component";
 import {CreateCustomerComponent} from "./create-customer/create-customer.component";
-import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
+import {DetailCustomerComponent} from './detail-customer/detail-customer.component';
 import {DeleteEmployeeComponent} from "../nhanvien/delete-employee/delete-employee.component";
-import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import {EditCustomerComponent} from './edit-customer/edit-customer.component';
 
 const routesCustomer: Routes = [
   {path: 'listCustomer', component: KhachhangComponent},
@@ -18,7 +18,7 @@ const routesCustomer: Routes = [
 @NgModule({
   declarations: [
     DetailCustomerComponent,
-    EditCustomerComponent
+
   ],
   imports: [
     CommonModule,
