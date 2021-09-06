@@ -12,17 +12,22 @@ import {CustomerService} from "../customer.service";
 })
 export class DeleteCustomerComponent implements OnInit {
 
-  // @ts-ignore
-  customerInfor:  Customer;
-  id!: string | null;
+  customerInfor!:  Customer;
+  id!: string;
   constructor( private activatedRoute: ActivatedRoute, private customerService: CustomerService,private router: Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = paramMap.get('id');
-      console.log(paramMap.get('id'));
-      // @ts-ignore
-      this.customerInfor = this.customerService.getCustomerById(this.id);
+      let param = paramMap.get('id');
+      if(param != null) {
+        this.id = param;
+        // console.log(paramMap.get('id'));
+        let customer = this.customerService.getCustomerById(this.id);
+        console.log(customer);
+        if (customer != undefined){
+          this.customerInfor = customer;
+        }
+      }
     });
   }
 
@@ -34,3 +39,4 @@ export class DeleteCustomerComponent implements OnInit {
     }
   }
 }
+

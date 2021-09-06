@@ -22,7 +22,7 @@ export class CustomerService {
   updateCustomer(customer: Customer){
     this.customers.find(element =>{
       if (element.idCustomer == customer.idCustomer){
-        element.name = customer.name;
+        element.nameCustomer = customer.nameCustomer;
         element.birthday = customer.birthday;
         element.email = customer.email;
         element.phone = customer.phone;
@@ -33,7 +33,7 @@ export class CustomerService {
   }
   deleteCustomerById(id: string){
     let customers = this.getCustomerById(id);
-    if (customers!= undefined){
+    if (customers != undefined){
       this.customers.splice(this.customers.indexOf(customers),1);
     }
   }

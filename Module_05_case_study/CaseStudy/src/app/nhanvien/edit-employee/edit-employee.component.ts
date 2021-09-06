@@ -20,6 +20,7 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.editEmployee = new FormGroup({
       idEmployee: new FormControl('', [Validators.required,Validators.pattern("^(NV-)+[0-9]{4}")]),
       name: new FormControl('', [Validators.required]),
@@ -29,7 +30,7 @@ export class EditEmployeeComponent implements OnInit {
       phone: new FormControl('', [Validators.required,Validators.pattern("^(090)+[0-9]{7}")]),
       email: new FormControl('', [Validators.required,Validators.email]),
       address: new FormControl('', [Validators.required]),
-    })
+    });
     this.activatedRoute.paramMap.subscribe((paramat)=>{
       this.id = paramat.get('id');
       // @ts-ignore
@@ -38,9 +39,10 @@ export class EditEmployeeComponent implements OnInit {
     })
   }
   submitEdit() {
+    console.log(":v")
     if (this.editEmployee.valid) {
       this.employeeService.updateEmployee(this.editEmployee.value);
       this.router.navigate(['/listEmployee']);
-  }
+    }
   }
 }

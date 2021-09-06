@@ -5,7 +5,7 @@
     <form class="form-group" [formGroup]="editEmployee" (ngSubmit)="submitEdit()" >
       <div class="form-group">
         <label for="idEmployee">Id Employee </label>
-        <input type="text" class="form-control" id="idEmployee"  formControlName="idEmployee">
+        <input type="text" class="form-control" id="idEmployee"  formControlName="idEmployee" readonly>
         <div class="alert alert-danger" *ngIf="editEmployee.get('idEmployee')?.invalid && editEmployee.get('idEmployee')?.touched &&
              editEmployee.get('idEmployee')?.errors?.required">ID Không được để trống</div>
       </div>

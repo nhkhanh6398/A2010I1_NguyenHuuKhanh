@@ -21,7 +21,7 @@ export class EditCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.editCustomer = new FormGroup({
       idCustomer: new FormControl('',[Validators.required,Validators.pattern("^(KH-)+[0-9]{4}")]),
-      name: new FormControl('',[Validators.required]),
+      nameCustomer: new FormControl('',[Validators.required]),
       birthday: new FormControl('',[Validators.required]),
       idCard: new FormControl('',[Validators.required]),
       phone: new FormControl('',[Validators.required,Validators.pattern("^(090)+[0-9]{7}")]),
@@ -37,6 +37,9 @@ export class EditCustomerComponent implements OnInit {
   }
 
   onEditCustomer() {
-
+    if (this.editCustomer.valid) {
+      this.customerService.updateCustomer(this.editCustomer.value);
+      this.router.navigate(['/listCustomer']);
+    }
   }
 }

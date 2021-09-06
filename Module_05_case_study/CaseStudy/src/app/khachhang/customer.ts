@@ -1,6 +1,6 @@
 export interface Customer {
   idCustomer: string,
-  name: string,
+  nameCustomer: string,
   birthday: string,
   idCard: string,
   phone: string,

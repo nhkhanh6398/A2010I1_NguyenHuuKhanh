@@ -12,10 +12,10 @@
              createCustomer.get('idCustomer')?.errors?.pattern">ID không đúng định dạng</div>
       </div>
       <div class="form-group">
-        <label for="name">Name </label>
-        <input type="text" class="form-control" id="name" formControlName="name">
-        <div class="alert alert-danger" *ngIf="createCustomer.get('name')?.invalid && createCustomer.get('name')?.touched &&
-             createCustomer.get('name')?.errors?.required">Name Không được để trống</div>
+        <label for="nameCustomer">Name </label>
+        <input type="text" class="form-control" id="nameCustomer" formControlName="nameCustomer">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('nameCustomer')?.invalid && createCustomer.get('nameCustomer')?.touched &&
+             createCustomer.get('nameCustomer')?.errors?.required">Name Không được để trống</div>
       </div>
       <div class="form-group">
         <label for="Birthday">Birthday </label>

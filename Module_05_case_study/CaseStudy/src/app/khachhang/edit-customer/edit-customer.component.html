@@ -5,17 +5,17 @@
     <form class="form-group" [formGroup]="editCustomer" (ngSubmit)="onEditCustomer()" >
       <div class="form-group">
         <label for="idCustomer">Id Customer </label>
-        <input type="text" class="form-control" id="idCustomer"  formControlName="idCustomer">
+        <input type="text" class="form-control" id="idCustomer"  formControlName="idCustomer" readonly>
         <div class="alert alert-danger" *ngIf="editCustomer.get('idCustomer')?.invalid && editCustomer.get('idCustomer')?.touched &&
              editCustomer.get('idCustomer')?.errors?.required">ID Không được để trống</div>
         <div class="alert alert-danger" *ngIf="editCustomer.get('idCustomer')?.invalid && editCustomer.get('idCustomer')?.dirty &&
              editCustomer.get('idCustomer')?.errors?.pattern">ID không đúng định dạng</div>
       </div>
       <div class="form-group">
-        <label for="name">Name </label>
-        <input type="text" class="form-control" id="name" formControlName="name">
-        <div class="alert alert-danger" *ngIf="editCustomer.get('name')?.invalid && editCustomer.get('name')?.touched &&
-             editCustomer.get('name')?.errors?.required">Name Không được để trống</div>
+        <label for="nameCustomer">Name </label>
+        <input type="text" class="form-control" id="nameCustomer" formControlName="nameCustomer">
+        <div class="alert alert-danger" *ngIf="editCustomer.get('nameCustomer')?.invalid && editCustomer.get('nameCustomer')?.touched &&
+             editCustomer.get('nameCustomer')?.errors?.required">Name Không được để trống</div>
       </div>
       <div class="form-group">
         <label for="Birthday">Birthday </label>
