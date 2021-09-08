@@ -2,13 +2,13 @@
   "employee": [
     {
       "id": "NV-0111",
-      "name": "Nguyễn Khánh Bun",
+      "name": "Trần Tiến Bộ Lắm",
       "birthday": "2021-09-10",
       "idCard": "1234567",
       "salary": "123456",
       "phone": "0901234567",
-      "email": "hientran200398@gmail.com",
-      "address": "Hiệu Bánh Mỳ Thắng Trâm, Bồ Bản, Triệu Phước, Triệu Phong, Quảng Trị"
+      "email": "nhkhanh6398@gmail.com",
+      "address": "Đà Nẵng"
     },
     {
       "id": "NV-3333",
@@ -42,13 +42,13 @@
     },
     {
       "id": "NV-9998",
-      "name": "NGUYỄN hữu KHÁNH",
+      "name": "Trần Cố Gắng Lắm",
       "birthday": "2021-09-09",
       "idCard": "1234567",
       "salary": "123456",
       "phone": "0901234567",
-      "email": "nhkhanh6398@gmail.com",
-      "address": "Đà Nẵng"
+      "email": "trung@gmail.com",
+      "address": "Nghệ An"
     }
   ],
   "customer": [

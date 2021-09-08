@@ -17,6 +17,7 @@ import {EditEmployeeComponent} from "./nhanvien/edit-employee/edit-employee.comp
 import {DeleteCustomerComponent} from "./khachhang/delete-customer/delete-customer.component";
 import {EditCustomerComponent} from "./khachhang/edit-customer/edit-customer.component";
 import {NgxPaginationModule} from "ngx-pagination";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -46,6 +47,7 @@ import {NgxPaginationModule} from "ngx-pagination";
         FormsModule,
         ReactiveFormsModule,
         NgxPaginationModule,
+        Ng2SearchPipeModule,
 
     ],
   providers: [],

@@ -14,6 +14,7 @@ import {CustomerService} from "./customer.service";
 export class KhachhangComponent implements OnInit {
   listCustomer: Customer[] = [];
   p: number = 1;
+  term: any;
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
