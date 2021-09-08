@@ -12,6 +12,7 @@ export class DeleteEmployeeComponent implements OnInit {
   // @ts-ignore
   employeeInfor:  Employee;
   id!: string | null;
+
   constructor( private activatedRoute: ActivatedRoute, private employeeService: EmployeeService,private router: Router) { }
 
   ngOnInit(): void {
@@ -19,15 +20,14 @@ export class DeleteEmployeeComponent implements OnInit {
       this.id = paramMap.get('id');
       console.log(paramMap.get('id'));
       // @ts-ignore
-      this.employeeInfor = this.employeeService.getEmployeeById(this.id);
+      this.employeeService.getEmployeeById(this.id).subscribe((data)=>{
+        this.employeeInfor = data;
+      });
     });
   }
-
   deleteEmployee(id: string) {
-    let employee = this.employeeService.getEmployeeById(id);
-    if (employee != undefined){
-      this.employeeService.deleteEmployeById(id);
+    this.employeeService.deleteEmployeById(id).subscribe(()=>{
       this.router.navigate(['listEmployee']);
-    }
+      })
   }
 }

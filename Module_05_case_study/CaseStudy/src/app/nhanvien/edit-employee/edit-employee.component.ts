@@ -22,7 +22,7 @@ export class EditEmployeeComponent implements OnInit {
   ngOnInit(): void {
 
     this.editEmployee = new FormGroup({
-      idEmployee: new FormControl('', [Validators.required,Validators.pattern("^(NV-)+[0-9]{4}")]),
+      id: new FormControl('', [Validators.required,Validators.pattern("^(NV-)+[0-9]{4}")]),
       name: new FormControl('', [Validators.required]),
       birthday: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required]),
@@ -34,15 +34,21 @@ export class EditEmployeeComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((paramat)=>{
       this.id = paramat.get('id');
       // @ts-ignore
-      this.employeeInfor = this.employeeService.getEmployeeById(this.id);
-      this.editEmployee.patchValue(this.employeeInfor);
+      this.employeeService.getEmployeeById(this.id).subscribe(
+        (data)=>{
+        this.employeeInfor = data;
+          this.editEmployee.patchValue(this.employeeInfor);
+      });
+
     })
   }
   submitEdit() {
-    console.log(":v")
     if (this.editEmployee.valid) {
-      this.employeeService.updateEmployee(this.editEmployee.value);
-      this.router.navigate(['/listEmployee']);
+      // @ts-ignore
+      this.employeeService.updateEmployee(this.id, this.editEmployee.value).subscribe(
+        () => {
+          this.router.navigate(['/listEmployee']);
+        })
     }
   }
 }

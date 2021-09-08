@@ -4,10 +4,10 @@
     <h1 class="text-center text-danger">Sửa Nhân Viên</h1>
     <form class="form-group" [formGroup]="editEmployee" (ngSubmit)="submitEdit()" >
       <div class="form-group">
-        <label for="idEmployee">Id Employee </label>
-        <input type="text" class="form-control" id="idEmployee"  formControlName="idEmployee" readonly>
-        <div class="alert alert-danger" *ngIf="editEmployee.get('idEmployee')?.invalid && editEmployee.get('idEmployee')?.touched &&
-             editEmployee.get('idEmployee')?.errors?.required">ID Không được để trống</div>
+        <label for="id">Id Employee </label>
+        <input type="text" class="form-control" id="id"  formControlName="id" readonly>
+        <div class="alert alert-danger" *ngIf="editEmployee.get('id')?.invalid && editEmployee.get('id')?.touched &&
+             editEmployee.get('id')?.errors?.required">ID Không được để trống</div>
       </div>
       <div class="form-group">
         <label for="name">Name </label>

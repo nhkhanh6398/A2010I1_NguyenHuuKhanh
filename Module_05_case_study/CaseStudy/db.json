@@ -1,0 +1,92 @@
+{
+  "employee": [
+    {
+      "id": "NV-0111",
+      "name": "Nguyễn Khánh Bun",
+      "birthday": "2021-09-10",
+      "idCard": "1234567",
+      "salary": "123456",
+      "phone": "0901234567",
+      "email": "hientran200398@gmail.com",
+      "address": "Hiệu Bánh Mỳ Thắng Trâm, Bồ Bản, Triệu Phước, Triệu Phong, Quảng Trị"
+    },
+    {
+      "id": "NV-3333",
+      "name": "NGUYỄN KHÁNH",
+      "birthday": "2021-09-10",
+      "idCard": "1234567",
+      "salary": "123456",
+      "phone": "0901234567",
+      "email": "nhkhanh.17ce@vku.udn.vn",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": "NV-6234",
+      "name": "NGUYỄN KHÁNH",
+      "birthday": "2021-09-10",
+      "idCard": "1234567",
+      "salary": "123456",
+      "phone": "0901234567",
+      "email": "nhkhanh.17ce@vku.udn.vn",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": "NV-0987",
+      "name": "NGUYỄN KHÁNH",
+      "birthday": "2021-09-09",
+      "idCard": "1234567",
+      "salary": "123456",
+      "phone": "0901234567",
+      "email": "nhkhanh.17ce@vku.udn.vn",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": "NV-9998",
+      "name": "NGUYỄN hữu KHÁNH",
+      "birthday": "2021-09-09",
+      "idCard": "1234567",
+      "salary": "123456",
+      "phone": "0901234567",
+      "email": "nhkhanh6398@gmail.com",
+      "address": "Đà Nẵng"
+    }
+  ],
+  "customer": [
+    {
+      "idCustomer": "KH-1234",
+      "nameCustomer": "Khánh",
+      "birthday": "06/03/1998",
+      "idCard": "197400187",
+      "email": "nhkhanh6398@gmail.com",
+      "phone": "017766898",
+      "address": "Quảng Trị"
+    },
+    {
+      "idCustomer": "KH-2345",
+      "nameCustomer": "Hiền",
+      "birthday": "20/03/1998",
+      "idCard": "197400187",
+      "email": "hientran@gmail.com",
+      "phone": "017766898",
+      "address": "Quảng Trị"
+    },
+    {
+      "idCustomer": "KH-3333",
+      "nameCustomer": "Quân",
+      "birthday": "06/03/1998",
+      "idCard": "197400187",
+      "email": "nhkhanh6398@gmail.com",
+      "phone": "017766898",
+      "address": "Quảng Trị"
+    },
+    {
+      "idCustomer": "KH-4444",
+      "nameCustomer": "Bun",
+      "birthday": "06/03/1998",
+      "idCard": "197400187",
+      "email": "nhkhanh6398@gmail.com",
+      "phone": "017766898",
+      "address": "Quảng Trị"
+    }
+  ]
+}

@@ -10,10 +10,21 @@ import {EmployeeService} from "./employee.service";
 })
 export class NhanvienComponent implements OnInit {
   listEmployee: Employee[] = [];
+  p: number = 1;
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.listEmployee = this.employeeService.getAllEmployee();
+     this.employeeService.getAllEmployee().subscribe(
+       (data)=>{
+         this.listEmployee = data;
+       },
+       ()=>{
+         console.log("Error");
+       },
+       ()=>{
+         console.log("Complete");
+       }
+     );
   }
 
 }

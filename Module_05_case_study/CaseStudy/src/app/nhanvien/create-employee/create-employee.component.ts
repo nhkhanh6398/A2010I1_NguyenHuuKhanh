@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
-import {arrayEmployee} from "../array-Employee";
 import {Router} from "@angular/router";
 import {EmployeeService} from "../employee.service";
 
@@ -17,7 +16,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.createEmployee = new FormGroup({
-      idEmployee: new FormControl('', [Validators.required,Validators.pattern("^(NV-)+[0-9]{4}")]),
+      id: new FormControl('', [Validators.required,Validators.pattern("^(NV-)+[0-9]{4}")]),
       name: new FormControl('', [Validators.required]),
       birthday: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required]),
@@ -30,8 +29,14 @@ export class CreateEmployeeComponent implements OnInit {
 
   create() {
     if (this.createEmployee.valid) {
-      this.employeeService.setEmployee(this.createEmployee.value);
-      this.router.navigate(['/listEmployee']);
+      this.employeeService.setEmployee(this.createEmployee.value).subscribe(
+        ()=>{
+          this.router.navigate(['/listEmployee']);
+        },
+        ()=>{},
+        ()=>{}
+      );
+
     }
   }
 }

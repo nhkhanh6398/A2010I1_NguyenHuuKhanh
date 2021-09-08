@@ -16,6 +16,8 @@ import {CreateCustomerComponent} from "./khachhang/create-customer/create-custom
 import {EditEmployeeComponent} from "./nhanvien/edit-employee/edit-employee.component";
 import {DeleteCustomerComponent} from "./khachhang/delete-customer/delete-customer.component";
 import {EditCustomerComponent} from "./khachhang/edit-customer/edit-customer.component";
+import {NgxPaginationModule} from "ngx-pagination";
+
 
 
 
@@ -36,14 +38,16 @@ import {EditCustomerComponent} from "./khachhang/edit-customer/edit-customer.com
     EditCustomerComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    EmployeeModuleModule,
-    CustomerModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        EmployeeModuleModule,
+        CustomerModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

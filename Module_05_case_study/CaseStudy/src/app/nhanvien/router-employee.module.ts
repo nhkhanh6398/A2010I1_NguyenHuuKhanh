@@ -6,6 +6,8 @@ import {NhanvienComponent} from "./nhanvien.component";
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { DetailEmployeeComponent } from './detail-employee/detail-employee.component';
 import {EditEmployeeComponent} from "./edit-employee/edit-employee.component";
+import {NgxPaginationModule} from "ngx-pagination";
+import {HttpClientModule} from "@angular/common/http";
 
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    NgxPaginationModule
   ]
 })
 

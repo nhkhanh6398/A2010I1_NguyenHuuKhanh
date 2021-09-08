@@ -4,7 +4,7 @@ import {Employee} from "./Employee";
 // @ts-ignore
 export const arrayEmployee : Employee[] = [
   {
-    idEmployee: "NV-0111",
+    id: "NV-0111",
     name: "Trần Tiến Bộ",
     birthday: "20/03/1998",
     idCard: "12345566",
@@ -17,7 +17,7 @@ export const arrayEmployee : Employee[] = [
     idViTri: "1"
   },
   {
-    idEmployee: "NV-0222",
+    id: "NV-0222",
     name: "Trần Cố Gắng",
     birthday: "20/03/1998",
     idCard: "12345566",
@@ -30,7 +30,7 @@ export const arrayEmployee : Employee[] = [
     idViTri: "1"
   },
   {
-    idEmployee: "NV-0333",
+    id: "NV-0333",
     name: "Trần Thành Công",
     birthday: "20/03/1998",
     idCard: "12345566",

@@ -21,7 +21,12 @@ export class DetailEmployeeComponent implements OnInit {
       this.id = paramMap.get('id');
       console.log(paramMap.get('id'));
       // @ts-ignore
-      this.employeeInfor = this.employeeService.getEmployeeById(this.id);
+      this.employeeService.getEmployeeById(this.id).subscribe(
+        (data)=>{
+          console.log(data);
+          this.employeeInfor = data;
+        }
+        );
     });
   }
 
