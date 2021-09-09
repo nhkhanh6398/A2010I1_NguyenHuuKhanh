@@ -26,7 +26,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let array of listCustomer |filter : term |paginate: { itemsPerPage: 3, currentPage: p }">
-    <th scope="row">{{array.idCustomer}}</th>
+    <th scope="row">{{array.id}}</th>
     <td>{{array.nameCustomer|titlecase}}</td>
     <td>{{array.birthday}}</td>
     <td>{{array.idCard}}</td>
@@ -34,9 +34,9 @@
     <td>{{array.phone}}</td>
     <td>{{array.address}}</td>
     <td>
-      <button class="btn badge-warning m-2" [routerLink]="['/detailCustomer', array.idCustomer]">Detail</button>
-      <button class="btn badge-warning m-2" [routerLink]="['/editCustomer', array.idCustomer]">Edit</button>
-      <button class="btn badge-danger" [routerLink]="['/deleteCustomer', array.idCustomer]">Delete</button>
+      <button class="btn badge-warning m-2" [routerLink]="['/detailCustomer', array.id]">Detail</button>
+      <button class="btn badge-warning m-2" [routerLink]="['/editCustomer', array.id]">Edit</button>
+      <button class="btn badge-danger" [routerLink]="['/deleteCustomer', array.id]">Delete</button>
     </td>
   </tr>
   </tbody>

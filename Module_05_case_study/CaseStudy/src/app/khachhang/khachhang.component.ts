@@ -18,6 +18,8 @@ export class KhachhangComponent implements OnInit {
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    this.listCustomer = this.customerService.getAllCustomer();
+    this.customerService.getAllCustomer().subscribe((data)=>{
+      this.listCustomer = data;
+    });
   }
 }

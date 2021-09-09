@@ -18,7 +18,12 @@ export class DetailCustomerComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((pramMap)=>{
       this.id = pramMap.get('id');
       // @ts-ignore
-      this.customerInfor = this.customerService.getCustomerById(this.id);
+      console.log(this.id);
+      // @ts-ignore
+      this.customerService.getCustomerById(this.id).subscribe(
+        (data)=>{
+        this.customerInfor = data;
+      })
     });
   }
 

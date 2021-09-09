@@ -20,7 +20,7 @@ export class EditCustomerComponent implements OnInit {
 
   ngOnInit(): void {
     this.editCustomer = new FormGroup({
-      idCustomer: new FormControl('',[Validators.required,Validators.pattern("^(KH-)+[0-9]{4}")]),
+      id: new FormControl('',[Validators.required,Validators.pattern("^(KH-)+[0-9]{4}")]),
       nameCustomer: new FormControl('',[Validators.required]),
       birthday: new FormControl('',[Validators.required]),
       idCard: new FormControl('',[Validators.required]),
@@ -31,15 +31,24 @@ export class EditCustomerComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((paramap)=>{
       this.id = paramap.get('id');
       // @ts-ignore
-      this.customerInfor = this.customerService.getCustomerById(this.id);
-      this.editCustomer.patchValue(this.customerInfor);
+     this.customerService.getCustomerById(this.id).subscribe(
+       (data)=>{
+       this.customerInfor = data;
+       this.editCustomer.patchValue(this.customerInfor);
+     })
     })
   }
 
   onEditCustomer() {
     if (this.editCustomer.valid) {
-      this.customerService.updateCustomer(this.editCustomer.value);
-      this.router.navigate(['/listCustomer']);
+      console.log(this.editCustomer.value);
+      // @ts-ignore
+
+      this.customerService.updateCustomer(this.editCustomer.value,this.id).subscribe(
+        ()=>{
+        this.router.navigate(['/listCustomer']);
+      })
+
     }
   }
 }

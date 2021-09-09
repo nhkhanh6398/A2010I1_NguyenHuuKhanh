@@ -11,6 +11,7 @@ import {EmployeeService} from "./employee.service";
 export class NhanvienComponent implements OnInit {
   listEmployee: Employee[] = [];
   p: number = 1;
+  term: any;
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {

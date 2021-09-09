@@ -8,6 +8,7 @@ import {DeleteEmployeeComponent} from "../nhanvien/delete-employee/delete-employ
 import {EditCustomerComponent} from './edit-customer/edit-customer.component';
 import {DeleteCustomerComponent} from "./delete-customer/delete-customer.component";
 import {NgxPaginationModule} from 'ngx-pagination';
+import {HttpClientModule} from "@angular/common/http";
 
 const routesCustomer: Routes = [
   {path: 'listCustomer', component: KhachhangComponent},
@@ -19,11 +20,12 @@ const routesCustomer: Routes = [
 
 @NgModule({
   declarations: [
-    DetailCustomerComponent,
+
 
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule.forRoot(routesCustomer),
     NgxPaginationModule
   ]

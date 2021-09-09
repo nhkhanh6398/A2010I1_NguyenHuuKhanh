@@ -18,6 +18,7 @@ import {DeleteCustomerComponent} from "./khachhang/delete-customer/delete-custom
 import {EditCustomerComponent} from "./khachhang/edit-customer/edit-customer.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {DetailCustomerComponent} from "./khachhang/detail-customer/detail-customer.component";
 
 
 
@@ -37,7 +38,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EditEmployeeComponent,
     DeleteCustomerComponent,
     EditCustomerComponent,
-
+    DetailCustomerComponent,
   ],
     imports: [
         BrowserModule,

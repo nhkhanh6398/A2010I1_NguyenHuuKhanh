@@ -4,12 +4,12 @@
     <h1 class="text-center text-danger">Thêm Khách Hàng</h1>
     <form class="form-group" [formGroup]="createCustomer" (ngSubmit)="onSubmitCustomer()" >
       <div class="form-group">
-        <label for="idCustomer">Id Customer </label>
-        <input type="text" class="form-control" id="idCustomer"  formControlName="idCustomer">
-        <div class="alert alert-danger" *ngIf="createCustomer.get('idCustomer')?.invalid && createCustomer.get('idCustomer')?.touched &&
-             createCustomer.get('idCustomer')?.errors?.required">ID Không được để trống</div>
-        <div class="alert alert-danger" *ngIf="createCustomer.get('idCustomer')?.invalid && createCustomer.get('idCustomer')?.dirty &&
-             createCustomer.get('idCustomer')?.errors?.pattern">ID không đúng định dạng</div>
+        <label for="id">Id Customer </label>
+        <input type="text" class="form-control" id="id"  formControlName="id">
+        <div class="alert alert-danger" *ngIf="createCustomer.get('id')?.invalid && createCustomer.get('id')?.touched &&
+             createCustomer.get('id')?.errors?.required">ID Không được để trống</div>
+        <div class="alert alert-danger" *ngIf="createCustomer.get('id')?.invalid && createCustomer.get('id')?.dirty &&
+             createCustomer.get('id')?.errors?.pattern">ID không đúng định dạng</div>
       </div>
       <div class="form-group">
         <label for="nameCustomer">Name </label>

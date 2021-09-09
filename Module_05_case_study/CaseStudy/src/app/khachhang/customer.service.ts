@@ -2,39 +2,29 @@ import { Injectable } from '@angular/core';
 import {Customer} from "./customer";
 import {arrayKhachHang} from "./array-KhachHang";
 import {Employee} from "../nhanvien/Employee";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
   customers: Customer[] = arrayKhachHang;
-
-  constructor() { }
-  getAllCustomer(){
-    return this.customers;
+  readonly URL_API = "http://localhost:3000/customer";
+  constructor(private httpClient: HttpClient) { }
+  getAllCustomer(): Observable<Customer[]>{
+    return this.httpClient.get<Customer[]>(this.URL_API);
   }
-  getCustomerById(id: string){
-    return this.customers.find(customer => customer.idCustomer === id);
+  getCustomerById(id: string): Observable<Customer>{
+    return this.httpClient.get<Customer>(this.URL_API + '/' +id);
   }
-  setCustomer(customer: Customer){
-    return this.customers.push(customer);
+  setCustomer(customer: Customer): Observable<Customer>{
+    return this.httpClient.post<Customer>(this.URL_API, customer);
   }
-  updateCustomer(customer: Customer){
-    this.customers.find(element =>{
-      if (element.idCustomer == customer.idCustomer){
-        element.nameCustomer = customer.nameCustomer;
-        element.birthday = customer.birthday;
-        element.email = customer.email;
-        element.phone = customer.phone;
-        element.address = customer.address;
-        element.idCard = customer.idCard;
-      }
-    })
+  updateCustomer(customer: Customer, id:string):Observable<Customer>{
+    return this.httpClient.put<Customer>(this.URL_API + '/'+id, customer);
   }
-  deleteCustomerById(id: string){
-    let customers = this.getCustomerById(id);
-    if (customers != undefined){
-      this.customers.splice(this.customers.indexOf(customers),1);
-    }
+  deleteCustomerById(id: string):Observable<Customer>{
+   return this.httpClient.delete<Customer>(this.URL_API +'/'+id);
   }
 }
