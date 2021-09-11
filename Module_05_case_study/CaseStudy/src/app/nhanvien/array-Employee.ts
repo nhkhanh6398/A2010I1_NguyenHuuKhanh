@@ -12,9 +12,9 @@ export const arrayEmployee : Employee[] = [
     salary: 5000000,
     phone: "01234567",
     address: "Đà Nẳng",
-    idBoPhan: "1",
-    idTrinhDo: "1",
-    idViTri: "1"
+    position: "1",
+    education: "1",
+    division: "1"
   },
   {
     id: "NV-0222",
@@ -25,9 +25,9 @@ export const arrayEmployee : Employee[] = [
     salary: 5000000,
     phone: "01234567",
     address: "Đà Nẳng",
-    idBoPhan: "1",
-    idTrinhDo: "1",
-    idViTri: "1"
+    position: "1",
+    education: "1",
+    division: "1"
   },
   {
     id: "NV-0333",
@@ -38,8 +38,8 @@ export const arrayEmployee : Employee[] = [
     salary: 5000000,
     phone: "01234567",
     address: "Đà Nẳng",
-    idBoPhan: "1",
-    idTrinhDo: "1",
-    idViTri: "1"
+    position: "1",
+    education: "1",
+    division: "1"
   },
 ]

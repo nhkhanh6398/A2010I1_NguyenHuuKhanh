@@ -12,7 +12,7 @@ import {EmployeeService} from "../employee.service";
 export class DetailEmployeeComponent implements OnInit {
   // @ts-ignore
   employeeInfor:  Employee;
-   id!: string | null;
+  id!: string | null;
 
   constructor(private activatedRoute: ActivatedRoute,private employeeService: EmployeeService) { }
 
@@ -26,7 +26,7 @@ export class DetailEmployeeComponent implements OnInit {
           console.log(data);
           this.employeeInfor = data;
         }
-        );
+      );
     });
   }
 

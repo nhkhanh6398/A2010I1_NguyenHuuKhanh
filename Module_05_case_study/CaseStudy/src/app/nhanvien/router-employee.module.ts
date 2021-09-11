@@ -8,6 +8,7 @@ import { DetailEmployeeComponent } from './detail-employee/detail-employee.compo
 import {EditEmployeeComponent} from "./edit-employee/edit-employee.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
@@ -23,12 +24,13 @@ const routes: Routes = [
     DeleteEmployeeComponent,
     DetailEmployeeComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    NgxPaginationModule
-  ]
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterModule.forRoot(routes),
+        NgxPaginationModule,
+        FormsModule
+    ]
 })
 
 export class RouterEmployeeModule { }

@@ -1,25 +1,47 @@
 {
+  "position": [
+    {
+      "id": 1,
+      "name": "Manager"
+    },
+    {
+      "id": 2,
+      "name": "Bell"
+    },
+    {
+      "id": 3,
+      "name": "Director"
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "name": "Đại Học"
+    },
+    {
+      "id": 2,
+      "name": "Cao Đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Trung Cấp"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Maketting"
+    },
+    {
+      "id": 2,
+      "name": "Seller"
+    },
+    {
+      "id": 3,
+      "name": "Master Cheap"
+    }
+  ],
   "employee": [
-    {
-      "id": "NV-0111",
-      "name": "Trần Tiến Bộ Lắm",
-      "birthday": "2021-09-10",
-      "idCard": "1234567",
-      "salary": "123456",
-      "phone": "0901234567",
-      "email": "nhkhanh6398@gmail.com",
-      "address": "Đà Nẵng"
-    },
-    {
-      "id": "NV-3333",
-      "name": "NGUYỄN KHÁNH",
-      "birthday": "2021-09-10",
-      "idCard": "1234567",
-      "salary": "123456",
-      "phone": "0901234567",
-      "email": "nhkhanh.17ce@vku.udn.vn",
-      "address": "Đà Nẵng"
-    },
     {
       "id": "NV-6234",
       "name": "NGUYỄN KHÁNH",
@@ -28,7 +50,19 @@
       "salary": "123456",
       "phone": "0901234567",
       "email": "nhkhanh.17ce@vku.udn.vn",
-      "address": "Đà Nẵng"
+      "address": "Đà Nẵng",
+      "position": {
+        "id": 3,
+        "name": "Director"
+      },
+      "education": {
+        "id": 2,
+        "name": "Cao Đẳng"
+      },
+      "division": {
+        "id": 3,
+        "name": "Master Cheap"
+      }
     },
     {
       "id": "NV-0987",
@@ -38,7 +72,19 @@
       "salary": "123456",
       "phone": "0901234567",
       "email": "nhkhanh.17ce@vku.udn.vn",
-      "address": "Đà Nẵng"
+      "address": "Đà Nẵng",
+      "position": {
+        "id": 3,
+        "name": "Director"
+      },
+      "education": {
+        "id": 2,
+        "name": "Cao Đẳng"
+      },
+      "division": {
+        "id": 3,
+        "name": "Master Cheap"
+      }
     },
     {
       "id": "NV-9998",
@@ -48,7 +94,19 @@
       "salary": "123456",
       "phone": "0901234567",
       "email": "trung@gmail.com",
-      "address": "Nghệ An"
+      "address": "Nghệ An",
+      "position": {
+        "id": 3,
+        "name": "Director"
+      },
+      "education": {
+        "id": 2,
+        "name": "Cao Đẳng"
+      },
+      "division": {
+        "id": 3,
+        "name": "Master Cheap"
+      }
     }
   ],
   "customer": [

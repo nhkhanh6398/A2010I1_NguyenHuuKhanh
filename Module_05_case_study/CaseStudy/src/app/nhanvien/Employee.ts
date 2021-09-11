@@ -7,7 +7,7 @@ export interface Employee {
   phone: string,
   email: string,
   address: string,
-  idTrinhDo: string,
-  idViTri: string,
-  idBoPhan: string
+  education: string,
+  division: string,
+  position: string
 }

@@ -34,9 +34,9 @@
     <td>{{array.email}}</td>
     <td>{{array.phone}}</td>
     <td>{{array.address}}</td>
-    <td>{{array.idBoPhan}}</td>
-    <td>{{array.idTrinhDo}}</td>
-    <td>{{array.idViTri}}</td>
+    <td>{{array.position.name}}</td>
+    <td>{{array.education.name}}</td>
+    <td>{{array.division.name}}</td>
     <td>
       <button class="btn badge-warning m-2" [routerLink]="['/detailEmployee', array.id]">Detail</button>
       <button class="btn badge-warning m-2" [routerLink]="['/editEmployee', array.id]">Edit</button>

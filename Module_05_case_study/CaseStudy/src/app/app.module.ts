@@ -25,6 +25,7 @@ import {DetailCustomerComponent} from "./khachhang/detail-customer/detail-custom
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import {DetailCustomerComponent} from "./khachhang/detail-customer/detail-custom
     DeleteCustomerComponent,
     EditCustomerComponent,
     DetailCustomerComponent,
+
   ],
     imports: [
         BrowserModule,
