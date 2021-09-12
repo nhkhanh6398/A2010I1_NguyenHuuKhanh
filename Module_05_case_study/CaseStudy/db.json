@@ -107,6 +107,28 @@
         "id": 3,
         "name": "Master Cheap"
       }
+    },
+    {
+      "id": "NV-0114",
+      "name": "Khánh hihi",
+      "birthday": "2021-09-07",
+      "idCard": "1234567",
+      "salary": "123456",
+      "phone": "0901234567",
+      "email": "goodbyelove98@gmail.com",
+      "address": "Đà Nẵng",
+      "position": {
+        "id": 1,
+        "name": "Manager"
+      },
+      "education": {
+        "id": 2,
+        "name": "Cao Đẳng"
+      },
+      "division": {
+        "id": 1,
+        "name": "Maketting"
+      }
     }
   ],
   "customer": [

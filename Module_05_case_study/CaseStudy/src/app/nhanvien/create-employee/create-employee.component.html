@@ -51,6 +51,25 @@
         <div class="alert alert-danger" *ngIf="createEmployee.get('address')?.invalid && createEmployee.get('address')?.touched &&
              createEmployee.get('address')?.errors?.required">Address Không được để trống</div>
       </div>
+      <div class="form-group row ">
+        <label for="position" class="col-2">Vị Trí <span class="text-danger">*</span></label>
+        <select formControlName="position"  id="position" class="form-control col-10">
+          <option *ngFor="let posObj of positionList" [ngValue]="posObj">{{posObj.name}}</option>
+        </select>
+      </div>
+      <div class="form-group row ">
+        <label for="educationDegree" class="col-2">Trình Độ <span class="text-danger">*</span></label>
+        <select formControlName="education"  id="educationDegree"
+                class="form-control col-10">
+          <option *ngFor="let eduObj of educationList" [ngValue]="eduObj">{{eduObj.name}}</option>
+        </select>
+      </div>
+      <div class="form-group row ">
+        <label for="division" class="col-2">Bộ Phận <span class="text-danger">*</span></label>
+        <select formControlName="division" id="division" class="form-control col-10">
+          <option *ngFor="let division of divisionList" [ngValue]="division">{{division.name}}</option>
+        </select>
+      </div>
       <button type="submit" class="btn btn-primary" [disabled]="!createEmployee.valid">Submit</button>
     </form>
   </div>
