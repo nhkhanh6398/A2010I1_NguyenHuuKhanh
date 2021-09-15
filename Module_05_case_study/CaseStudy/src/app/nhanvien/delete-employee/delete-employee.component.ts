@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {EmployeeService} from "../employee.service";
 import {Employee} from "../Employee";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-delete-employee',
@@ -10,24 +11,25 @@ import {Employee} from "../Employee";
 })
 export class DeleteEmployeeComponent implements OnInit {
   // @ts-ignore
-  employeeInfor:  Employee;
-  id!: string | null;
+  employeeInfor: Employee;
+  id!: string;
 
-  constructor( private activatedRoute: ActivatedRoute, private employeeService: EmployeeService,private router: Router) { }
+
+  constructor(private activatedRoute: ActivatedRoute, private employeeService: EmployeeService, private router: Router,
+              private dialog: MatDialogRef<DeleteEmployeeComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+  }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = paramMap.get('id');
-      console.log(paramMap.get('id'));
-      // @ts-ignore
-      this.employeeService.getEmployeeById(this.id).subscribe((data)=>{
-        this.employeeInfor = data;
-      });
-    });
+    this.id = this.data.id;
   }
-  deleteEmployee(id: string) {
-    this.employeeService.deleteEmployeById(id).subscribe(()=>{
-      this.router.navigate(['listEmployee']);
-      })
+
+  deleteEmployee() {
+    this.employeeService.deleteEmployeById(this.id).subscribe(() => {
+      this.dialog.close()
+    })
+  }
+  close(){
+    this.dialog.close();
   }
 }

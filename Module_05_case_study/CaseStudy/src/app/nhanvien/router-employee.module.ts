@@ -9,6 +9,8 @@ import {EditEmployeeComponent} from "./edit-employee/edit-employee.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 const routes: Routes = [
@@ -21,16 +23,16 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    DeleteEmployeeComponent,
-    DetailEmployeeComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 

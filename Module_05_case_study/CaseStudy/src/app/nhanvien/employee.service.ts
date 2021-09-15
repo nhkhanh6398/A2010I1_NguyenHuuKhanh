@@ -28,4 +28,7 @@ export class EmployeeService {
   deleteEmployeById(id: string):Observable<Employee>{
       return  this.httpClient.delete<Employee>(this.URL_API + '/' + id);
     }
+   search(searchName:string):Observable<Employee> {
+    return this.httpClient.get<Employee>(this.URL_API + '?name_like' + searchName);
+   }
 }
